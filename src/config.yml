@@ -12,7 +12,11 @@
 # |    Currently format codes aren't supported                                |
 # |            Shift Time - How long between the text scrolling               |
 # =============================================================================
-Check for Updates: true
+
+#This updater is currently broken, changing it to true will break the plugin
+Check for Updates: false
+#KEEP IT FALSE!
+
 
 Custom Variables:
   <website>: yoursitehere.net

@@ -1,5 +1,5 @@
-name: KTAR_Info-Board
-main: com.sniperzciinema.infoboard.InfoBoard
+name: InfoBoardReborn
+main: com.ktar5.infoboard.InfoBoard
 version: 1.0.0
 author: Ktar5
 description: Show an info board

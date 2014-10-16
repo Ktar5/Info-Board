@@ -1,0 +1,23 @@
+name: KTAR_Info-Board
+main: com.sniperzciinema.infoboard.InfoBoard
+version: 1.0.0
+author: Ktar5
+description: Show an info board
+softdepend: [AncientRPG, Cranked, Essentials, Factions, Heroes, Infected, Jobs, LWC, Marriage, mcMMO, McTowns, MiniGames, LibsDisguises, Multiverse-Core, PlayerPoints, PlotMe, PointsAPI, PrisonRankup, PVPArena, PvpLevels, SimpleClans, Stats, Towny, WorldGuard, VanishNoPacket, GriefPrevention]
+
+commands:
+    InfoBoard:
+        usage: /<command>
+        description: The main command for this plugin
+        aliases: [ib, iboard, infob]
+        
+permissions:
+    InfoBoard.*:
+        default: op
+        children:
+            InfoBoard.Set: true
+            InfoBoard.Toggle: true
+            InfoBoard.Reload: true
+            InfoBoard.View: true
+    InfoBoard.View:
+        default: true

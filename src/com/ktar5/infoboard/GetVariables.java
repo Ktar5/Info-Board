@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import com.ktar5.infoboard.Util.Messages;
 import com.ktar5.infoboard.Variables.ALTVariables;
 import com.ktar5.infoboard.Variables.AncientRPGVariables;
+import com.ktar5.infoboard.Variables.ClusterDisguiseVariables;
 import com.ktar5.infoboard.Variables.CommandPointsVariables;
 import com.ktar5.infoboard.Variables.CrankedVariables;
 import com.ktar5.infoboard.Variables.EssentialsVariables;
@@ -66,6 +67,11 @@ public class GetVariables {
 		if (Bukkit.getServer().getPluginManager().getPlugin("LibsDisguises") != null)
 			if (newString.contains("<disguised"))
 				newString = LibsDisguiseVariables.replaceVariables(newString, player);
+		
+		//LibsDisguises Support
+				if (Bukkit.getServer().getPluginManager().getPlugin("ClusterDisguises") != null)
+					if (newString.contains("<clustdisguise"))
+						newString = ClusterDisguiseVariables.replaceVariables(newString, player);
 		
 		// Essentials Support
 		if (Bukkit.getServer().getPluginManager().getPlugin("Essentials") != null)

@@ -54,8 +54,11 @@ public class Board {
 	 */
 	public void add(String line, int row) {
 		
-		if (row > 0)
+		if (row < 0){
 			row *= -1;
+		}
+		
+		row = row + 15;
 		
 		if (line.length() > 16)
 			addCreatingTeam(line, row);

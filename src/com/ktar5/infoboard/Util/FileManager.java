@@ -69,11 +69,11 @@ public class FileManager {
 	 */
 	public void reloadBoard() {
 		if (this.boardFile == null)
-			this.boardFile = new File(Bukkit.getPluginManager().getPlugin("InfoBoardReloaded").getDataFolder(),
+			this.boardFile = new File(Bukkit.getPluginManager().getPlugin("InfoBoardReborn").getDataFolder(),
 					"Board.yml");
 		this.board = YamlConfiguration.loadConfiguration(this.boardFile);
 		// Look for defaults in the jar
-		InputStream defConfigStream = Bukkit.getPluginManager().getPlugin("InfoBoardReloaded").getResource("Board.yml");
+		InputStream defConfigStream = Bukkit.getPluginManager().getPlugin("InfoBoardReborn").getResource("Board.yml");
 		if (defConfigStream != null)
 		{
 			YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
@@ -95,10 +95,10 @@ public class FileManager {
 	public void reloadVariables() {
 		if (this.variableFile == null)
 			this.variableFile = new File(
-					Bukkit.getPluginManager().getPlugin("InfoBoardReloaded").getDataFolder(), "Variables.yml");
+					Bukkit.getPluginManager().getPlugin("InfoBoardReborn").getDataFolder(), "Variables.yml");
 		this.variable = YamlConfiguration.loadConfiguration(this.variableFile);
 		// Look for defaults in the jar
-		InputStream defConfigStream = Bukkit.getPluginManager().getPlugin("InfoBoardReloaded").getResource("Variables.yml");
+		InputStream defConfigStream = Bukkit.getPluginManager().getPlugin("InfoBoardReborn").getResource("Variables.yml");
 		if (defConfigStream != null)
 		{
 			YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);

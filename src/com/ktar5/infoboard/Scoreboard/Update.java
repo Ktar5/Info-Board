@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
 
@@ -97,9 +99,11 @@ public class Update {
 							}
 						}
 						// Just a regular line
-						else
-							board.update(Messages.getLine(line, player), row);
-				}
+						else{
+							
+							board.update(Messages.getLine(line, player), -row);
+						}
+					}
 			}
 		return true;
 	}

@@ -3,6 +3,7 @@ package com.ktar5.infoboard.Variables;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Damageable;
 
 import com.ktar5.infoboard.Util.VaraibleUtils.Direction;
 import com.ktar5.infoboard.Util.VaraibleUtils.Ping;
@@ -28,9 +29,9 @@ public class PlayerVariables {
 		if (newString.contains("<hunger>"))
 			newString = newString.replaceAll("<hunger>", String.valueOf(player.getFoodLevel()));
 		if (newString.contains("<health>"))
-			newString = newString.replaceAll("<health>", String.valueOf((double) Math.round(player.getHealth() * 100.0D) / 100));
+			newString = newString.replaceAll("<health>", String.valueOf((double) Math.round(((Damageable) player).getHealth() * 100.0D) / 100));
 		if (newString.contains("<maxhealth>"))
-			newString = newString.replaceAll("<maxhealth>", String.valueOf(player.getMaxHealth()));
+			newString = newString.replaceAll("<maxhealth>", String.valueOf(((Damageable) player).getMaxHealth() ));
 		if (newString.contains("<worldname>"))
 			newString = newString.replaceAll("<worldname>", player.getWorld().getName());
 		if (newString.contains("<worlddifficulty>"))

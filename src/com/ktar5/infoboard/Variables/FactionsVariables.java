@@ -4,9 +4,9 @@ package com.ktar5.infoboard.Variables;
 import org.bukkit.entity.Player;
 
 import com.massivecraft.factions.Rel;
-import com.massivecraft.factions.entity.BoardColls;
+import com.massivecraft.factions.entity.BoardColl;
 import com.massivecraft.factions.entity.Faction;
-import com.massivecraft.factions.entity.UPlayer;
+import com.massivecraft.factions.entity.MPlayer;
 import com.massivecraft.massivecore.ps.PS;
 
 
@@ -15,11 +15,11 @@ public class FactionsVariables {
 	public static String replaceVariables(String string, Player player) {
 		String newString = string;
 		
-		UPlayer uplayer = UPlayer.get(player);
+		MPlayer mplayer = MPlayer.get(player);
 		
 		if (newString.contains("<factionsf") && !newString.contains("<factionsfin"))
 		{
-			Faction faction = uplayer.getFaction();
+			Faction faction = mplayer.getFaction();
 			
 			if (newString.contains("<factionsfname>"))
 				newString = newString.replaceAll("<factionsfname>", faction.getName());
@@ -34,18 +34,18 @@ public class FactionsVariables {
 			if (newString.contains("<factionsfleader>"))
 				newString = newString.replaceAll("<factionsfleader>", String.valueOf(faction.getLeader() != null ? faction.getLeader().getName() : "Unknown"));
 			if (newString.contains("<factionsfofficers>"))
-				newString = newString.replaceAll("<factionsfofficers>", String.valueOf(faction.getUPlayersWhereRole(Rel.OFFICER).size()));
+				newString = newString.replaceAll("<factionsfofficers>", String.valueOf(faction.getMPlayersWhereRole(Rel.OFFICER).size()));
 		}
 		if (newString.contains("<factionspower>"))
-			newString = newString.replaceAll("<factionspower>", String.valueOf(uplayer.getPowerRounded()));
+			newString = newString.replaceAll("<factionspower>", String.valueOf(mplayer.getPowerRounded()));
 		if (newString.contains("<factionsmaxpower>"))
-			newString = newString.replaceAll("<factionsmaxpower>", String.valueOf(uplayer.getPowerMaxRounded()));
+			newString = newString.replaceAll("<factionsmaxpower>", String.valueOf(mplayer.getPowerMaxRounded()));
 		if (newString.contains("<factionsrole>"))
-			newString = newString.replaceAll("<factionsrole>", String.valueOf(uplayer.getRole()));
+			newString = newString.replaceAll("<factionsrole>", String.valueOf(mplayer.getRole()));
 		
 		if (newString.contains("<factionsfin"))
 		{
-			Faction inFaction = BoardColls.get().getFactionAt(PS.valueOf(uplayer.getPlayer().getLocation().getChunk()));
+			Faction inFaction = BoardColl.get().getFactionAt(PS.valueOf(mplayer.getPlayer().getLocation().getChunk()));
 			
 			if (newString.contains("<factionsfinname>"))
 				newString = newString.replaceAll("<factionsfinname>", String.valueOf(inFaction.getName()));
@@ -62,7 +62,7 @@ public class FactionsVariables {
 			if (newString.contains("<factionsfinland>"))
 				newString = newString.replaceAll("<factionsfinland>", String.valueOf(inFaction.getLandCount()));
 			if (newString.contains("<factionsfinofficer>"))
-				newString = newString.replaceAll("<factionsfinofficers>", String.valueOf(inFaction.getUPlayersWhereRole(Rel.OFFICER).size()));
+				newString = newString.replaceAll("<factionsfinofficers>", String.valueOf(inFaction.getMPlayersWhereRole(Rel.OFFICER).size()));
 		}
 		return newString;
 	}

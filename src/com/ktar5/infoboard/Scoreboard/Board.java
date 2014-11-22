@@ -2,6 +2,7 @@
 package com.ktar5.infoboard.Scoreboard;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
@@ -54,11 +55,7 @@ public class Board {
 	 */
 	public void add(String line, int row) {
 		
-		if (row < 0){
-			row *= -1;
-		}
-		
-		row = row + 15;
+		row = 15-row;
 		
 		if (line.length() > 16)
 			addCreatingTeam(line, row);
@@ -196,7 +193,7 @@ public class Board {
 		if (!this.scoreboard.getEntries().contains(name))
 		{
 			for (String op : this.scoreboard.getEntries())
-				if (this.objective.getScore(op).getScore() == row)
+				if (this.objective.getScore(op).getScore() == 15-row)
 				{
 					remove(op);
 					break;

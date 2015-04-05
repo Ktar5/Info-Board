@@ -12,11 +12,11 @@ public class LibsDisguiseVariables {
 
 		if (newString.contains("<disguised>"))
 			newString = newString.replaceAll("<disguised>",
-					String.valueOf(DisguiseAPI.isDisguised((Entity) player)));
+					String.valueOf(DisguiseAPI.isDisguised(player)));
 		if (newString.contains("<disguisedentity>"))
 			newString = newString.replaceAll("<disguisedentity>",
-					(DisguiseAPI.isDisguised((Entity) player)) ? DisguiseAPI
-							.getDisguise((Entity) player).getType()
+					(DisguiseAPI.isDisguised(player)) ? DisguiseAPI
+							.getDisguise(player).getType()
 							.toReadable() : "None");
 
 		return newString;

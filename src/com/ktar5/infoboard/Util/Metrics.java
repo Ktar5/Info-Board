@@ -82,7 +82,7 @@ public class Metrics {
 		 *            the plotter to add to the graph
 		 */
 		public void addPlotter(final Plotter plotter) {
-			this.plotters.add(plotter);
+			plotters.add(plotter);
 		}
 
 		@Override
@@ -91,7 +91,7 @@ public class Metrics {
 				return false;
 
 			final Graph graph = (Graph) object;
-			return graph.name.equals(this.name);
+			return graph.name.equals(name);
 		}
 
 		/**
@@ -100,7 +100,7 @@ public class Metrics {
 		 * @return the Graph's name
 		 */
 		public String getName() {
-			return this.name;
+			return name;
 		}
 
 		/**
@@ -109,12 +109,12 @@ public class Metrics {
 		 * @return an unmodifiable {@link java.util.Set} of the plotter objects
 		 */
 		public Set<Plotter> getPlotters() {
-			return Collections.unmodifiableSet(this.plotters);
+			return Collections.unmodifiableSet(plotters);
 		}
 
 		@Override
 		public int hashCode() {
-			return this.name.hashCode();
+			return name.hashCode();
 		}
 
 		/**
@@ -131,7 +131,7 @@ public class Metrics {
 		 *            the plotter to remove from the graph
 		 */
 		public void removePlotter(final Plotter plotter) {
-			this.plotters.remove(plotter);
+			plotters.remove(plotter);
 		}
 	}
 
@@ -169,7 +169,7 @@ public class Metrics {
 				return false;
 
 			final Plotter plotter = (Plotter) object;
-			return plotter.name.equals(this.name)
+			return plotter.name.equals(name)
 					&& (plotter.getValue() == getValue());
 		}
 
@@ -179,7 +179,7 @@ public class Metrics {
 		 * @return the plotted point's column name
 		 */
 		public String getColumnName() {
-			return this.name;
+			return name;
 		}
 
 		/**
@@ -389,25 +389,25 @@ public class Metrics {
 		this.plugin = plugin;
 
 		// load the config
-		this.configurationFile = getConfigFile();
-		this.configuration = YamlConfiguration
-				.loadConfiguration(this.configurationFile);
+		configurationFile = getConfigFile();
+		configuration = YamlConfiguration
+				.loadConfiguration(configurationFile);
 
 		// add some defaults
-		this.configuration.addDefault("opt-out", false);
-		this.configuration.addDefault("guid", UUID.randomUUID().toString());
-		this.configuration.addDefault("debug", false);
+		configuration.addDefault("opt-out", false);
+		configuration.addDefault("guid", UUID.randomUUID().toString());
+		configuration.addDefault("debug", false);
 
 		// Do we need to create the file?
-		if (this.configuration.get("guid", null) == null) {
-			this.configuration.options().header("http://mcstats.org")
-					.copyDefaults(true);
-			this.configuration.save(this.configurationFile);
+		if (configuration.get("guid", null) == null) {
+			configuration.options().header("http://mcstats.org")
+			.copyDefaults(true);
+			configuration.save(configurationFile);
 		}
 
 		// Load the guid then
-		this.guid = this.configuration.getString("guid");
-		this.debug = this.configuration.getBoolean("debug", false);
+		guid = configuration.getString("guid");
+		debug = configuration.getBoolean("debug", false);
 	}
 
 	/**
@@ -421,7 +421,7 @@ public class Metrics {
 		if (graph == null)
 			throw new IllegalArgumentException("Graph cannot be null");
 
-		this.graphs.add(graph);
+		graphs.add(graph);
 	}
 
 	/**
@@ -442,7 +442,7 @@ public class Metrics {
 		final Graph graph = new Graph(name);
 
 		// Now we can add our graph
-		this.graphs.add(graph);
+		graphs.add(graph);
 
 		// and return back
 		return graph;
@@ -457,18 +457,18 @@ public class Metrics {
 	public void disable() throws IOException {
 		// This has to be synchronized or it can collide with the check in the
 		// task.
-		synchronized (this.optOutLock) {
+		synchronized (optOutLock) {
 			// Check if the server owner has already set opt-out, if not, set
 			// it.
 			if (!isOptOut()) {
-				this.configuration.set("opt-out", true);
-				this.configuration.save(this.configurationFile);
+				configuration.set("opt-out", true);
+				configuration.save(configurationFile);
 			}
 
 			// Disable Task, if it is running
-			if (this.task != null) {
-				this.task.cancel();
-				this.task = null;
+			if (task != null) {
+				task.cancel();
+				task = null;
 			}
 		}
 	}
@@ -482,16 +482,16 @@ public class Metrics {
 	public void enable() throws IOException {
 		// This has to be synchronized or it can collide with the check in the
 		// task.
-		synchronized (this.optOutLock) {
+		synchronized (optOutLock) {
 			// Check if the server owner has already set opt-out, if not, set
 			// it.
 			if (isOptOut()) {
-				this.configuration.set("opt-out", false);
-				this.configuration.save(this.configurationFile);
+				configuration.set("opt-out", false);
+				configuration.save(configurationFile);
 			}
 
 			// Enable Task, if it is not running
-			if (this.task == null)
+			if (task == null)
 				start();
 		}
 	}
@@ -509,7 +509,7 @@ public class Metrics {
 		// plugin.getDataFolder() => base/plugins/PluginA/
 		// pluginsFolder => base/plugins/
 		// The base is not necessarily relative to the startup directory.
-		File pluginsFolder = this.plugin.getDataFolder().getParentFile();
+		File pluginsFolder = plugin.getDataFolder().getParentFile();
 
 		// return => base/plugins/PluginMetrics/config.yml
 		return new File(new File(pluginsFolder, "PluginMetrics"), "config.yml");
@@ -536,22 +536,22 @@ public class Metrics {
 	 * @return true if metrics should be opted out of it
 	 */
 	public boolean isOptOut() {
-		synchronized (this.optOutLock) {
+		synchronized (optOutLock) {
 			try {
 				// Reload the metrics file
-				this.configuration.load(getConfigFile());
+				configuration.load(getConfigFile());
 			} catch (IOException ex) {
-				if (this.debug)
+				if (debug)
 					Bukkit.getLogger().log(Level.INFO,
 							"[Metrics] " + ex.getMessage());
 				return true;
 			} catch (InvalidConfigurationException ex) {
-				if (this.debug)
+				if (debug)
 					Bukkit.getLogger().log(Level.INFO,
 							"[Metrics] " + ex.getMessage());
 				return true;
 			}
-			return this.configuration.getBoolean("opt-out", false);
+			return configuration.getBoolean("opt-out", false);
 		}
 	}
 
@@ -560,7 +560,7 @@ public class Metrics {
 	 */
 	private void postPlugin(final boolean isPing) throws IOException {
 		// Server software specific section
-		PluginDescriptionFile description = this.plugin.getDescription();
+		PluginDescriptionFile description = plugin.getDescription();
 		String pluginName = description.getName();
 		boolean onlineMode = Bukkit.getServer().getOnlineMode(); // TRUE if
 		// online
@@ -579,7 +579,7 @@ public class Metrics {
 
 		// The plugin's description file containg all of the plugin data such as
 		// name, version, author, etc
-		appendJSONPair(json, "guid", this.guid);
+		appendJSONPair(json, "guid", guid);
 		appendJSONPair(json, "plugin_version", pluginVersion);
 		appendJSONPair(json, "server_version", serverVersion);
 		appendJSONPair(json, "players_online", Integer.toString(playersOnline));
@@ -606,8 +606,8 @@ public class Metrics {
 		if (isPing)
 			appendJSONPair(json, "ping", "1");
 
-		if (this.graphs.size() > 0)
-			synchronized (this.graphs) {
+		if (graphs.size() > 0)
+			synchronized (graphs) {
 				json.append(',');
 				json.append('"');
 				json.append("graphs");
@@ -617,7 +617,7 @@ public class Metrics {
 
 				boolean firstGraph = true;
 
-				final Iterator<Graph> iter = this.graphs.iterator();
+				final Iterator<Graph> iter = graphs.iterator();
 
 				while (iter.hasNext()) {
 					Graph graph = iter.next();
@@ -676,7 +676,7 @@ public class Metrics {
 
 		connection.setDoOutput(true);
 
-		if (this.debug)
+		if (debug)
 			System.out.println("[Metrics] Prepared request for " + pluginName
 					+ " uncompressed=" + uncompressed.length + " compressed="
 					+ compressed.length);
@@ -701,23 +701,23 @@ public class Metrics {
 				response = "null";
 			else if (response.startsWith("7"))
 				response = response
-						.substring(response.startsWith("7,") ? 2 : 1);
+				.substring(response.startsWith("7,") ? 2 : 1);
 
 			throw new IOException(response);
 		} else
-		// Is this the first update this hour?
-		if (response.equals("1")
-				|| response.contains("This is your first update this hour"))
-			synchronized (this.graphs) {
-				final Iterator<Graph> iter = this.graphs.iterator();
+			// Is this the first update this hour?
+			if (response.equals("1")
+					|| response.contains("This is your first update this hour"))
+				synchronized (graphs) {
+					final Iterator<Graph> iter = graphs.iterator();
 
-				while (iter.hasNext()) {
-					final Graph graph = iter.next();
+					while (iter.hasNext()) {
+						final Graph graph = iter.next();
 
-					for (Plotter plotter : graph.getPlotters())
-						plotter.reset();
+						for (Plotter plotter : graph.getPlotters())
+							plotter.reset();
+					}
 				}
-			}
 	}
 
 	/**
@@ -729,18 +729,18 @@ public class Metrics {
 	 * @return True if statistics measuring is running, otherwise false.
 	 */
 	public boolean start() {
-		synchronized (this.optOutLock) {
+		synchronized (optOutLock) {
 			// Did we opt out?
 			if (isOptOut())
 				return false;
 
 			// Is metrics already running?
-			if (this.task != null)
+			if (task != null)
 				return true;
 
 			// Begin hitting the server with glorious data
-			this.task = this.plugin.getServer().getScheduler()
-					.runTaskTimerAsynchronously(this.plugin, new Runnable() {
+			task = plugin.getServer().getScheduler()
+					.runTaskTimerAsynchronously(plugin, new Runnable() {
 
 						private boolean firstPost = true;
 
@@ -750,17 +750,17 @@ public class Metrics {
 								// This has to be synchronized or it can collide
 								// with
 								// the disable method.
-								synchronized (Metrics.this.optOutLock) {
+								synchronized (optOutLock) {
 									// Disable Task, if it is running and the
 									// server
 									// owner decided to opt-out
 									if (isOptOut()
-											&& (Metrics.this.task != null)) {
-										Metrics.this.task.cancel();
-										Metrics.this.task = null;
+											&& (task != null)) {
+										task.cancel();
+										task = null;
 										// Tell all plotters to stop gathering
 										// information.
-										for (Graph graph : Metrics.this.graphs)
+										for (Graph graph : graphs)
 											graph.onOptOut();
 									}
 								}
@@ -773,14 +773,14 @@ public class Metrics {
 								// Each time thereafter it will evaluate to
 								// TRUE, i.e
 								// PING!
-								postPlugin(!this.firstPost);
+								postPlugin(!firstPost);
 
 								// After the first post we set firstPost to
 								// false
 								// Each post thereafter will be a ping
-								this.firstPost = false;
+								firstPost = false;
 							} catch (IOException e) {
-								if (Metrics.this.debug)
+								if (debug)
 									Bukkit.getLogger().log(Level.INFO,
 											"[Metrics] " + e.getMessage());
 							}

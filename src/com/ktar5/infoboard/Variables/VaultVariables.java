@@ -20,23 +20,23 @@ public class VaultVariables {
 
 			if (newString.contains("<vaultcurrencysingle>"))
 				newString = newString
-						.replaceAll("<vaultcurrencysingle>", String
-								.valueOf(InfoBoard.economy
-										.currencyNameSingular()));
+				.replaceAll("<vaultcurrencysingle>", String
+						.valueOf(InfoBoard.economy
+								.currencyNameSingular()));
 		}
 
 		if (InfoBoard.permission != null) {
 			if (newString.contains("<rank>"))
 				newString = newString
-						.replaceAll(
-								"<rank>",
-								InfoBoard.permission.getPlayerGroups(
-										player.getWorld(), player.getName())[0] != null ? String
+				.replaceAll(
+						"<rank>",
+						InfoBoard.permission.getPlayerGroups(
+								player.getWorld().getName(), player.getPlayer())[0] != null ? String
 										.valueOf(InfoBoard.permission
 												.getPlayerGroups(
-														player.getWorld(),
-														player.getName())[0])
-										: "None");
+														player.getWorld().getName(),
+														player.getPlayer())[0])
+														: "None");
 
 			if (newString.contains("<ranklist")) {
 				String r = newString.split("<ranklist")[1].split(">")[0];

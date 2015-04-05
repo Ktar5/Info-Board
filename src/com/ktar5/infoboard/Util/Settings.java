@@ -35,7 +35,7 @@ public class Settings {
 				.getBoard()
 				.getConfigurationSection(
 						"Info Board." + String.valueOf(rotation) + "." + world)
-				.getKeys(true))
+						.getKeys(true))
 			if (!s.contains("."))
 				if (s.equals(rank)) {
 					hasBoard = true;

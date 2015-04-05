@@ -40,7 +40,7 @@ public class Timers {
 				.getInt("Info Board." + String.valueOf(rotation)
 						+ ".Show Time");
 
-		Bukkit.getScheduler().cancelTasks(InfoBoard.me);
+		Bukkit.getScheduler().cancelTasks(InfoBoard.instance);
 		start();
 	}
 
@@ -67,7 +67,7 @@ public class Timers {
 		// ============================================ PAGE ROTATION
 		// =====================================================
 		Bukkit.getServer().getScheduler()
-		.scheduleSyncRepeatingTask(InfoBoard.me, new Runnable() {
+		.scheduleSyncRepeatingTask(InfoBoard.instance, new Runnable() {
 
 			@Override
 			public void run() {
@@ -93,7 +93,7 @@ public class Timers {
 		Bukkit.getServer()
 		.getScheduler()
 		.scheduleSyncRepeatingTask(
-				InfoBoard.me,
+				InfoBoard.instance,
 				new Runnable() {
 
 					@Override
@@ -116,7 +116,7 @@ public class Timers {
 			Bukkit.getServer()
 			.getScheduler()
 			.scheduleSyncRepeatingTask(
-					InfoBoard.me,
+					InfoBoard.instance,
 					new Runnable() {
 
 						@Override
@@ -140,6 +140,6 @@ public class Timers {
 				.getInt("Info Board." + String.valueOf(rotation)
 						+ ".Show Time");
 
-		Bukkit.getScheduler().cancelTasks(InfoBoard.me);
+		Bukkit.getScheduler().cancelTasks(InfoBoard.instance);
 	}
 }

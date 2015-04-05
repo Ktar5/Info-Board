@@ -17,7 +17,7 @@ public class CommandPointsVariables {
 		if (newString.contains("<commandpoints>"))
 			try {
 				newString = newString.replaceAll("<commandpoints>", String
-						.valueOf(cp.getPoints(player.getName(), InfoBoard.me)));
+						.valueOf(cp.getPoints(player.getName(), InfoBoard.instance)));
 			} catch (Exception e) {
 				newString = newString.replaceAll("<commandpoints>", "0");
 			}

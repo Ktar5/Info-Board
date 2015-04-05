@@ -35,15 +35,15 @@ public class FileManager {
 	 * @return
 	 */
 	public FileConfiguration getBoard() {
-		if (this.board == null) {
+		if (board == null) {
 			reloadBoard();
 			saveBoard();
 		}
-		return this.board;
+		return board;
 	}
 
 	public FileConfiguration getConfig() {
-		return InfoBoard.me.getConfig();
+		return InfoBoard.instance.getConfig();
 	}
 
 	/**
@@ -52,29 +52,29 @@ public class FileManager {
 	 * @return
 	 */
 	public FileConfiguration getVariables() {
-		if (this.variable == null) {
+		if (variable == null) {
 			reloadVariables();
 			saveVariables();
 		}
-		return this.variable;
+		return variable;
 	}
 
 	/**
 	 * Reload Boards file
 	 */
 	public void reloadBoard() {
-		if (this.boardFile == null)
-			this.boardFile = new File(Bukkit.getPluginManager()
+		if (boardFile == null)
+			boardFile = new File(Bukkit.getPluginManager()
 					.getPlugin("InfoBoardReborn").getDataFolder(), "Board.yml");
-		this.board = YamlConfiguration.loadConfiguration(this.boardFile);
+		board = YamlConfiguration.loadConfiguration(boardFile);
 		// Look for defaults in the jar
 		InputStream defConfigStream = Bukkit.getPluginManager()
 				.getPlugin("InfoBoardReborn").getResource("Board.yml");
 		if (defConfigStream != null) {
 			YamlConfiguration defConfig = YamlConfiguration
 					.loadConfiguration(defConfigStream);
-			if (!this.boardFile.exists() || (this.boardFile.length() == 0))
-				this.board.setDefaults(defConfig);
+			if (!boardFile.exists() || (boardFile.length() == 0))
+				board.setDefaults(defConfig);
 		}
 	}
 
@@ -82,25 +82,25 @@ public class FileManager {
 	 * Get the config
 	 */
 	public void reloadConfig() {
-		InfoBoard.me.reloadConfig();
+		InfoBoard.instance.reloadConfig();
 	}
 
 	/**
 	 * Reload variables file
 	 */
 	public void reloadVariables() {
-		if (this.variableFile == null)
-			this.variableFile = new File(Bukkit.getPluginManager()
+		if (variableFile == null)
+			variableFile = new File(Bukkit.getPluginManager()
 					.getPlugin("InfoBoardReborn").getDataFolder(),
 					"Variables.yml");
-		this.variable = YamlConfiguration.loadConfiguration(this.variableFile);
+		variable = YamlConfiguration.loadConfiguration(variableFile);
 		// Look for defaults in the jar
 		InputStream defConfigStream = Bukkit.getPluginManager()
 				.getPlugin("InfoBoardReborn").getResource("Variables.yml");
 		if (defConfigStream != null) {
 			YamlConfiguration defConfig = YamlConfiguration
 					.loadConfiguration(defConfigStream);
-			this.variable.setDefaults(defConfig);
+			variable.setDefaults(defConfig);
 		}
 	}
 
@@ -108,13 +108,13 @@ public class FileManager {
 	 * Save Board file
 	 */
 	public void saveBoard() {
-		if ((this.board == null) || (this.boardFile == null))
+		if ((board == null) || (boardFile == null))
 			return;
 		try {
-			getBoard().save(this.boardFile);
+			getBoard().save(boardFile);
 		} catch (IOException ex) {
 			Bukkit.getLogger().log(Level.SEVERE,
-					"Could not save config " + this.boardFile, ex);
+					"Could not save config " + boardFile, ex);
 		}
 	}
 
@@ -122,20 +122,20 @@ public class FileManager {
 	 * Save Config
 	 */
 	public void saveConfig() {
-		InfoBoard.me.saveConfig();
+		InfoBoard.instance.saveConfig();
 	}
 
 	/**
 	 * Save Variables file
 	 */
 	public void saveVariables() {
-		if ((this.variable == null) || (this.variableFile == null))
+		if ((variable == null) || (variableFile == null))
 			return;
 		try {
-			getVariables().save(this.variableFile);
+			getVariables().save(variableFile);
 		} catch (IOException ex) {
 			Bukkit.getLogger().log(Level.SEVERE,
-					"Could not save config " + this.variableFile, ex);
+					"Could not save config " + variableFile, ex);
 		}
 	}
 

@@ -68,7 +68,7 @@ public class Messages {
 						"Info Board."
 								+ String.valueOf(InfoBoard.getTimers()
 										.getPage()) + "." + worldName + "."
-								+ rankName + ".Title");
+										+ rankName + ".Title");
 
 		if (title.startsWith("<scroll>") && Settings.scrollingEnabled()) {
 			title = title.replaceAll("<scroll>", "");

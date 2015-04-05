@@ -21,8 +21,8 @@ public class Vault {
 		String rank = "default";
 		if (hasVaultOnServer())
 			try {
-				rank = InfoBoard.permission.getPlayerGroups(player.getWorld(),
-						player.getName())[0];
+				rank = InfoBoard.permission.getPlayerGroups(player.getWorld().getName(),
+						player.getPlayer())[0];
 			} catch (UnsupportedOperationException UOE) {
 			}
 		return rank;
@@ -42,8 +42,12 @@ public class Vault {
 	 * Load economy and permissions
 	 */
 	public static void load() {
-		setupEconomy();
-		setupPermissions();
+		if(!setupEconomy() || !setupPermissions()){
+			System.out.println("InfoBoard will be shut down because VAULT either does not have economy or permissions setup");
+			System.out.println("InfoBoard will be shut down because VAULT either does not have economy or permissions setup");
+			System.out.println("InfoBoard will be shut down because VAULT either does not have economy or permissions setup");
+			Bukkit.getPluginManager().disablePlugin(InfoBoard.instance);
+		}
 	}
 
 	/**

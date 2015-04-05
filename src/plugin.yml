@@ -1,6 +1,6 @@
 name: InfoBoardReborn
 main: com.ktar5.infoboard.InfoBoard
-version: 1.0.0
+version: 1.7.0
 author: Ktar5
 description: Show an info board
 softdepend: [AncientRPG, ClusterDisguises, Cranked, Essentials, Factions, Heroes, Infected, Jobs, LWC, Marriage, mcMMO, McTowns, MiniGames, LibsDisguises, Multiverse-Core, PlayerPoints, PlotMe, PointsAPI, PrisonRankup, PVPArena, PvpLevels, SimpleClans, Stats, Towny, WorldGuard, VanishNoPacket, GriefPrevention]

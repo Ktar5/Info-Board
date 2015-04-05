@@ -12,7 +12,7 @@ public class PlayerListener implements Listener {
 	public InfoBoard plugin;
 
 	public PlayerListener(InfoBoard instance) {
-		this.plugin = instance;
+		plugin = instance;
 	}
 
 	@EventHandler
@@ -22,10 +22,10 @@ public class PlayerListener implements Listener {
 
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event) {
-		if (event.getPlayer().isOp() && this.plugin.update)
+		if (event.getPlayer().isOp() && plugin.update)
 			event.getPlayer().sendMessage(
 					ChatColor.DARK_AQUA + "Theres a new update for InfoBoard("
-							+ ChatColor.YELLOW + this.plugin.name
+							+ ChatColor.YELLOW + plugin.name
 							+ ChatColor.DARK_AQUA + ").");
 	}
 }

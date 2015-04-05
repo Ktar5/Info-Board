@@ -22,7 +22,7 @@ import com.ktar5.infoboard.Util.VaraibleUtils.Lag;
 
 public class InfoBoard extends JavaPlugin {
 
-	public static Plugin me;
+	public static Plugin instance;
 	public boolean update = false;
 	public String name = "InfoBoard";
 
@@ -97,12 +97,12 @@ public class InfoBoard extends JavaPlugin {
 						.getName().equalsIgnoreCase("InfoBoard"))
 					player.getScoreboard().clearSlot(DisplaySlot.SIDEBAR);
 		
-		me = null;
+		instance = null;
 	}
 
 	@Override
 	public void onEnable() {
-		InfoBoard.me = this;
+		InfoBoard.instance = this;
 		InfoBoard.fileManager = new FileManager();
 
 		InfoBoard.timers = new Timers();

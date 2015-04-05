@@ -1,4 +1,3 @@
-
 package com.ktar5.infoboard;
 
 import java.io.IOException;
@@ -21,106 +20,106 @@ import com.ktar5.infoboard.Util.Metrics;
 import com.ktar5.infoboard.Util.Updater;
 import com.ktar5.infoboard.Util.VaraibleUtils.Lag;
 
-
 public class InfoBoard extends JavaPlugin {
-	
-	public static Plugin						me;
-	public boolean									update		= false;
-	public String										name			= "InfoBoard";
-	
-	public String										ib				= "" + ChatColor.RED + ChatColor.BOLD + "➳" + ChatColor.GRAY;
-	
-	public static Economy						economy;
-	public static Permission				permission;
-	public static boolean						economyB;
-	public static boolean						permissionB;
-	private static Timers						timers;
-	private static FileManager			fileManager;
-	
-	public static ArrayList<String>	hidefrom	= new ArrayList<String>();
-	
+
+	public static Plugin me;
+	public boolean update = false;
+	public String name = "InfoBoard";
+
+	public String ib = "" + ChatColor.RED + ChatColor.BOLD + "➳"
+			+ ChatColor.GRAY;
+
+	public static Economy economy;
+	public static Permission permission;
+	public static boolean economyB;
+	public static boolean permissionB;
+	private static Timers timers;
+	private static FileManager fileManager;
+
+	public static ArrayList<String> hidefrom = new ArrayList<String>();
+
 	/**
 	 * @return the fileManager
 	 */
 	public static FileManager getFileManager() {
 		return InfoBoard.fileManager;
 	}
-	
+
 	/**
 	 * @return the timer
 	 */
 	public static Timers getTimers() {
 		return InfoBoard.timers;
 	}
-	
+
 	/**
 	 * Check for updates
 	 */
 	private void checkUpdates() {
-		if (getFileManager().getConfig().getBoolean("Check for Updates"))
-		{
-			try
-			{
-				Updater updater = new Updater(this, 65787, getFile(), Updater.UpdateType.NO_DOWNLOAD, false);
-				
+		if (getFileManager().getConfig().getBoolean("Check for Updates")) {
+			try {
+				Updater updater = new Updater(this, 65787, getFile(),
+						Updater.UpdateType.NO_DOWNLOAD, false);
+
 				this.update = updater.getResult() == Updater.UpdateResult.UPDATE_AVAILABLE;
 				this.name = updater.getLatestName();
-				
-			}
-			catch (Exception ex)
-			{
-				System.out.println("The auto-updater tried to contact dev.bukkit.org, but was unsuccessful.");
+
+			} catch (Exception ex) {
+				System.out
+						.println("The auto-updater tried to contact dev.bukkit.org, but was unsuccessful.");
 			}
 			if (this.update)
-				System.out.println("Theres a new update for InfoBoard(" + this.name + ").");
+				System.out.println("Theres a new update for InfoBoard("
+						+ this.name + ").");
 		}
-		
+
 	}
-	
+
 	/**
 	 * Load Metrics
 	 */
 	private void loadMetrics() {
-		try
-		{
+		try {
 			Metrics metrics = new Metrics(this);
 			metrics.start();
 			System.out.println("Metrics was started!");
-		}
-		catch (IOException e)
-		{
+		} catch (IOException e) {
 			System.out.println("Metrics was unable to start...");
 		}
 	}
-	
+
 	@Override
 	public void onDisable() {
 		Bukkit.getScheduler().cancelTasks(this);
 		for (Player player : Bukkit.getOnlinePlayers())
 			if (player.getScoreboard().getObjective(DisplaySlot.SIDEBAR) != null)
-				if (player.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getName().equalsIgnoreCase("InfoBoard"))
+				if (player.getScoreboard().getObjective(DisplaySlot.SIDEBAR)
+						.getName().equalsIgnoreCase("InfoBoard"))
 					player.getScoreboard().clearSlot(DisplaySlot.SIDEBAR);
+		
+		me = null;
 	}
-	
+
 	@Override
 	public void onEnable() {
 		InfoBoard.me = this;
 		InfoBoard.fileManager = new FileManager();
-		
+
 		InfoBoard.timers = new Timers();
 		getTimers().start();
-		
+
 		Vault.load();
 		loadMetrics();
 		checkUpdates();
-		
+
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(new PlayerListener(this), this);
 		getCommand("InfoBoard").setExecutor(new Commands(this));
-		
+
 		// Start TPS
-		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Lag(), 100L, 1L);
-		
+		Bukkit.getServer().getScheduler()
+				.scheduleSyncRepeatingTask(this, new Lag(), 100L, 1L);
+
 	}
-	
+
 }

@@ -1,4 +1,3 @@
-
 package com.ktar5.infoboard.Scroll;
 
 import java.util.ArrayList;
@@ -8,12 +7,11 @@ import org.bukkit.entity.Player;
 
 import com.ktar5.infoboard.Scoreboard.Board;
 
-
 public class ScrollManager {
-	
-	private static HashMap<Player, ArrayList<Scroll>>	scrollers	= new HashMap<Player, ArrayList<Scroll>>();
-	private static HashMap<Player, Scroll>						title			= new HashMap<Player, Scroll>();
-	
+
+	private static HashMap<Player, ArrayList<Scroll>> scrollers = new HashMap<Player, ArrayList<Scroll>>();
+	private static HashMap<Player, Scroll> title = new HashMap<Player, Scroll>();
+
 	/**
 	 * Create a scroller
 	 * 
@@ -23,7 +21,8 @@ public class ScrollManager {
 	 * @param width
 	 * @return
 	 */
-	public static Scroll createScroller(Player p, String message, int row, int width) {
+	public static Scroll createScroller(Player p, String message, int row,
+			int width) {
 		Scroll sc = new Scroll(message, row, width);
 		ArrayList<Scroll> scs;
 		if (ScrollManager.scrollers.containsKey(p))
@@ -34,7 +33,7 @@ public class ScrollManager {
 		ScrollManager.scrollers.put(p, scs);
 		return sc;
 	}
-	
+
 	/**
 	 * Create a title scroller
 	 * 
@@ -43,13 +42,13 @@ public class ScrollManager {
 	 * @return
 	 */
 	public static Scroll createTitleScroller(Player p, String message) {
-		
+
 		Scroll sc = new Scroll(message, 0, 16);
 		ScrollManager.title.put(p, sc);
-		
+
 		return sc;
 	}
-	
+
 	/**
 	 * Get the players scrollers
 	 * 
@@ -59,7 +58,7 @@ public class ScrollManager {
 	public static ArrayList<Scroll> getScrollers(Player p) {
 		return ScrollManager.scrollers.get(p);
 	}
-	
+
 	/**
 	 * Get the players title scroller
 	 * 
@@ -69,7 +68,7 @@ public class ScrollManager {
 	public static Scroll getTitleScroller(Player p) {
 		return ScrollManager.title.get(p);
 	}
-	
+
 	/**
 	 * Reset all the players scrollers
 	 * 
@@ -77,13 +76,12 @@ public class ScrollManager {
 	 */
 	public static void reset(Player p) {
 		if (getScrollers(p) != null)
-			for (Scroll sc : getScrollers(p))
-			{
+			for (Scroll sc : getScrollers(p)) {
 				String lastString = sc.getMessage();
 				new Board(p).remove(lastString);
 			}
 		ScrollManager.scrollers.remove(p);
 		ScrollManager.title.remove(p);
 	}
-	
+
 }

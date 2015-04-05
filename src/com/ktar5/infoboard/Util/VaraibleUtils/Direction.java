@@ -1,11 +1,9 @@
-
 package com.ktar5.infoboard.Util.VaraibleUtils;
 
 import org.bukkit.entity.Player;
 
-
 public class Direction {
-	
+
 	/**
 	 * Get the Directions of the player
 	 * <p>

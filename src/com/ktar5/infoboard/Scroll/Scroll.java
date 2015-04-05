@@ -1,24 +1,22 @@
-
 package com.ktar5.infoboard.Scroll;
 
 import org.bukkit.ChatColor;
 
 import com.ktar5.infoboard.Util.Messages;
 
-
 public class Scroll {
-	
-	private String		message;
-	private String		origionalMessage;
-	
-	private ChatColor	color			= ChatColor.RESET;
-	private char			COLORCHAR	= '&';
-	
-	private int				width;
-	private int				position	= 0;
-	private int				pause			= 0;
-	private int				row;
-	
+
+	private String message;
+	private String origionalMessage;
+
+	private ChatColor color = ChatColor.RESET;
+	private char COLORCHAR = '&';
+
+	private int width;
+	private int position = 0;
+	private int pause = 0;
+	private int row;
+
 	/**
 	 * Create a new scroller
 	 * 
@@ -26,72 +24,70 @@ public class Scroll {
 	 * @param row
 	 * @param width
 	 */
-	public Scroll(String message, int row, int width)
-	{
+	public Scroll(String message, int row, int width) {
 		this.row = row;
 		this.width = width;
 		this.origionalMessage = message;
 		StringBuilder builder = new StringBuilder(message);
 		while (builder.length() <= (width * 2))
 			builder.append("          " + message);
-		
+
 		String string = builder.toString();
-		
+
 		string = Messages.getColored(string);
-		
+
 		this.message = string;
 	}
-	
+
 	/**
 	 * Get the scrolled message
 	 * 
 	 * @return message
 	 */
 	public String getMessage() {
-		
-		String message = this.message.substring(this.position, Math.min(this.message.length(), (this.width - 2) + this.position));
-		if (message.charAt(0) == this.COLORCHAR){
+
+		String message = this.message.substring(
+				this.position,
+				Math.min(this.message.length(), (this.width - 2)
+						+ this.position));
+		if (message.charAt(0) == this.COLORCHAR) {
 			this.color = ChatColor.getByChar(message.charAt(1));
-		}
-		else
-		{
+		} else {
 			message = message.substring(1, message.length());
 			message = "" + this.color + message;
 		}
-		
-		if (message.charAt(message.length() - 1) == this.COLORCHAR)
-		{
+
+		if (message.charAt(message.length() - 1) == this.COLORCHAR) {
 			message = message.substring(0, message.length() - 2);
 			message = message + " ";
 		}
 		return message;
-		
+
 	}
-	
+
 	/**
 	 * @return the row
 	 */
 	public int getRow() {
 		return this.row;
 	}
-	
+
 	/**
 	 * Move position up one unless it's being paused for 3 counts first
 	 */
 	public void next() {
-		
+
 		if ((this.position == 0) && (this.pause != 3))
 			this.pause++;
-		else
-		{
+		else {
 			this.position++;
 			this.pause = 0;
-			
+
 			if (this.position == (this.origionalMessage.length() + 10))
 				this.position = 0;
-			
+
 		}
-		
+
 	}
-	
+
 }

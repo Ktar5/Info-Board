@@ -1,4 +1,3 @@
-
 package com.ktar5.infoboard.Util;
 
 import org.bukkit.ChatColor;
@@ -8,9 +7,8 @@ import com.ktar5.infoboard.GetVariables;
 import com.ktar5.infoboard.InfoBoard;
 import com.ktar5.infoboard.Scroll.ScrollManager;
 
-
 public class Messages {
-	
+
 	/**
 	 * Get the message in color
 	 * 
@@ -23,7 +21,7 @@ public class Messages {
 		line = line.replaceAll("&y", RandomChatColor.getFormat().toString());
 		return line;
 	}
-	
+
 	/**
 	 * Get the new line by doing everything
 	 * 
@@ -32,15 +30,15 @@ public class Messages {
 	 * @return new line
 	 */
 	public static String getLine(String line, Player player) {
-		
+
 		if (line.contains("<") && line.contains(">"))
 			line = getReplacements(line, player);
-		
+
 		line = getColored(line);
-		
+
 		return line;
 	}
-	
+
 	/**
 	 * Get the <strong>Replaced</strong> version of the line
 	 * 
@@ -51,7 +49,7 @@ public class Messages {
 	public static String getReplacements(String line, Player player) {
 		return GetVariables.replaceVariables(line, player);
 	}
-	
+
 	/**
 	 * Get the title from the config and set it
 	 * 
@@ -60,21 +58,29 @@ public class Messages {
 	 * @param rankName
 	 * @return
 	 */
-	public static String getTitle(Player player, String worldName, String rankName) {
-		
-		String title = InfoBoard.getFileManager().getBoard().getString("Info Board." + String.valueOf(InfoBoard.getTimers().getPage()) + "." + worldName + "." + rankName + ".Title");
-		
-		if (title.startsWith("<scroll>") && Settings.scrollingEnabled())
-		{
+	public static String getTitle(Player player, String worldName,
+			String rankName) {
+
+		String title = InfoBoard
+				.getFileManager()
+				.getBoard()
+				.getString(
+						"Info Board."
+								+ String.valueOf(InfoBoard.getTimers()
+										.getPage()) + "." + worldName + "."
+								+ rankName + ".Title");
+
+		if (title.startsWith("<scroll>") && Settings.scrollingEnabled()) {
 			title = title.replaceAll("<scroll>", "");
 			// and create a Title scroller
-			title = ScrollManager.createTitleScroller(player, getLine(title, player)).getMessage();
-			
-		}
-		else
-			title = getLine(title.substring(0, Math.min(title.length(), 32)), player);
-		
+			title = ScrollManager.createTitleScroller(player,
+					getLine(title, player)).getMessage();
+
+		} else
+			title = getLine(title.substring(0, Math.min(title.length(), 32)),
+					player);
+
 		return title;
-		
+
 	}
 }

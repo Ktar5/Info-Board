@@ -1,17 +1,15 @@
-
 package com.ktar5.infoboard.Util;
 
 import java.util.Random;
 
 import org.bukkit.ChatColor;
 
-
 /**
  * @author SniperzCiinema
  */
 
 public class RandomChatColor {
-	
+
 	public static ChatColor getColor(ChatColor... chatColors) {
 		Random r = new Random();
 		ChatColor[] colors;
@@ -25,7 +23,7 @@ public class RandomChatColor {
 		ChatColor rc = colors[i];
 		return rc;
 	}
-	
+
 	public static ChatColor getFormat(ChatColor... chatColors) {
 		Random r = new Random();
 		ChatColor[] colors;

@@ -1,8 +1,8 @@
 package com.ktar5.infoboard.Variables;
 
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.entity.Damageable;
+import org.bukkit.entity.Player;
 
 import com.ktar5.infoboard.Util.VaraibleUtils.Direction;
 import com.ktar5.infoboard.Util.VaraibleUtils.Ping;

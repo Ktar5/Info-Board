@@ -1,9 +1,9 @@
 package com.ktar5.infoboard.Variables;
 
+import me.libraryaddict.disguise.DisguiseAPI;
+
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-
-import me.libraryaddict.disguise.DisguiseAPI;
 
 public class LibsDisguiseVariables {
 

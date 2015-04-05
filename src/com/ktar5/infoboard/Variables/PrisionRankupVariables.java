@@ -14,8 +14,8 @@ public class PrisionRankupVariables {
 		if (newString.contains("<" + prefix + "rank>"))
 			newString = newString.replaceAll(
 					"<" + prefix + "rank>",
-					PrisonRankup.getRank(name) != null ? PrisonRankup.getRank(
-							name).getName() : "None");
+					PrisonRankup.getRank(
+                                                name).getName());
 		if (newString.contains("<" + prefix + "nextrank>"))
 			newString = newString
 					.replaceAll("<" + prefix + "nextrank>", PrisonRankup

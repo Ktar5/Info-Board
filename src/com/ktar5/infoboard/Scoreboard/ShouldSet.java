@@ -24,23 +24,17 @@ public class ShouldSet {
 		if (this.line.contains("~!<")) {
 			String l = (this.line.split("~!<")[1]).split(">")[0];
 			String l1 = Messages.getLine("<" + l + ">", this.player);
-			if (l1.equalsIgnoreCase("Unknown") || l1.equalsIgnoreCase("false")
+			return !(l1.equalsIgnoreCase("Unknown") || l1.equalsIgnoreCase("false")
 					|| l1.equalsIgnoreCase("None") || l1.equalsIgnoreCase("")
-					|| l1.equalsIgnoreCase("0") || l1.equalsIgnoreCase("-1"))
-				return false;
-			else
-				return true;
+					|| l1.equalsIgnoreCase("0") || l1.equalsIgnoreCase("-1"));
 		}
 		// If the variable is 0
 		else if (this.line.contains("~@<")) {
 			String l = (this.line.split("~@<")[1]).split(">")[0];
 			String l1 = Messages.getLine("<" + l + ">", this.player);
-			if (l1.equalsIgnoreCase("Unknown") || l1.equalsIgnoreCase("false")
+			return l1.equalsIgnoreCase("Unknown") || l1.equalsIgnoreCase("false")
 					|| l1.equalsIgnoreCase("None") || l1.equalsIgnoreCase("")
-					|| l1.equalsIgnoreCase("0") || l1.equalsIgnoreCase("-1"))
-				return true;
-			else
-				return false;
+					|| l1.equalsIgnoreCase("0") || l1.equalsIgnoreCase("-1");
 		} else
 			return true;
 

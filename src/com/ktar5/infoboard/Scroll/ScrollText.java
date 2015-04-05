@@ -26,7 +26,7 @@ public class ScrollText {
 						Board board = new Board(player);
 
 						board.update(newLine, sc.getRow());
-					} catch (Exception e) {
+					} catch (Exception ignored) {
 					}
 
 			if (ScrollManager.getTitleScroller(player) != null)
@@ -40,7 +40,7 @@ public class ScrollText {
 					Board board = new Board(player);
 
 					board.setTitle(newLine);
-				} catch (Exception e) {
+				} catch (Exception ignored) {
 				}
 
 		} else

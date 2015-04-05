@@ -10,7 +10,6 @@ public class Scroll {
 	private String origionalMessage;
 
 	private ChatColor color = ChatColor.RESET;
-	private char COLORCHAR = '&';
 
 	private int width;
 	private int position = 0;
@@ -30,7 +29,7 @@ public class Scroll {
 		this.origionalMessage = message;
 		StringBuilder builder = new StringBuilder(message);
 		while (builder.length() <= (width * 2))
-			builder.append("          " + message);
+			builder.append("          ").append(message);
 
 		String string = builder.toString();
 
@@ -50,14 +49,15 @@ public class Scroll {
 				this.position,
 				Math.min(this.message.length(), (this.width - 2)
 						+ this.position));
-		if (message.charAt(0) == this.COLORCHAR) {
+		char COLORCHAR = '&';
+		if (message.charAt(0) == COLORCHAR) {
 			this.color = ChatColor.getByChar(message.charAt(1));
 		} else {
 			message = message.substring(1, message.length());
 			message = "" + this.color + message;
 		}
 
-		if (message.charAt(message.length() - 1) == this.COLORCHAR) {
+		if (message.charAt(message.length() - 1) == COLORCHAR) {
 			message = message.substring(0, message.length() - 2);
 			message = message + " ";
 		}

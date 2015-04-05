@@ -38,7 +38,7 @@ public class InfectedVariables {
 			if (newString.contains("<infectedplayers>"))
 				newString = newString.replaceAll("<infectedplayers>",
 						String.valueOf(Lobby.getPlayersInGame().size()));
-		} catch (Exception e) {
+		} catch (Exception ignored) {
 		}
 		return newString;
 	}

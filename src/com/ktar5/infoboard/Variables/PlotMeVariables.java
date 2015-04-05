@@ -1,13 +1,12 @@
 package com.ktar5.infoboard.Variables;
 
+import com.worldcretornica.plotme.Plot;
+import com.worldcretornica.plotme.PlotManager;
+import org.bukkit.entity.Player;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
-
-import org.bukkit.entity.Player;
-
-import com.worldcretornica.plotme.Plot;
-import com.worldcretornica.plotme.PlotManager;
 
 public class PlotMeVariables {
 
@@ -59,7 +58,7 @@ public class PlotMeVariables {
 
 		if (newString.contains("<plotmeinbidder>"))
 			if ((PlotManager.getPlotById(player.getLocation()) != null)
-					&& (PlotManager.getPlotById(player.getLocation()).currentbidder != ""))
+					&& (!PlotManager.getPlotById(player.getLocation()).currentbidder.equals("")))
 				newString = newString.replaceAll("<plotmeinbidder>",
 						String.valueOf(PlotManager.getPlotById(player
 								.getLocation()).currentbidder));
@@ -110,7 +109,7 @@ public class PlotMeVariables {
 					.split(">")[0]) - 1;
 
 			if ((plots.size() >= (i + 1))
-					&& (String.valueOf(plots.get(i).currentbidder) != ""))
+					&& (!String.valueOf(plots.get(i).currentbidder).equals("")))
 				newString = newString.replaceAll("<plotmebidder" + (i + 1)
 						+ ">", String.valueOf(plots.get(i).currentbidder));
 			else

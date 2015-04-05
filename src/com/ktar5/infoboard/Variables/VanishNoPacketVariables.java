@@ -27,7 +27,7 @@ public class VanishNoPacketVariables {
 				try {
 					if (!VanishNoPacket.isVanished(p.getName()))
 						online.add(p.getName());
-				} catch (VanishNotLoadedException e) {
+				} catch (VanishNotLoadedException ignored) {
 				}
 			newString = newString.replaceAll("<vanishonline>",
 					String.valueOf(online.size()));

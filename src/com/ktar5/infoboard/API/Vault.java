@@ -23,7 +23,7 @@ public class Vault {
 			try {
 				rank = InfoBoard.permission.getPlayerGroups(player.getWorld().getName(),
 						player.getPlayer())[0];
-			} catch (UnsupportedOperationException UOE) {
+			} catch (UnsupportedOperationException ignored) {
 			}
 		return rank;
 	}

@@ -1,17 +1,15 @@
 package com.ktar5.infoboard.Variables;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map.Entry;
-
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-
 import com.sk89q.worldguard.LocalPlayer;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.protection.flags.DefaultFlag;
 import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
+import java.util.Map.Entry;
 
 public class WorldGuardVariables {
 
@@ -28,10 +26,9 @@ public class WorldGuardVariables {
 		for (Entry<String, ProtectedRegion> r : regions.getRegions().entrySet())
 			if (r.getValue().isOwner(lplayer))
 				playersRegions.add(r.getKey());
-		Iterator<ProtectedRegion> iter = regions.getApplicableRegions(
-				player.getLocation()).iterator();
-		while (iter.hasNext())
-			inRegions.add(iter.next());
+		for (ProtectedRegion protectedRegion : regions.getApplicableRegions(
+				player.getLocation()))
+			inRegions.add(protectedRegion);
 
 		// //////////////////////////////////////////////////
 

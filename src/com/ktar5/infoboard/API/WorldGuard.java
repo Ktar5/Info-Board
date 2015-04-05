@@ -1,15 +1,13 @@
 package com.ktar5.infoboard.API;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-
 import com.ktar5.infoboard.Util.Settings;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+
+import java.util.ArrayList;
 
 public class WorldGuard {
 
@@ -41,10 +39,7 @@ public class WorldGuard {
 
 		RegionManager regions = wg.getRegionManager(loc.getWorld());
 
-		Iterator<ProtectedRegion> iter = regions.getApplicableRegions(loc)
-				.iterator();
-		while (iter.hasNext())
-			inRegions.add(iter.next());
+		for (ProtectedRegion protectedRegion : regions.getApplicableRegions(loc)) inRegions.add(protectedRegion);
 
 		return inRegions;
 	}

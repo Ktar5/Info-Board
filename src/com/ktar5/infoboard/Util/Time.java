@@ -16,8 +16,7 @@ public class Time {
 		minutes %= 60;
 		long days = hours / 24;
 		hours %= 24;
-		String times = days + "D, " + hours + "H, " + minutes + "M " + seconds
+		return days + "D, " + hours + "H, " + minutes + "M " + seconds
 				+ "S";
-		return times;
 	}
 }

@@ -97,8 +97,7 @@ public class Board {
 			if (prefix != null)
 				team.setPrefix(prefix);
 
-			if (suffix != null)
-				team.setSuffix(suffix);
+			team.setSuffix(suffix);
 		}
 		Score score = this.objective.getScore(name);
 		score.setScore(1);

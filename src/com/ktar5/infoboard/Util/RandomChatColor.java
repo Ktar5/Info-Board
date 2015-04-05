@@ -1,8 +1,8 @@
 package com.ktar5.infoboard.Util;
 
-import java.util.Random;
-
 import org.bukkit.ChatColor;
+
+import java.util.Random;
 
 /**
  * @author SniperzCiinema
@@ -20,8 +20,7 @@ public class RandomChatColor {
 		int i = r.nextInt(colors.length);
 		while (!colors[i].isColor())
 			i = r.nextInt(colors.length);
-		ChatColor rc = colors[i];
-		return rc;
+		return colors[i];
 	}
 
 	public static ChatColor getFormat(ChatColor... chatColors) {
@@ -34,7 +33,6 @@ public class RandomChatColor {
 		int i = r.nextInt(colors.length);
 		while (!colors[i].isFormat())
 			i = r.nextInt(colors.length);
-		ChatColor rc = colors[i];
-		return rc;
+		return colors[i];
 	}
 }

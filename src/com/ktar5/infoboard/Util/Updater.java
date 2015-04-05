@@ -1,24 +1,18 @@
 package com.ktar5.infoboard.Util;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.Plugin;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-
-import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.plugin.Plugin;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
 
 /**
  * Check dev.bukkit.org to find updates for a given plugin, and download the
@@ -221,7 +215,6 @@ public class Updater {
 	// downloading
 	// files
 
-	private YamlConfiguration config; // Config
 	// file
 
 	private String updateFolder; // The
@@ -285,7 +278,7 @@ public class Updater {
 								+ updaterFile.getAbsolutePath());
 				e.printStackTrace();
 			}
-		config = YamlConfiguration.loadConfiguration(updaterConfigFile);
+		YamlConfiguration config = YamlConfiguration.loadConfiguration(updaterConfigFile);
 
 		config
 		.options()
@@ -518,7 +511,7 @@ public class Updater {
 					in.close();
 				if (fout != null)
 					fout.close();
-			} catch (final Exception ex) {
+			} catch (final Exception ignored) {
 			}
 		}
 	}

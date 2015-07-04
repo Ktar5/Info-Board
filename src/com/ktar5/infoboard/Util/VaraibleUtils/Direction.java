@@ -27,7 +27,7 @@ public class Direction {
 	 * @return
 	 */
 	public static String getCardinalDirection(Player player) {
-		int degrees = (Math.round(player.getLocation().getYaw()) + 270) % 360;
+		int degrees = (Math.round(player.getLocation().getYaw()) + 180) % 360;
 		if (degrees <= 22)
 			return "North";
 		if (degrees <= 67)

@@ -21,7 +21,10 @@ sourceSets.main.scala.srcDir "src/main/java"
 
 repositories {
     mavenCentral()
-    maven{
+    maven {
+        url = 'http://repo.mcstats.org/content/repositories/public'
+    }
+    maven {
         url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
     }
     mavenLocal()
@@ -30,11 +33,16 @@ repositories {
 shadowJar {
     baseName = project.name
     classifier = ''
+    dependencies {
+        include(dependency('org.mcstats.bukkit:metrics:.*'))
+    }
 }
 
 dependencies {
     compile group: 'org.scala-lang', name: 'scala-library', version: '2.11.7'
     compile group: 'org.scala-lang', name: 'scala-reflect', version: '2.11.7'
+
+    compile group: 'org.mcstats.bukkit', name: 'metrics', version: 'R8-SNAPSHOT'
 
     compile group: 'org.projectlombok', name: 'lombok', version: '1.16.6'
 

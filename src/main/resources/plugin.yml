@@ -1,0 +1,23 @@
+name: InfoBoardReborn
+main: com.ktar5.infoboard.InfoBoard
+version: 1.7.0
+author: Ktar5
+description: Show an info board
+depend: [PlaceholderAPI, Vault, WorldGuard]
+
+commands:
+  InfoBoard:
+    usage: /<command>
+    description: The main command for this plugin
+    aliases: [ib, iboard, infob]
+        
+permissions:
+  InfoBoard.*:
+    default: op
+    children:
+      InfoBoard.Set: true
+      InfoBoard.Toggle: true
+      InfoBoard.Reload: true
+      InfoBoard.View: true
+  InfoBoard.View:
+    default: true

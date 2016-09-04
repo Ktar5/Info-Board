@@ -1,0 +1,19 @@
+# To view all the HUNDREDS of placeholders, please visit the link below
+# https://www.spigotmc.org/wiki/placeholderapi-placeholders/
+#
+#
+# (Would highly reccomend downloading MVDW PlaceholderAPI as it actually does make this plugin much more useful)
+# You can even add MORE HUNDREDS of placeholders by downloading MVDW PlaceholderAPI below
+# https://www.spigotmc.org/resources/mvdwplaceholderapi.11182/
+#
+# You can the placeholders for MVDW PlaceholderAPI below
+# https://www.spigotmc.org/wiki/mvdw-placeholders/
+#
+# To use these extra variables in this plugin, a variable should follow this format:
+# %mvdw_<placeholder without brackets>%
+# For example, for players online (in MVDW this is {onlineplayers}),
+# in InfoBoard, we use: %mvdw_onlineplayers% (A.K.A. the variable, without the curly braces)
+#
+#
+#         Thank you for choosing InfoBoard
+#                           - Ktar5

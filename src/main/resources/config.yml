@@ -1,0 +1,32 @@
+# Info Board Config, Last Edited in v1.0.0
+# =============================================================================
+# |        Check for Updates  - Checks for updates on enable                  |
+# |---------------------------------------------------------------------------|
+# |       Custom Variables allow for you to create your own variables         |
+# |                  <Variable>: What it gets replaced to                     |
+# |---------------------------------------------------------------------------|
+# |     Disabled Worlds    - A List of worlds that won't have scoreboards     |
+# | WorldGuard.Prevent Showing In - A List of regions the board won't show in |
+# |---------------------------------------------------------------------------|
+# | Scrolling Text is a cool feature where text will scroll across the board  |
+# |    Currently format codes aren't supported                                |
+# |            Shift Time - How long between the text scrolling               |
+# =============================================================================
+Custom Variables:
+  <website>: yoursitehere.net
+  <plugindev>: Ktar5
+
+Disabled Worlds:
+- DisabledWorld1
+- DisabledWorld2
+
+WorldGuard:
+  Prevent Showing In:
+  - regionNamesAreCapSensitive
+  - regionName2
+  
+Scrolling Text:
+  Enable: false
+  Shift Time: 0.25
+  
+Update Time: 2

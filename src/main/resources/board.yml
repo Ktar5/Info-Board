@@ -1,0 +1,95 @@
+# Info Board Board, Last Edited in v2.0.0 by Ktar5
+# ===============================================================================================
+# |                               Max Rows for a board is 15                                    |
+# |                            Max characters for a title is 32                                 |
+# |                             Max characters for a line is 48                                 |
+# |---------------------------------------------------------------------------------------------|
+# |               When using scroll there is no limit for characters per line                   |
+# |=============================================================================================|
+# |=============================================================================================|
+# |                                        Example                                              |
+# |---------------------------------------------------------------------------------------------|
+# |Info Board:                                                                                  |
+# |  '1':                                                                                       |
+# |    Show Time: 10                                           # How Long this page is shown for|
+# |    global:                                        # What world sees this page (global = All)|
+# |      default:                        # What Permissions group sees this page (default = All)|
+# |        Title: '&4&lKtarLalaLand'                                                            |
+# |         Rows:                                                                               |
+# |         - ' '                                                                               |
+# |         - 'This board is seen by everyone'                                                  |
+# |         - 'That isn''t in Admin'                                                            |
+# |      Admin:                                                                                 |
+# |        Title: '&4&lAdmin Page'                                                              |
+# |        Rows:                                                                                |
+# |        - ' '                                                                                |
+# |        - 'This board is only'                                                               |
+# |        - 'seen by Admins'                                                                   |
+# |  '2':                                                                                       |
+# |    Show Time: 5                                                                             |
+# |    world:                                                                                   |
+# |      default:                                                                               |
+# |        Title: '&a&lStats'                                                                   |
+# |         Rows:                                                                               |
+# |         - 'Online Players: ; %server_online%'      # Splitting a line can be done by using ;|
+# |         - 'Money: ; %vault_eco_balance%'                                                    |
+# |    world_the_nether:                                                                        |
+# |      default:                                                                               |
+# |        Title: '&a&lNether'                                                                  |
+# |         Rows:                                                                               |
+# |         - 'Your Level:'                                                                     |_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+# |         - '~!%player_level%' # Will only display if %player_level% isn't "0" or "Unknown" or one of many other empty values |
+# ===============================================================================================================================
+Info Board:
+  '1':
+    Show Time: 20
+    global:
+      default:
+        Title: '&lLookie here!'
+        Rows:
+        - '&6----~Info-Board~----'
+        - ' '
+        - '&e&lWelcome!'
+        - '&l%player_name%'
+        - ' '
+        - '&a&lHealth:'
+        - '&e%player_health%&a/&c%player_max_health%'
+        - ' '
+        - '&5&lCoded by:'
+        - '<plugindev>'
+        - ' '
+        - '&e&lWebsite:'
+        - '<website>'
+        - '&6----~Info-Board~----'
+  '2':
+    Show Time: 10
+    global:
+      default:
+        Title: '&e&lPlayer Stats'
+        Rows:
+        - '&6----~Info-Board~----'
+        - ' '
+        - '&e&lDate Joined:'
+        - '&l%player_first_join_date%'
+        - ' '
+        - '&a&lWorld:'
+        - '&e%player_world%'
+        - ' '
+        - '&5&lLocation:'
+        - '&a%player_x%&7, &a%player_y%&7, &a%player_z%'
+        - ' '
+        - '&e&lWebsite:'
+        - '<website>'
+        - '&6----~Info-Board~----'
+      Admin:
+        Title: '&e&lServer Stats'
+        Rows:
+        - '&6----~Info-Board~----'
+        - ' '
+        - '&a&lMemory:'
+        - '&e%server_ram_used%&7/&e%server_ram_max%'
+        - ' '
+        - '&d&lUptime'
+        - '&f%server_uptime%'
+        - ' '
+        - '&6----~Info-Board~----'

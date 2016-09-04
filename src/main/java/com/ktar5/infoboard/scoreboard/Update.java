@@ -110,7 +110,7 @@ public class Update {
                             // Just a regular line
                             else {
 
-                                board.update(Messages.getLine(line, player), row);
+                                board.update(Messages.getLine(line, player), -row);
                             }
                     }
                 }

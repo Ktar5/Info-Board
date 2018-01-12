@@ -1,0 +1,38 @@
+#General 
+#
+no-permission: ''
+not-player: ''
+update: ''
+wrong-usage: ''
+
+#Hide Command
+already-hidden: ''
+hiding: ''
+
+#Show Command
+already-shown: ''
+showing: ''
+
+#Set Command
+#
+#/ibr set 5 -> 'invalid-page 5' or 'set-page 5'
+invalid-page: ''
+set-page: ''
+
+#Reload Command
+board-reload: ''
+config-reload: ''
+messages-reload: ''
+all-reload: ''
+
+#Create Command
+page-exists: ''
+create-success: ''
+
+#Add Command
+#
+page-doesnot-exist: ''
+add-success: ''
+title-exists: ''
+max-lines: ''
+

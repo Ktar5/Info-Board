@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/infoboard.iml" filepath="$PROJECT_DIR$/.idea/modules/infoboard.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/infoboard_main.iml" filepath="$PROJECT_DIR$/.idea/modules/infoboard_main.iml" group="infoboard" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infoboard_test.iml" filepath="$PROJECT_DIR$/.idea/modules/infoboard_test.iml" group="infoboard" />
     </modules>
   </component>
 </project>

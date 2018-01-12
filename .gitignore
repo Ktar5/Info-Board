@@ -1,7 +1,8 @@
 !libs/*
-!src/main/resources/*
 !locales/*
 *.yml
+!src/main/resources/*
+
 
 # Created by https://www.gitignore.io/api/java,gradle,eclipse,intellij
 
@@ -120,11 +121,13 @@ fabric.properties
 
 ### Intellij Patch ###
 # Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
+.iws
+workspace.xml
+tasks.xml
 
-*.iml
-modules.xml
-.idea/misc.xml
-*.ipr
+#modules.xml
+#.idea/misc.xml
+#*.ipr
 
 # Sonarlint plugin
 .idea/sonarlint

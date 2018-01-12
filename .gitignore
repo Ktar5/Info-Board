@@ -1,6 +1,6 @@
-!libs/
-!resources/
-
+!libs/*
+!src/main/resources/*
+*.yml
 
 # Created by https://www.gitignore.io/api/java,gradle,eclipse,intellij
 

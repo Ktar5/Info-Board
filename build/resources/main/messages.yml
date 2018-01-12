@@ -1,0 +1,38 @@
+#General messages
+#wrong-usage adds the correct usage of the command after it!
+no-permission: 'You do not have permission for this command!'
+not-player: 'You have to be a player to perform this command!'
+update: 'There is a new update for InfoBoardReborn!'
+wrong-usage: 'You did not use the command properly!'
+
+#Hide command
+already-hidden: 'The scoreboard is already hidden!'
+hiding: 'Hiding the scoreboard'
+
+#Show command
+already-shown: 'The scoreboard is already shown!'
+showing: 'Showing the scoreboard'
+
+#Set command
+#these lines send the line and the number you put in the command
+#example: /ibr set 5 -> 'Page not found: 5' or 'Page set to: 5'
+invalid-page: 'Page not found: '
+set-page: 'Page set to: '
+
+#Reload command
+board-reload: 'board.yml has been reloaded'
+config-reload: 'config.yml has been reloaded'
+messages-reload: 'messages.yml has been reloaded'
+all-reload: 'All configs have been reloaded'
+
+#Create command
+page-exists: 'This page already exists!'
+create-success: 'The page was successfully created'
+
+#Add command
+#add-success adds the the page number after the messages and the line on the second line
+page-doesnot-exist: 'This Page does not exist'
+add-success: 'Added a new line to page: '
+title-exists: 'A title has already been set for the page'
+max-lines: 'You can only have 15 lines per scoreboard!'
+

@@ -1,7 +1,7 @@
 name: InfoBoardReborn
-main: com.infogroup.infoboard.InfoBoardReborn
-version: 2.0
-author: "Ktar5 & Pixar007"
+main: com.pixar02.infoboard.InfoBoardReborn
+version: 1.6.2
+author: pixar02
 website : bit.ly/InfoBoardReloaded
 description: Show a scoreboard
 depend: [PlaceholderAPI, Vault, WorldGuard]

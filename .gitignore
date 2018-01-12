@@ -1,9 +1,3 @@
-!libs/*
-!locales/*
-*.yml
-!src/main/resources/*
-
-
 # Created by https://www.gitignore.io/api/java,gradle,eclipse,intellij
 
 ### Eclipse ###
@@ -174,3 +168,7 @@ gradle-app.setting
 
 
 # End of https://www.gitignore.io/api/java,gradle,eclipse,intellij
+!libs/*
+!locales/*
+*.yml
+!src/main/resources/*

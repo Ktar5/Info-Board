@@ -12,6 +12,9 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
+   flatDir {
+       dirs 'libs'
+   }
     maven { url "http://repo.maven.apache.org/maven2" }
 }
 dependencies {

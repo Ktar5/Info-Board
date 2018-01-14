@@ -12,8 +12,6 @@ public class GetVariables {
 		// setting all placeholders that are hooked in placeholder API
 		newString = PlaceholderAPI.setPlaceholders(player, string);
 
-		// Bukkit.broadcastMessage(newString);
-
 		// Custom Variables
 		for (String custom : plugin.getFm().getFile("config").getConfigurationSection("Custom Variables")
 				.getKeys(true)) {

@@ -11,18 +11,21 @@ public class Timers {
 	private int time;
 	private int rotation;
 
-	public InfoBoardReborn plugin;
+	private InfoBoardReborn plugin;
 
 	public Timers(InfoBoardReborn pl) {
 		plugin = pl;
+		time = 0;
+		rotation = 1;
+		showtime = plugin.getFm().getFile("board").getInt("InfoBoard." + rotation + ".ShowTime");
 	}
 
-	public Timers() {
+	/*public Timers() {
 		time = 0;
 		rotation = 1;
 		showtime = plugin.getFm().getFile("board").getInt("InfoBoard." + rotation + ".ShowTime");
 
-	}
+	}*/
 
 	/**
 	 * @return

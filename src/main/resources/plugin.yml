@@ -1,8 +1,8 @@
 name: InfoBoardReborn
 main: com.infogroup.infoboard.InfoBoardReborn
-version: 2.0
-author: "Ktar5 & Pixar007"
-website : bit.ly/InfoBoardReloaded
+version: 2.0.0
+author: "Ktar5 & pixar02"
+website : "bit.ly/InfoBoardReborn_spigot & bit.ly/InfoBoardReborn_bukkit" 
 description: Show a scoreboard
 depend: [PlaceholderAPI, Vault, WorldGuard]
 softdepend: [ProtocolLib]

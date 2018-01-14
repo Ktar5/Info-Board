@@ -1,4 +1,4 @@
-# InfoBoardReborn Config, Last Edited in v1.0.0
+# InfoBoardReborn Config, Last Edited in v2.0.0
 # =============================================================================
 # |        Updater  - Checks for updates on enable                            |
 # |---------------------------------------------------------------------------|
@@ -52,5 +52,6 @@ Changeable Text:
       interval: 1 
         
 Update Time:
-  Lines: .5
+  Lines: 0.5
+  Title: 0.5
   

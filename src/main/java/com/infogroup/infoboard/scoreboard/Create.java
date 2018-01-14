@@ -78,6 +78,7 @@ public class Create {
 				if (set.getBoolean()) {
 					// If the line is empty just assume it's an empty line
 					if (line.equals(" ") || line.equals("")) {
+						// TODO fix strange symbol: � error with strange lines in text
 						String space = "�" + spaces;
 						spaces++;
 						board.add(plugin.getMessages().getColored(space), row);

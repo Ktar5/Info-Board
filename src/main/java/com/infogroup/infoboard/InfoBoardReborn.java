@@ -118,7 +118,6 @@ public class InfoBoardReborn extends JavaPlugin {
 		this.WG = new WorldGuard();
 
 		fm.setup();
-		settings.loadChangeable();
 		timers.start();
 		V.load();
 	}

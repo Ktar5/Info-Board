@@ -76,6 +76,7 @@ public class Messages {
 
 		} else if (title.startsWith("<changeable_") && plugin.getSettings().changeableTextEnabled()) {
 			title.replaceAll("<changeable_", "").replaceAll(">", "");
+			// create changeaable title
 			title = plugin.getCM().createChangeableTitle(player, title).getMessage();
 
 		} else {

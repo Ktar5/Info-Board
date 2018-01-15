@@ -3,4 +3,4 @@
 
 The Spigot/Bukkit plugin for managing scoreboards
 * [Spigot download page](https://bit.ly/InfoBoardReborn_spigot)
-* [Bukkit download page](https://bit.ly/InfoBoardReborn_spigot)
+* [Bukkit download page](https://bit.ly/InfoBoardReborn_bukkit)

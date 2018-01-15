@@ -31,7 +31,10 @@ public class Commands implements CommandExecutor {
 				// SHOW
 				else if (args[0].equalsIgnoreCase("Show")) {
 					showCmd(sender);
-				}
+				}// TOGGLE
+				else if(args[0].equalsIgnoreCase("Toggle")){
+                    toggleCmd(sender);
+                }
 				// SET <PAGE>
 				else if (args[0].equalsIgnoreCase("Set")) {
 					setCmd(sender, args);
@@ -79,6 +82,8 @@ public class Commands implements CommandExecutor {
 				sender.sendMessage(ChatColor.YELLOW + "- Hide the board");
 				sender.sendMessage("/IBR Show");
 				sender.sendMessage(ChatColor.YELLOW + "- Show the board");
+                sender.sendMessage("/IBR Toggle");
+                sender.sendMessage(ChatColor.YELLOW + "- Toggle(show/hide) the board");
 				sender.sendMessage("/IBR Reload [FILE]");
 				sender.sendMessage(ChatColor.YELLOW + "- Reloads the given file");
 				sender.sendMessage("/IBR Set <Pg>");
@@ -148,13 +153,13 @@ public class Commands implements CommandExecutor {
 						// Title doesn't exist
 						plugin.getFm().getFile("board")
 								.set("InfoBoard." + rotation + "." + world + "." + rank + ".Title", line);
-						sender.sendMessage(plugin.getFm().getFile("messages").getString("add-success") + rotation);
+						sender.sendMessage(ChatColor.translateAlternateColorCodes('&',plugin.getFm().getFile("messages").getString("add-success") + rotation));
 						sender.sendMessage("Title: " + line);
 						plugin.getFm().saveFile("board");
 					} else {
 						// Title exists
 						sender.sendMessage(
-								ChatColor.RED + plugin.getFm().getFile("messages").getString("title-exists"));
+                                ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("title-exists")));
 					}
 				} else if (what.equalsIgnoreCase("Line")) {
 					// check if the maximum of lines are exceeded
@@ -166,19 +171,19 @@ public class Commands implements CommandExecutor {
 						plugin.getFm().getFile("board")
 								.set("InfoBoard." + rotation + "." + world + "." + rank + ".Rows", lines);
 						plugin.getFm().getFile("board");
-						sender.sendMessage(plugin.getFm().getFile("messages").getString("add-success") + rotation);
+						sender.sendMessage(ChatColor.translateAlternateColorCodes('&',plugin.getFm().getFile("messages").getString("add-success") + rotation));
 						sender.sendMessage("Line: " + line);
 						plugin.getFm().saveFile("board");
 
 					} else {
-						sender.sendMessage(ChatColor.RED + plugin.getFm().getFile("messages").getString("max-lines"));
+						sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("max-lines")));
 					}
 				} else {
-					sender.sendMessage(ChatColor.YELLOW + plugin.getFm().getFile("messages").getString("wrong-usage"));
+					sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("wrong-usage")));
 					sender.sendMessage("/ibr add <line/title> <page> [world] [rank] <line>");
 				}
 			} else {
-				sender.sendMessage(ChatColor.YELLOW + plugin.getFm().getFile("messages").getString("wrong-usage"));
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("wrong-usage")));
 				sender.sendMessage("/ibr add <line/title> <page> <world> <rank> <line>");
 			}
 		}
@@ -195,7 +200,7 @@ public class Commands implements CommandExecutor {
 	 */
 	public void createCmd(CommandSender sender, String[] args) {
 		if (!(sender.hasPermission("ibr.Create"))) {
-			sender.sendMessage(ChatColor.RED + plugin.getFm().getFile("messages").getString("no-permission"));
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("no-permission")));
 
 		} else {
 			if (args.length == 3) {
@@ -203,15 +208,15 @@ public class Commands implements CommandExecutor {
 				int ShowTime = Integer.valueOf(args[2]);
 				// check if the new created page doesn't already exist
 				if (plugin.getFm().getFile("board").getString("InfoBoard." + rotation) != null) {
-					sender.sendMessage(ChatColor.RED + plugin.getFm().getFile("messages").getString("page-exists"));
+					sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("page-exists")));
 				} else {
 					// create the new page with the given showtime
 					plugin.getFm().getFile("board").set("InfoBoard." + rotation + ".ShowTime", ShowTime);
 					plugin.getFm().saveFile("board");
-					sender.sendMessage(plugin.getFm().getFile("messages").getString("create-success"));
+					sender.sendMessage(ChatColor.translateAlternateColorCodes('&',plugin.getFm().getFile("messages").getString("create-success")));
 				}
 			} else {
-				sender.sendMessage(ChatColor.YELLOW + plugin.getFm().getFile("messages").getString("wrong-usage"));
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("wrong-usage")));
 				sender.sendMessage("/ibr create <Page> <ShowTime>");
 			}
 		}
@@ -228,21 +233,21 @@ public class Commands implements CommandExecutor {
 	 */
 	public void setCmd(CommandSender sender, String[] args) {
 		if (!sender.hasPermission("ibr.Set")) {
-			sender.sendMessage(ChatColor.RED + plugin.getFm().getFile("messages").getString("no-permission"));
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("no-permission")));
 		} else if (args.length == 2) {
 			String rotate = args[1];
 
 			if (plugin.getFm().getFile("board").getInt("InfoBoard." + rotate + ".ShowTime") != 0) {
 
 				plugin.getTimers().setPage(Integer.valueOf(rotate));
-				sender.sendMessage(plugin.getFm().getFile("messages").getString("set-page") + args[1]);
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&',plugin.getFm().getFile("messages").getString("set-page") + args[1]));
 				for (Player p : Bukkit.getOnlinePlayers()) {
 					if (p.hasPermission("ibr.View")) {
 						Create.createScoreBoard(p);
 					}
 				}
 			} else {
-				sender.sendMessage(plugin.getFm().getFile("messages").getString("invalid-page") + args[1]);
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&',plugin.getFm().getFile("messages").getString("invalid-page") + args[1]));
 			}
 		} else {
 			sender.sendMessage(ChatColor.YELLOW + plugin.getFm().getFile("messages").getString("wrong-usage"));
@@ -261,15 +266,15 @@ public class Commands implements CommandExecutor {
 	 */
 	public void showCmd(CommandSender sender) {
 		if (!sender.hasPermission("ibr.Toggle")) {
-			sender.sendMessage(ChatColor.RED + plugin.getFm().getFile("messages").getString("no-permission"));
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&',plugin.getFm().getFile("messages").getString("no-permission")));
 		} else if (!(sender instanceof Player)) {
-			sender.sendMessage(plugin.getFm().getFile("messages").getString("not-player"));
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&',plugin.getFm().getFile("messages").getString("not-player")));
 		} else if (!plugin.hidefrom.contains(sender.getName())) {
-			sender.sendMessage(plugin.getFm().getFile("messages").getString("already-shown"));
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&',plugin.getFm().getFile("messages").getString("already-shown")));
 
 		} else {
 			plugin.hidefrom.remove(sender.getName());
-			sender.sendMessage(plugin.getFm().getFile("messages").getString("showing"));
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&',plugin.getFm().getFile("messages").getString("showing")));
 		}
 	}
 
@@ -283,18 +288,38 @@ public class Commands implements CommandExecutor {
 	 */
 	public void hideCmd(CommandSender sender) {
 		if (!sender.hasPermission("ibr.Toggle")) {
-			sender.sendMessage(ChatColor.RED + plugin.getFm().getFile("messages").getString("no-permission"));
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&',plugin.getFm().getFile("messages").getString("no-permission")));
 		} else if (!(sender instanceof Player)) {
-			sender.sendMessage(plugin.getFm().getFile("messages").getString("not-player"));
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&',plugin.getFm().getFile("messages").getString("not-player")));
 		} else if (plugin.hidefrom.contains(sender.getName())) {
-			sender.sendMessage(plugin.getFm().getFile("messages").getString("already-hidden"));
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&',plugin.getFm().getFile("messages").getString("already-hidden")));
 
 		} else {
 			plugin.hidefrom.add(sender.getName());
-			sender.sendMessage(plugin.getFm().getFile("messages").getString("hiding"));
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&',plugin.getFm().getFile("messages").getString("hiding")));
 			((Player) sender).getScoreboard().clearSlot(DisplaySlot.SIDEBAR);
 		}
 	}
+    /*
+     * =============================================================================
+     * TOGGLE
+     * =============================================================================
+     */
+	public void toggleCmd(CommandSender sender){
+	    if(!sender.hasPermission("ibr.Toggle")){
+	        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("no-permission")));
+        } else if(!(sender instanceof Player)){
+	        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("not-player")));
+        }else if(plugin.hidefrom.contains(sender.getName())){
+	        plugin.hidefrom.remove(sender.getName());
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("showing")));
+        }else{
+	        plugin.hidefrom.add(sender.getName());
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("hiding")));
+            ((Player) sender).getScoreboard().clearSlot(DisplaySlot.SIDEBAR);
+        }
+
+    }
 
 	/*
 	 * =============================================================================
@@ -307,7 +332,7 @@ public class Commands implements CommandExecutor {
 	 */
 	public void reloadCmd(CommandSender sender, String file) {
 		if (!sender.hasPermission("ibr.Reload")) {
-			sender.sendMessage(ChatColor.RED + plugin.getFm().getFile("messages").getString("no-permission"));
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("no-permission")));
 		} else {
 			/*
 			 * =============================================================================
@@ -330,7 +355,7 @@ public class Commands implements CommandExecutor {
 						Create.createScoreBoard(player);
 					}
 				}
-				sender.sendMessage(ChatColor.GREEN + plugin.getFm().getFile("messages").getString("board-reload"));
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("board-reload")));
 
 				/*
 				 * =============================================================================
@@ -355,7 +380,7 @@ public class Commands implements CommandExecutor {
 						Create.createScoreBoard(player);
 					}
 				}
-				sender.sendMessage(ChatColor.GREEN + plugin.getFm().getFile("messages").getString("config-reload"));
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("config-reload")));
 			}
 			/*
 			 * =============================================================================
@@ -373,7 +398,7 @@ public class Commands implements CommandExecutor {
 						Create.createScoreBoard(player);
 					}
 				}
-				sender.sendMessage(ChatColor.GREEN + plugin.getFm().getFile("messages").getString("messages-reload"));
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("messages-reload")));
 
 			}
 
@@ -402,12 +427,12 @@ public class Commands implements CommandExecutor {
 						Create.createScoreBoard(player);
 					}
 				}
-				sender.sendMessage(ChatColor.GREEN + plugin.getFm().getFile("messages").getString("all-reload"));
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("all-reload")));
 			} else if (Objects.equals(file, "error")) {
-				sender.sendMessage(ChatColor.RED + plugin.getFm().getFile("messages").getString("wrong-usage"));
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("wrong-usage")));
 				sender.sendMessage("/ibr reload [File]");
 			} else {
-				sender.sendMessage(ChatColor.RED + plugin.getFm().getFile("messages").getString("wrong-usage"));
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("wrong-usage")));
 				sender.sendMessage("/ibr reload [File]");
 			}
 		}

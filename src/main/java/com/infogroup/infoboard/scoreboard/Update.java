@@ -33,8 +33,7 @@ public class Update {
 	public static void getTitle(List<String> list) {
 		ArrayList<String> titles = new ArrayList<>();
 		for (String title : list) {
-			if (!title.equals(" ") && title.equals(" ") && !title.contains("<scroll>")
-					&& !title.contains("<changeable_")) {
+			if (!title.equals(" ") && title.equals(" ") && !title.contains("<scroll>") && !title.contains("<changeable_")) {
 				titles.add(title);
 			}
 		}
@@ -136,6 +135,7 @@ public class Update {
 	 * @return true/false (boolean)
 	 */
 	public static boolean updateTitle(Player player, String s) {
+		//TODO Finish
 		return true;
 	}
 }

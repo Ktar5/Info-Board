@@ -91,9 +91,9 @@ public class Commands implements CommandExecutor {
 				sender.sendMessage(
 						"" + ChatColor.GOLD + ChatColor.STRIKETHROUGH + "--------------------------------------------");
 				sender.sendMessage("" + ChatColor.DARK_AQUA + ChatColor.BOLD + "Authors: " + ChatColor.WHITE
-						+ ChatColor.BOLD + "pixar02 and Ktar5");
-				sender.sendMessage("" + ChatColor.DARK_AQUA + ChatColor.BOLD + "Spigot: " + ChatColor.WHITE
-						+ ChatColor.BOLD + "http://bit.ly/InfoBoardReborn");
+						+ ChatColor.BOLD + "Ktar5 & pixar02");
+				sender.sendMessage("" + ChatColor.DARK_AQUA + ChatColor.BOLD + "Websites: " + ChatColor.WHITE
+						+ ChatColor.BOLD + plugin.pdfFile.getWebsite());
 
 				sender.sendMessage(
 						"" + ChatColor.GOLD + ChatColor.STRIKETHROUGH + "--------------------------------------------");

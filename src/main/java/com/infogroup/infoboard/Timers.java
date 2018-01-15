@@ -13,19 +13,16 @@ public class Timers {
 
 	private InfoBoardReborn plugin;
 
-	public Timers(InfoBoardReborn pl) {
-		plugin = pl;
-		time = 0;
-		rotation = 1;
-		showtime = plugin.getFm().getFile("board").getInt("InfoBoard." + rotation + ".ShowTime");
-	}
+    public Timers(InfoBoardReborn pl) {
+        this.plugin = pl;
+    }
 
-	/*public Timers() {
-		time = 0;
-		rotation = 1;
-		showtime = plugin.getFm().getFile("board").getInt("InfoBoard." + rotation + ".ShowTime");
+    public Timers() {
+        time = 0;
+        rotation = 1;
+        showtime = plugin.getFm().getFile("board").getInt("InfoBoard." + rotation + ".ShowTime");
 
-	}*/
+    }
 
 	/**
 	 * @return
@@ -118,7 +115,7 @@ public class Timers {
 			Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
                 plugin.logger.info("Checking for updates...");
                 try {
-                    plugin.uc.checkUpdate(plugin.pdfFile.getVersion());
+                    plugin.getUC().checkUpdate(plugin.pdfFile.getVersion());
                 } catch (Exception e) {
                     plugin.logger.warning("Failed to check for updates, because: " + e);
 

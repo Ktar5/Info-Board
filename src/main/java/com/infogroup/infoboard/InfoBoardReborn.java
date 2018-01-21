@@ -103,6 +103,7 @@ public class InfoBoardReborn extends JavaPlugin {
 
     private void Instance() {
         this.fm = new FileManager(this);
+        fm.setup();
         this.settings = new Settings(this);
         this.msgs = new Messages(this);
         this.timers = new Timers(this);
@@ -112,7 +113,7 @@ public class InfoBoardReborn extends JavaPlugin {
         this.WG = new WorldGuard();
         this.UC = new UpdateChecker(this);
 
-        fm.setup();
+
         timers.start();
         V.load();
     }

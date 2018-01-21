@@ -49,7 +49,7 @@ public class FileManager {
                 if (plugin.getSettings().debug()) {
                     Bukkit.getServer().getConsoleSender()
                             .sendMessage(ChatColor.RED + "Could not create the board.yml file" + e);
-                }
+                 }
             }
         }
         board = YamlConfiguration.loadConfiguration(boardFile);
@@ -148,7 +148,7 @@ public class FileManager {
      * getConfig -> getFile(config)________________________________________
      */
     public FileConfiguration getFile(String s) {
-        if (Objects.equals(s, "board")) {
+        if (Objects.equals(s,"board")) {
             return board;
         } else if (Objects.equals(s, "config")) {
             return plugin.getConfig();

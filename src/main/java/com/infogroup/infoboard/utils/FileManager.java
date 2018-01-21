@@ -40,7 +40,6 @@ public class FileManager {
             try {
                 boardFile.createNewFile();
                copy(plugin.getResource("board.yml"), boardFile);
-
                 if (plugin.getSettings().debug()) {
                     Bukkit.getServer().getConsoleSender()
                             .sendMessage(ChatColor.GREEN + "The board.yml file has been created");

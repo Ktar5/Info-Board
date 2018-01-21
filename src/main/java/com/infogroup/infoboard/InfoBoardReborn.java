@@ -103,8 +103,8 @@ public class InfoBoardReborn extends JavaPlugin {
 
     private void Instance() {
         this.fm = new FileManager(this);
-        fm.setup();
         this.settings = new Settings(this);
+        fm.setup();
         this.msgs = new Messages(this);
         this.timers = new Timers(this);
         this.CM = new ChangeableManager(this);

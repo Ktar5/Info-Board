@@ -23,7 +23,6 @@ import java.util.logging.Logger;
 
 public class InfoBoardReborn extends JavaPlugin {
 
-
     public boolean update = false;
     public boolean debug = false;
     public ArrayList<String> hidefrom = new ArrayList<>();
@@ -103,7 +102,6 @@ public class InfoBoardReborn extends JavaPlugin {
     }
 
     private void Instance() {
-
         this.fm = new FileManager(this);
         this.settings = new Settings(this);
         this.msgs = new Messages(this);
@@ -113,8 +111,9 @@ public class InfoBoardReborn extends JavaPlugin {
         this.V = new Vault();
         this.WG = new WorldGuard();
         this.UC = new UpdateChecker(this);
+
         fm.setup();
-        //timers.start();
+        timers.start();
         V.load();
     }
 

@@ -14,7 +14,12 @@ public class Timers {
 	private InfoBoardReborn plugin;
 
     public Timers(InfoBoardReborn pl) {
-        this.plugin = pl;
+		this.plugin = pl;
+		this.time = 0;
+		this.rotation = 1;
+		this.showtime = plugin.getFm()
+				.getFile("board")
+				.getInt("InfoBoard." + rotation + ".ShowTime");
     }
 
     public Timers() {

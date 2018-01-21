@@ -30,7 +30,7 @@ public class FileManager {
             plugin.getDataFolder().mkdir();
         }
         boardFile = new File(plugin.getDataFolder(), "board.yml");
-        variableFile = new File(plugin.getDataFolder(), "varaibles.yml");
+        variableFile = new File(plugin.getDataFolder(), "variables.yml");
         messagesFile = new File(plugin.getDataFolder(), "messages.yml");
 
 		/*
@@ -39,7 +39,8 @@ public class FileManager {
         if (!boardFile.exists()) {
             try {
                 boardFile.createNewFile();
-                copy(plugin.getResource("board.yml"), boardFile);
+               copy(plugin.getResource("board.yml"), boardFile);
+
                 if (plugin.getSettings().debug()) {
                     Bukkit.getServer().getConsoleSender()
                             .sendMessage(ChatColor.GREEN + "The board.yml file has been created");

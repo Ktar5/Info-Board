@@ -10,8 +10,9 @@ import org.bukkit.Location;
 import java.util.ArrayList;
 
 public class WorldGuard {
-	private InfoBoardReborn plugin = InfoBoardReborn.getPlugin(InfoBoardReborn.class);
+	private InfoBoardReborn plugin;
 
+	public WorldGuard(InfoBoardReborn plugin){ this.plugin = plugin; }
 	/**
 	 * Are the boards allowed to be shown in the players current region
 	 *

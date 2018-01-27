@@ -8,8 +8,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
 public class Vault {
-	private InfoBoardReborn plugin = InfoBoardReborn.getPlugin(InfoBoardReborn.class);
+	private InfoBoardReborn plugin;
 
+    public Vault (InfoBoardReborn plugin){this.plugin = plugin; }
 	/**
 	 * Gets the players rank
 	 *

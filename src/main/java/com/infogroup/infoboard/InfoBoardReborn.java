@@ -83,7 +83,7 @@ public class InfoBoardReborn extends JavaPlugin {
     private void registerEvents() {
         PluginManager pm = getServer().getPluginManager();
 
-        pm.registerEvents(new ChangeWorld(), this);
+        pm.registerEvents(new ChangeWorld(this), this);
         pm.registerEvents(new PlayerJoin(this), this);
     }
 
@@ -109,8 +109,8 @@ public class InfoBoardReborn extends JavaPlugin {
         this.timers = new Timers(this);
         this.CM = new ChangeableManager(this);
         this.SM = new ScrollManager(this);
-        this.V = new Vault();
-        this.WG = new WorldGuard();
+        this.V = new Vault(this);
+        this.WG = new WorldGuard(this);
         this.UC = new UpdateChecker(this);
 
 

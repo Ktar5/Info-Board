@@ -95,7 +95,7 @@ public class InfoBoardReborn extends JavaPlugin {
                 map.put("Changeables", 1);
             }
             if (settings.scrollingEnabled()) {
-                map.put("scroll", 1);
+                map.put("Scroll", 1);
             }
             return map;
         }));

@@ -12,7 +12,7 @@ public class ChangeWorld implements Listener {
 
 	private InfoBoardReborn plugin;
 
-	  public ChangeWorld(InfoBoardReborn plugin) { this.plugin = plugin; }
+	public ChangeWorld(InfoBoardReborn plugin) { this.plugin = plugin; }
 
 	@EventHandler
 	public void onPlayerChangeWorld(PlayerChangedWorldEvent event) {

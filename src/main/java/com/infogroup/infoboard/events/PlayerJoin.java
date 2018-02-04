@@ -7,7 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 public class PlayerJoin implements Listener {
-	public InfoBoardReborn plugin;
+	private InfoBoardReborn plugin;
 
 	public PlayerJoin(InfoBoardReborn pl) {
 		plugin = pl;

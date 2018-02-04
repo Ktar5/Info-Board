@@ -14,7 +14,7 @@ import java.util.Objects;
 
 public class Commands implements CommandExecutor {
 
-	InfoBoardReborn plugin;
+	private InfoBoardReborn plugin;
 
 	public Commands(InfoBoardReborn plugin) {
 		this.plugin = plugin;

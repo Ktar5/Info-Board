@@ -81,7 +81,7 @@ public class Timers {
 		 * =========================================================================
 		 */
 		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
-            // TODO
+            // TODO finish
             for (Player p : Bukkit.getOnlinePlayers()) {
                 if (p.hasPermission("ibr.View")) {
                     Update.updateTitle(p, "test");

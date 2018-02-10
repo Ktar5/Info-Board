@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 public class UpdateChecker {
 	public InfoBoardReborn plugin;
-
+//TODO fix update available when not
 	public UpdateChecker(InfoBoardReborn pl) {
 		plugin = pl;
 	}

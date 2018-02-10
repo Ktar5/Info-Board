@@ -35,6 +35,7 @@ public class InfoBoardReborn extends JavaPlugin {
     private UpdateChecker UC;
     private Timers timers;
     private FileManager fm;
+    private MessagesManager mm;
     private Settings settings;
     private Messages msgs;
     private ChangeableManager CM;
@@ -165,4 +166,6 @@ public class InfoBoardReborn extends JavaPlugin {
     public UpdateChecker getUC() {
         return this.UC;
     }
+
+    public MessagesManager getMm(){ return this.mm; }
 }

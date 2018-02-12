@@ -1,5 +1,6 @@
 package com.infogroup.infoboard.condition;
 
+import com.infogroup.infoboard.GetVariables;
 import com.infogroup.infoboard.InfoBoardReborn;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 
 public class Condition {
     private InfoBoardReborn plugin;
+    private String msg;
     private String con;
     private Integer row;
     private Integer interval;
@@ -22,7 +24,7 @@ public class Condition {
      * @param con
      * @param interval
      */
-    public Condition(InfoBoardReborn plugin,Player p, int row, String con, int interval){
+    public Condition(InfoBoardReborn plugin, Player p, int row, String con, int interval){
         this.plugin = plugin;
         this.row = row;
         this.interval = interval;
@@ -37,9 +39,20 @@ public class Condition {
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> ConditionText.change(p), 0, (long) this.interval * 20);
     }
 
-
-    public void change(){
-        //TODO FINISH
+    /**
+     *
+     * @param player
+     */
+    public void change(Player player){
+        //TODO TEST
+       String newCheck = GetVariables.replaceVariables(check, player);
+        for(String s : awnsers){
+            if(s.equals(newCheck)){
+                this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon() + ".awnser." + s);
+            }else{
+                this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon()+ ".awnser.default");
+            }
+        }
     }
 
 
@@ -53,7 +66,7 @@ public class Condition {
      *
      * @return
      */
-    public String getMessage(){ return new String(""); }
+    public String getMessage(){ return this.msg; }
 
     /**
      *

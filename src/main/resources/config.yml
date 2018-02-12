@@ -77,5 +77,6 @@ Condition:
         - 10: "half health"
         - 1: "close to death"
         - 0: "dead"
+        - default: ""
       interval: 1
   

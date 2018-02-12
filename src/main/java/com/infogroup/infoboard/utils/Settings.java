@@ -198,7 +198,24 @@ public class Settings {
                 .getKeys(false));
     }
 
+	/**
+	 *
+	 * @param con
+	 * @return
+	 */
     public Integer getConInterval(String con){
 	    return plugin.getFm().getFile("config").getInt("Condition.Conditions." + con +". interval");
     }
+
+	/**
+	 *
+	 * @param condition
+	 * @return
+	 */
+    public ArrayList<String> getConText(String condition){
+		ArrayList<String> awnsers = new ArrayList<>();
+		awnsers.addAll(plugin.getFm().getFile("config")
+				.getStringList("Condition.Conditions." + condition + ".awnser"));
+		return awnsers;
+	}
 }

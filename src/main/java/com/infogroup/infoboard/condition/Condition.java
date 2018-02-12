@@ -12,6 +12,7 @@ public class Condition {
     private Integer row;
     private Integer interval;
     private ArrayList<String> awnsers;
+    private String check;
 
     /**
      *
@@ -26,32 +27,37 @@ public class Condition {
         this.row = row;
         this.interval = interval;
         this.con = con;
-
+        this.awnsers = plugin.getSettings().getConText(con);
+        this.check = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".check");
+        /*
+         * =========================================================================
+         * CHANGEABLE TEXT UPDATES VALUE
+         * =========================================================================
+         */
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> ConditionText.change(p), 0, (long) this.interval * 20);
     }
 
 
-    /**
-     *
-     * @return
-     */
-    public String getCon(){
-        return this.con;
+    public void change(){
+        //TODO FINISH
     }
+
 
     /**
      *
      * @return
      */
-    public String getMessage(){
-        return new String("");
-    }
+    public String getCon(){ return this.con; }
 
     /**
      *
      * @return
      */
-    public Integer getRow(){
-        return this.row;
-    }
+    public String getMessage(){ return new String(""); }
+
+    /**
+     *
+     * @return
+     */
+    public Integer getRow(){ return this.row; }
 }

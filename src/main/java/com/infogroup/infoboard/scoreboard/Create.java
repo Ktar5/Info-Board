@@ -57,8 +57,8 @@ public class Create {
             plugin.getSM().reset(player);
 
             // Remove and changeable texts that the player may have had
-            if (!(plugin.getCM().getChangeables(player) == null)) {
-                plugin.getCM().reset(player);
+            if (!(plugin.getCHM().getChangeables(player) == null)) {
+                plugin.getCHM().reset(player);
             }
             List<String> changeables = plugin.getSettings().getChangeable();
 
@@ -101,7 +101,7 @@ public class Create {
                                 if (plugin.getSettings().changeableTextEnabled()) {
                                     line = line.replaceAll("<changeable_", "").replaceAll(">", "").replaceAll(" ", "");
                                     if (changeables.contains(line)) {
-                                        Changeable ch = plugin.getCM().createChangeables(player, line, row);
+                                        Changeable ch = plugin.getCHM().createChangeables(player, line, row);
                                         line = ch.getMessage();
                                         line = plugin.getMessages().getLine(line, player);
                                         board.add(line, row);

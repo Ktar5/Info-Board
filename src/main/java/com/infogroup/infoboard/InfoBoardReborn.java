@@ -3,6 +3,7 @@ package com.infogroup.infoboard;
 import com.infogroup.infoboard.api.Vault;
 import com.infogroup.infoboard.api.WorldGuard;
 import com.infogroup.infoboard.changeable.ChangeableManager;
+import com.infogroup.infoboard.condition.ConditionManager;
 import com.infogroup.infoboard.events.ChangeWorld;
 import com.infogroup.infoboard.events.PlayerJoin;
 import com.infogroup.infoboard.scroll.ScrollManager;
@@ -38,8 +39,9 @@ public class InfoBoardReborn extends JavaPlugin {
     private MessagesManager mm;
     private Settings settings;
     private Messages msgs;
-    private ChangeableManager CM;
+    private ChangeableManager CHM;
     private ScrollManager SM;
+    private ConditionManager CM;
     private WorldGuard WG;
     private Vault V;
 
@@ -88,7 +90,7 @@ public class InfoBoardReborn extends JavaPlugin {
         pm.registerEvents(new PlayerJoin(this), this);
     }
 
-    public void loadMetrics() {
+    private void loadMetrics() {
         Metrics metrics = new Metrics(this);
         metrics.addCustomChart(new Metrics.SimpleBarChart("features", () -> {
             Map<String, Integer> map = new HashMap<>();
@@ -108,7 +110,7 @@ public class InfoBoardReborn extends JavaPlugin {
         fm.setup();
         this.msgs = new Messages(this);
         this.timers = new Timers(this);
-        this.CM = new ChangeableManager(this);
+        this.CHM = new ChangeableManager(this);
         this.SM = new ScrollManager(this);
         this.V = new Vault(this);
         this.WG = new WorldGuard(this);
@@ -143,8 +145,8 @@ public class InfoBoardReborn extends JavaPlugin {
         return this.msgs;
     }
 
-    public ChangeableManager getCM() {
-        return this.CM;
+    public ChangeableManager getCHM() {
+        return this.CHM;
     }
 
     public ScrollManager getSM() {
@@ -167,5 +169,7 @@ public class InfoBoardReborn extends JavaPlugin {
         return this.UC;
     }
 
-    public MessagesManager getMm(){ return this.mm; }
+    public MessagesManager getMM(){ return this.mm; }
+
+    public ConditionManager getCM(){return this.CM; }
 }

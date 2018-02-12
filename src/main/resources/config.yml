@@ -1,6 +1,8 @@
 # InfoBoardReborn Config, Last Edited in v2.0.0
 # =============================================================================
 # |        Updater  - Checks for updates on enable                            |
+# |        Debug  - Gives extra info on plugin (cmds/startup/errors)          |
+# |        give-onjoin - give a scoreboard onjoin                            |
 # |---------------------------------------------------------------------------|
 # |       Custom Variables allow for you to create your own variables         |
 # |                  <Variable>: What it gets replaced to                     |
@@ -23,6 +25,7 @@
 # =============================================================================
 Updater: true
 Debug: false
+give-onjoin: true
 
 Custom Variables:
   <website>: yoursitehere.net
@@ -36,7 +39,12 @@ WorldGuard:
   Prevent Showing In:
   - regionNamesAreCapSensitive
   - regionName2
-  
+
+ Update Time:
+   Lines: 0.5
+ # Comming soon!
+ #  Title: 0.5
+
 Scrolling Text:
   Enable: false
   Shift Time: 0.25
@@ -49,10 +57,14 @@ Changeable Text:
       - '&e%player_health%&a/&c%player_max_health%'
       - '&a%player_x%&7, &a%player_y%&7, &a%player_z%'
       - '&l%player_first_join_date%'
-      interval: 1 
-        
-Update Time:
-  Lines: 0.5
-# Comming soon!
-#  Title: 0.5
+      interval: 1
+
+Condition:
+   temp:
+     check: %player_health%
+     awnser:
+       - 20: "full health"
+       - 10: "half health"
+       - 1: "close to death"
+       - 0: "dead"
   

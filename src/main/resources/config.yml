@@ -1,8 +1,8 @@
-# InfoBoardReborn Config, Last Edited in v2.0.0
+# InfoBoardReborn Config, Last Edited in v2.1.0
 # =============================================================================
-# |        Updater  - Checks for updates on enable                            |
-# |        Debug  - Gives extra info on plugin (cmds/startup/errors)          |
-# |        give-onjoin - give a scoreboard onjoin                            |
+# |                     Updater: Checks for updates on enable                 |
+# |           Debug: Gives extra info on plugin (cmds/startup/errors)         |
+# |                  give-onjoin: give a scoreboard onjoin                    |
 # |---------------------------------------------------------------------------|
 # |       Custom Variables allow for you to create your own variables         |
 # |                  <Variable>: What it gets replaced to                     |
@@ -10,18 +10,26 @@
 # |     Disabled Worlds    - A List of worlds that won't have scoreboards     |
 # | WorldGuard.Prevent Showing In - A List of regions the board won't show in |
 # |---------------------------------------------------------------------------|
+# |          Update Time how fast you scoreboard updates in seconds           |
+# |---------------------------------------------------------------------------|
 # | Scrolling Text is a cool feature where text will scroll across the board  |
 # |                Currently format codes aren't supported                    |
-# |       Shift Time - How long between the text scrolling in seconds         |
+# |        Shift Time - How long between the text scrolling in seconds        |
 # |---------------------------------------------------------------------------|
-# |                             changeable text:                              |
-# |                      Use like: <changeable_<variable>>                    |
+# |                             Changeable text:                              |
+# |                     Use like: <changeable_<variable>>                     |
 # |                       Enabled- enable or disable                          |
 # |                  Changeables - Custom changeable variables                |
 # |                  Text - the text lines you want to display                |
 # |	             interval- how fast the lines should update in seconds        | 
 # |---------------------------------------------------------------------------|
-# |          Update Time how fast you scoreboard updates in seconds           |
+# |                                Condition                                  |
+# |                      Use like: <condition_<variable>>                     |
+# |                         Enabled: enable or disable                        |
+# |                   Conditions: Custom condition variables                  |
+# |                       Check: variable you check for                       |
+# |                  Awnser: possible awnsers on the check                    |
+# |             Interval: how fast you want to check in seconds               |
 # =============================================================================
 Updater: true
 Debug: false
@@ -69,4 +77,5 @@ Condition:
         - 10: "half health"
         - 1: "close to death"
         - 0: "dead"
+      interval: 1
   

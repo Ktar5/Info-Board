@@ -60,11 +60,13 @@ Changeable Text:
       interval: 1
 
 Condition:
-   temp:
-     check: %player_health%
-     awnser:
-       - 20: "full health"
-       - 10: "half health"
-       - 1: "close to death"
-       - 0: "dead"
+  Enabled: false
+  Conditions:
+    temp:
+      check: %player_health%
+      awnser:
+        - 20: "full health"
+        - 10: "half health"
+        - 1: "close to death"
+        - 0: "dead"
   

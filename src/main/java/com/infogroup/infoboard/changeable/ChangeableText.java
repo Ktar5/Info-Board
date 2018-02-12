@@ -15,8 +15,8 @@ public class ChangeableText {
 				&& ((player.getScoreboard().getObjective(DisplaySlot.SIDEBAR) == null) || player.getScoreboard()
 						.getObjective(DisplaySlot.SIDEBAR).getName().equalsIgnoreCase("InfoBoard"))) {
 
-			if (plugin.getCM().getChangeables(player) != null) {
-				for (Changeable ch : plugin.getCM().getChangeables(player)) {
+			if (plugin.getCHM().getChangeables(player) != null) {
+				for (Changeable ch : plugin.getCHM().getChangeables(player)) {
 					try {
 						// Move changeable over one, and add the new line
 						ch.next();
@@ -30,10 +30,10 @@ public class ChangeableText {
 					}
 				}
 			}
-			if (plugin.getCM().getChangeableTitle(player) != null) {
+			if (plugin.getCHM().getChangeableTitle(player) != null) {
 
 				try {
-					Changeable ch = plugin.getCM().getChangeableTitle(player);
+					Changeable ch = plugin.getCHM().getChangeableTitle(player);
 					// Move changeable over one, and add the new line
 					ch.next();
 					String newLine = ch.getMessage();

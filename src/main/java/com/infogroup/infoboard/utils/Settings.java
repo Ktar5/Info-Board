@@ -9,10 +9,12 @@ public class Settings {
 	private InfoBoardReborn plugin;
 
 	public List<String> changeable = new ArrayList<>();
+	public List<String> conditions = new ArrayList<>();
 
 	public Settings(InfoBoardReborn plugin) {
 		this.plugin = plugin;
 		loadChangeable();
+		loadConditions();
 	}
 
 	/**
@@ -174,4 +176,29 @@ public class Settings {
 		return plugin.getFm().getFile("config").getInt("Changeable Text.Changeables." + changeable + ".interval");
 	}
 
+    /**
+     *
+     * @return
+     */
+	public boolean contionsEnabled(){
+		return plugin.getFm().getFile("config").getBoolean("Condition.Enabled");
+	}
+
+    /**
+     *
+     * @return
+     */
+	public List<String> getConditions(){
+	    return this.conditions;
+    }
+
+    public void loadConditions(){
+	    conditions.clear();
+	    conditions.addAll(plugin.getFm().getFile("config").getConfigurationSection("Condition.Conditions")
+                .getKeys(false));
+    }
+
+    public Integer getConInterval(String con){
+	    return plugin.getFm().getFile("config").getInt("Condition.Conditions." + con +". interval");
+    }
 }

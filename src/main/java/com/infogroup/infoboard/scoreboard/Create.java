@@ -2,6 +2,7 @@ package com.infogroup.infoboard.scoreboard;
 
 import com.infogroup.infoboard.InfoBoardReborn;
 import com.infogroup.infoboard.changeable.Changeable;
+import com.infogroup.infoboard.condition.Condition;
 import com.infogroup.infoboard.scroll.Scroll;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -62,6 +63,10 @@ public class Create {
             }
             List<String> changeables = plugin.getSettings().getChangeable();
 
+            if(!(plugin.getCM().getCons(player) == null)){
+                plugin.getCM().reset(player);
+            }
+            List<String> conditions = plugin.getSettings().getConditions();
             // Now we go to the title setting method thats down below
             board.setTitle(plugin.getMessages().getTitle(player, worldName, rankName));
 
@@ -113,6 +118,23 @@ public class Create {
                                     line = "Enable changeable Text";
                                     board.add(line, row);
                                 }
+                            }else // Manage all contions
+                                if(line.contains("<condition_")){
+                                    if(plugin.getSettings().contionsEnabled()){
+                                        line = line.replace("<condition_", "").replace(">", "");
+                                        if(conditions.contains(line)){
+                                            Condition con = plugin.getCM().createCon(player, row, line);
+                                            line = con.getMessage();
+                                            line = plugin.getMessages().getLine(line, player);
+                                            board.add(line, row);
+                                        }else{
+                                            line = "Unknown condition";
+                                            board.add(line, row);
+                                        }
+                                    }else{
+                                        line= "Enable conditions";
+                                        board.add(line, row);
+                                    }
                             }
                             // If the line has a split in it
                             else if (line.contains(";")) {

@@ -13,7 +13,7 @@ public class Condition {
     private String con;
     private Integer row;
     private Integer interval;
-    private ArrayList<String> awnsers;
+    private ArrayList<String> answers;
     private String check;
 
     /**
@@ -29,8 +29,11 @@ public class Condition {
         this.row = row;
         this.interval = interval;
         this.con = con;
-        this.awnsers = plugin.getSettings().getConText(con);
         this.check = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".check");
+        this.answers = plugin.getSettings().getConText(con);
+        // next ste needed?
+        this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".answer.default");
+
         /*
          * =========================================================================
          * CHANGEABLE TEXT UPDATES VALUE
@@ -46,15 +49,14 @@ public class Condition {
     public void change(Player player){
         //TODO TEST
        String newCheck = GetVariables.replaceVariables(check, player);
-        for(String s : awnsers){
+        for(String s : answers){
             if(s.equals(newCheck)){
-                this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon() + ".awnser." + s);
+                this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon() + ".answer." + s);
             }else{
-                this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon()+ ".awnser.default");
+                this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon()+ ".answer.default");
             }
         }
     }
-
 
     /**
      *

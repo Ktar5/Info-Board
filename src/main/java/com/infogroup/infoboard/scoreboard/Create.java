@@ -57,16 +57,19 @@ public class Create {
             // Remove and scrolling texts that the player may have had
             plugin.getSM().reset(player);
 
-            // Remove and changeable texts that the player may have had
-            if (!(plugin.getCHM().getChangeables(player) == null)) {
+            // Remove all changeable texts that the player may have had
+            if (plugin.getCHM().getChangeables(player) != null) {
                 plugin.getCHM().reset(player);
             }
             List<String> changeables = plugin.getSettings().getChangeable();
 
-            if(!(plugin.getCM().getCons(player) == null)){
+            // Remove all the conditions that the player may have had
+            if(plugin.getCM().getCons(player) != null){
                 plugin.getCM().reset(player);
             }
             List<String> conditions = plugin.getSettings().getConditions();
+
+
             // Now we go to the title setting method thats down below
             board.setTitle(plugin.getMessages().getTitle(player, worldName, rankName));
 

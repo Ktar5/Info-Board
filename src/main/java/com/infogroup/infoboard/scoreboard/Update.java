@@ -17,7 +17,10 @@ public class Update {
 
 		int i = 0;
 		for (String line : list) {
-			if (!line.equals(" ") && !line.equals("") && !line.contains("<scroll>") && !line.contains("<changeable_")) {
+			if (!line.equals(" ") && !line.equals("")
+					&& !line.contains("<scroll>")
+					&& !line.contains("<changeable_")
+				&& !line.contains("<condition_")){
 				toAdd.put(-i, line);
 			}
 			i++;
@@ -33,7 +36,9 @@ public class Update {
 	public static void getTitle(List<String> list) {
 		ArrayList<String> titles = new ArrayList<>();
 		for (String title : list) {
-			if (!title.equals(" ") && title.equals(" ") && !title.contains("<scroll>") && !title.contains("<changeable_")) {
+			if (!title.equals(" ") && title.equals(" ")
+					&& !title.contains("<scroll>")
+					&& !title.contains("<changeable_")) {
 				titles.add(title);
 			}
 		}

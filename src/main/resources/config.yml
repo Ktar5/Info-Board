@@ -48,10 +48,10 @@ WorldGuard:
   - regionNamesAreCapSensitive
   - regionName2
 
- Update Time:
-   Lines: 0.5
- # Comming soon!
- #  Title: 0.5
+Update Time:
+  Lines: 0.5
+# Comming soon!
+#  Title: 0.5
 
 Scrolling Text:
   Enable: false
@@ -71,7 +71,7 @@ Condition:
   Enabled: false
   Conditions:
     temp:
-      check: %player_health%
+      check: "%player_health%"
       awnser:
         - 20: "full health"
         - 10: "half health"

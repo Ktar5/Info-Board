@@ -111,6 +111,7 @@ public class InfoBoardReborn extends JavaPlugin {
         this.msgs = new Messages(this);
         this.timers = new Timers(this);
         this.CHM = new ChangeableManager(this);
+        this.CM = new ConditionManager(this);
         this.SM = new ScrollManager(this);
         this.V = new Vault(this);
         this.WG = new WorldGuard(this);

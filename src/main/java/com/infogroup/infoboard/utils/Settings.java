@@ -1,6 +1,7 @@
 package com.infogroup.infoboard.utils;
 
 import com.infogroup.infoboard.InfoBoardReborn;
+import org.bukkit.Bukkit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -148,7 +149,7 @@ public class Settings {
 		return lines;
 	}
 
-	/*
+	/**
 	 * Loads the changeable's in a list.
 	 * 
 	 */
@@ -180,7 +181,7 @@ public class Settings {
      *
      * @return
      */
-	public boolean contionsEnabled(){
+	public boolean conditionsEnabled(){
 		return plugin.getFm().getFile("config").getBoolean("Condition.Enabled");
 	}
 
@@ -192,10 +193,17 @@ public class Settings {
 	    return this.conditions;
     }
 
+    /**
+     * Loads the changeable's in a list.
+     *
+     */
     public void loadConditions(){
 	    conditions.clear();
 	    conditions.addAll(plugin.getFm().getFile("config").getConfigurationSection("Condition.Conditions")
                 .getKeys(false));
+	    for(String s : conditions){
+			Bukkit.broadcastMessage(s);
+		}
     }
 
 	/**
@@ -213,9 +221,9 @@ public class Settings {
 	 * @return
 	 */
     public ArrayList<String> getConText(String condition){
-		ArrayList<String> awnsers = new ArrayList<>();
-		awnsers.addAll(plugin.getFm().getFile("config")
-				.getStringList("Condition.Conditions." + condition + ".awnser"));
-		return awnsers;
+		ArrayList<String> answers = new ArrayList<>();
+		answers.addAll(plugin.getFm().getFile("config")
+				.getStringList("Condition.Conditions." + condition + ".answer"));
+		return answers;
 	}
 }

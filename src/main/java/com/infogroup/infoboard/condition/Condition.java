@@ -31,7 +31,6 @@ public class Condition {
         this.con = con;
         this.check = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".check");
         this.answers = plugin.getSettings().getConText(con);
-        // next ste needed?
         this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".answer.default");
 
         /*
@@ -47,7 +46,7 @@ public class Condition {
      * @param player
      */
     public void change(Player player){
-        //TODO TEST
+        //TODO TEST and FIX
        String newCheck = GetVariables.replaceVariables(check, player);
         for(String s : answers){
             if(s.equals(newCheck)){

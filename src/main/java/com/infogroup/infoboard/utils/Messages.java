@@ -33,7 +33,6 @@ public class Messages {
 	 * @return new line (String)
 	 */
 	public String getLine(String line, Player player) {
-
 		if (line.contains("%")) {
 			line = getReplacements(line, player);
 		}

@@ -17,7 +17,7 @@ public class PlayerJoin implements Listener {
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event) {
 		if(plugin.getFm().getFile("config").getBoolean("give-onjoin") == false){
-			Player player = (Player) event.getPlayer();
+			Player player = event.getPlayer();
 			plugin.hidefrom.add(player.getName());
 		}
 		if (event.getPlayer().isOp() && plugin.update) {

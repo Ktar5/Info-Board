@@ -59,7 +59,7 @@ public class InfoBoardReborn extends JavaPlugin {
         getCommand("InfoBoardReborn").setExecutor(new Commands(this));
 
         if (settings.changeableTextEnabled()) {
-            logger.info("Feature: changeable Text is enbaled!");
+            logger.info("Feature: changeable Text is enabled!");
             logger.info(settings.getChangeable().size() + " changeable(s) loaded");
         }
         if (settings.scrollingEnabled()) {

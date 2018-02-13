@@ -32,7 +32,7 @@
 # |             Interval: how fast you want to check in seconds               |
 # =============================================================================
 Updater: true
-Debug: false
+Debug: true
 give-onjoin: true
 
 Custom Variables:
@@ -72,11 +72,11 @@ Condition:
   Conditions:
     temp:
       check: "%player_health%"
-      awnser:
-        - 20: "full health"
-        - 10: "half health"
-        - 1: "close to death"
-        - 0: "dead"
-        - default: ""
+      answer:
+        '20.0': "full health"
+        '10.0': "half health"
+        '1.0': "close to death"
+        '0.0': "dead"
+        default: "still alive"
       interval: 1
   

@@ -121,9 +121,9 @@ public class Create {
                                     line = "Enable changeable Text";
                                     board.add(line, row);
                                 }
-                            }else // Manage all contions
+                            }else // Manage all conditions
                                 if(line.contains("<condition_")){
-                                    if(plugin.getSettings().contionsEnabled()){
+                                    if(plugin.getSettings().conditionsEnabled()){
                                         line = line.replace("<condition_", "").replace(">", "");
                                         if(conditions.contains(line)){
                                             Condition con = plugin.getCM().createCon(player, row, line);

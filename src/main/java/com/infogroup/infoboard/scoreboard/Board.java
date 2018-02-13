@@ -167,21 +167,15 @@ public class Board {
 	 */
 	public void update(String line, int row) {
 		String name;
-
 		if (line.length() <= 16) {
 			name = line;
-
 		} else if (line.length() <= 32) {
 			name = line.substring(0, 16);
-
 		} else {
 			name = line.substring(16, 32);
 		}
-
 		if (!scoreboard.getEntries().contains(name)) {
-
 			for (String op : scoreboard.getEntries()) {
-
 				if (objective.getScore(op).getScore() == 15 - row) {
 					remove(op);
 					break;

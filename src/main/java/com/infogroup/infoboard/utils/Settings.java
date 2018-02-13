@@ -1,7 +1,6 @@
 package com.infogroup.infoboard.utils;
 
 import com.infogroup.infoboard.InfoBoardReborn;
-import org.bukkit.Bukkit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -201,9 +200,6 @@ public class Settings {
 	    conditions.clear();
 	    conditions.addAll(plugin.getFm().getFile("config").getConfigurationSection("Condition.Conditions")
                 .getKeys(false));
-	    for(String s : conditions){
-			Bukkit.broadcastMessage(s);
-		}
     }
 
 	/**

@@ -25,6 +25,7 @@ public class ScrollText {
 
 						board.update(newLine, sc.getRow());
 					} catch (Exception ignored) {
+
 					}
 				}
 			}

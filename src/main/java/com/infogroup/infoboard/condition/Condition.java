@@ -30,7 +30,7 @@ public class Condition {
         this.interval = interval;
         this.con = con;
         this.check = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".check");
-        this.answers = plugin.getSettings().getConText(con);
+        this.answers =  plugin.getSettings().getConText(con);
         this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".answer.default");
 
         /*
@@ -38,7 +38,7 @@ public class Condition {
          * CHANGEABLE TEXT UPDATES VALUE
          * =========================================================================
          */
-        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> ConditionText.change(p), 0, (long) this.interval * 20);
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this.plugin, () -> ConditionText.change(p), 0, (long) this.interval * 20);
     }
 
     /**
@@ -47,14 +47,14 @@ public class Condition {
      */
     public void change(Player player){
         //TODO TEST and FIX
-       String newCheck = GetVariables.replaceVariables(check, player);
-        for(String s : answers){
-            if(s.equals(newCheck)){
-                this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon() + ".answer." + s);
-            }else{
-                this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon()+ ".answer.default");
-            }
-        }
+       String newCheck = GetVariables.replaceVariables(this.check, player);
+       for(String s : this.answers){
+           if(s.equals(newCheck)){
+               this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon() + ".answer." + s);
+           }else{
+               this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon() + ".answer.default");
+           }
+       }
     }
 
     /**

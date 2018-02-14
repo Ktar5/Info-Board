@@ -2,6 +2,7 @@ package com.infogroup.infoboard.condition;
 
 import com.infogroup.infoboard.InfoBoardReborn;
 import com.infogroup.infoboard.scoreboard.Board;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
 
@@ -14,13 +15,15 @@ public class ConditionText {
                && !plugin.hidefrom.contains(player.getName())
                && ((player.getScoreboard().getObjective(DisplaySlot.SIDEBAR) == null) || player.getScoreboard()
                .getObjective(DisplaySlot.SIDEBAR).getName().equalsIgnoreCase("InfoBoard")) ) {
-
            if (plugin.getCM().getCons(player) != null) {
                for (Condition con : plugin.getCM().getCons(player)) {
                    try {
+                       Bukkit.broadcastMessage("Success in check ");
                        // Check if the condition has changed
                        con.change(player);
+                       Bukkit.broadcastMessage("Success in trying toc change ");
                        String newLine = con.getMessage();
+                       Bukkit.broadcastMessage("Success in getting msg ");
 
                        Board board = new Board(player);
                        newLine = plugin.getMessages().getLine(newLine, player);

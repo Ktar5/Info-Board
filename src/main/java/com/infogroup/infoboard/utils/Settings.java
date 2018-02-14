@@ -219,7 +219,7 @@ public class Settings {
     public ArrayList<String> getConText(String condition){
 		ArrayList<String> answers = new ArrayList<>();
 		answers.addAll(plugin.getFm().getFile("config")
-				.getStringList("Condition.Conditions." + condition + ".answer"));
+				.getConfigurationSection("Condition.Conditions." + condition + ".answer").getKeys(false));
 		return answers;
 	}
 }

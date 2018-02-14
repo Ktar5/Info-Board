@@ -67,7 +67,7 @@ public class ConditionManager {
      */
     public void reset(Player p){
         if(getCons(p)!= null){
-            for(Condition con : getCons(p)){
+            for(Condition con : this.getCons(p)){
                 String lastString = con.getMessage();
                 new Board(p).remove(lastString);
             }

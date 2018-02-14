@@ -14,7 +14,6 @@ public class ChangeableText {
 				&& !plugin.hidefrom.contains(player.getName())
 				&& ((player.getScoreboard().getObjective(DisplaySlot.SIDEBAR) == null) || player.getScoreboard()
 						.getObjective(DisplaySlot.SIDEBAR).getName().equalsIgnoreCase("InfoBoard"))) {
-
 			if (plugin.getCHM().getChangeables(player) != null) {
 				for (Changeable ch : plugin.getCHM().getChangeables(player)) {
 					try {

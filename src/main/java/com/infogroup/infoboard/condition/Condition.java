@@ -8,24 +8,22 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 
 public class Condition {
-    private InfoBoardReborn plugin;
+    private InfoBoardReborn plugin = InfoBoardReborn.getPlugin(InfoBoardReborn.class);
+
     private String msg;
     private String con;
-    private Integer row;
-    private Integer interval;
+    private Integer row, interval;
     private ArrayList<String> answers;
     private String check;
 
     /**
      *
-     * @param plugin
      * @param p
      * @param row
      * @param con
      * @param interval
      */
-    public Condition(InfoBoardReborn plugin, Player p, int row, String con, int interval){
-        this.plugin = plugin;
+    public Condition(Player p, int row, String con, int interval){
         this.row = row;
         this.interval = interval;
         this.con = con;

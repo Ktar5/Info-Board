@@ -38,6 +38,7 @@ public class Condition {
          * CHANGEABLE TEXT UPDATES VALUE
          * =========================================================================
          */
+        //TODO TIMER works?
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this.plugin, () -> ConditionText.change(p), 0, (long) this.interval * 20);
     }
 

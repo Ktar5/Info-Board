@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ConditionManager {
-//TODO FINISH!
+//TODO TEST
     private InfoBoardReborn plugin;
     private HashMap<Player, ArrayList<Condition>> cons =  new HashMap<>();
     private HashMap<Player, Condition> titleCon = new HashMap<>();

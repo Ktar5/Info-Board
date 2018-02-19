@@ -49,6 +49,9 @@ public class Condition {
         //TODO TEST and FIX
        String newCheck = GetVariables.replaceVariables(this.check, player);
        for(String s : this.answers){
+           if(s.contains("%")){
+            s = GetVariables.replaceVariables(s, player);
+           }
            if(s.equals(newCheck)){
                this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon() + ".answer." + s);
            }else{

@@ -46,7 +46,7 @@ public class ChangeableText {
 
 			}
 		} else {
-			plugin.getCM().reset(player);
+			plugin.getCHM().reset(player);
 		}
 
 	}

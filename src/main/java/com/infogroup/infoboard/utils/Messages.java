@@ -74,9 +74,14 @@ public class Messages {
 			title = plugin.getSM().createTitleScroller(player, getLine(title, player)).getMessage();
 
 		} else if (title.startsWith("<changeable_") && plugin.getSettings().changeableTextEnabled()) {
-			title.replaceAll("<changeable_", "").replaceAll(">", "");
-			// create changeaable title
+            title =title.replaceAll("<changeable_", "").replaceAll(">", "");
+			// create changeable title
 			title = plugin.getCHM().createChangeableTitle(player, title).getMessage();
+
+		} else if(title.startsWith("<condition_")&& plugin.getSettings().conditionsEnabled()){
+            title = title.replaceAll("<condition_","").replaceAll(">","");
+            // create changeable title
+            title = plugin.getCM().createTitleCon(player, title).getMessage();
 
 		} else {
 			title = getLine(title.substring(0, Math.min(title.length(), 32)), player);

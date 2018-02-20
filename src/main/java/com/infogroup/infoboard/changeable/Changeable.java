@@ -16,7 +16,7 @@ public class Changeable {
 	private ArrayList<String> lines;
 
 	/**
-	 * Create a new changealbe
+	 * Create a new changeable
 	 * 
 	 * @param p
 	 * @param row

@@ -345,6 +345,7 @@ public class Commands implements CommandExecutor {
 
 				for (Player player : Bukkit.getOnlinePlayers()) {
 					plugin.getSM().reset(player);
+					plugin.getCHM().reset(player);
 					plugin.getCM().reset(player);
 				}
 				plugin.getFm().reloadFile("board");
@@ -367,6 +368,7 @@ public class Commands implements CommandExecutor {
 				Bukkit.getScheduler().cancelTasks(plugin);
 				for (Player player : Bukkit.getOnlinePlayers()) {
 					plugin.getSM().reset(player);
+					plugin.getCHM().reset(player);
 					plugin.getCM().reset(player);
 				}
 
@@ -412,6 +414,7 @@ public class Commands implements CommandExecutor {
 				Bukkit.getScheduler().cancelTasks(plugin);
 				for (Player player : Bukkit.getOnlinePlayers()) {
 					plugin.getSM().reset(player);
+					plugin.getCHM().reset(player);
 					plugin.getCM().reset(player);
 				}
 				plugin.getFm().reloadFile("board");

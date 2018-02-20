@@ -38,7 +38,8 @@ public class Update {
 		for (String title : list) {
 			if (!title.equals(" ") && title.equals(" ")
 					&& !title.contains("<scroll>")
-					&& !title.contains("<changeable_")) {
+					&& !title.contains("<changeable_")
+					&& !title.contains("<condition_")){
 				titles.add(title);
 			}
 		}

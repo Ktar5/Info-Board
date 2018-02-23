@@ -10,11 +10,9 @@ import java.util.ArrayList;
 public class Condition {
     private InfoBoardReborn plugin = InfoBoardReborn.getPlugin(InfoBoardReborn.class);
 
-    private String msg;
-    private String con;
+    private String msg, con, check;
     private Integer row, interval;
     private ArrayList<String> answers;
-    private String check;
 
     /**
      *

@@ -2,7 +2,6 @@ package com.infogroup.infoboard.condition;
 
 import com.infogroup.infoboard.InfoBoardReborn;
 import com.infogroup.infoboard.scoreboard.Board;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -24,8 +23,6 @@ public class ConditionManager {
      * @param row
      */
     public Condition createCon(Player p, int row, String c){
-        //TEMP debug
-        Bukkit.broadcastMessage(c + ", row: "+ String.valueOf(row));
         Condition con =  new Condition(p, row, c, plugin.getSettings().getConInterval(c));
         ArrayList<Condition> conList;
         if(cons.containsKey(p)){

@@ -11,7 +11,7 @@ public class PlayerJoin implements Listener {
 	private InfoBoardReborn plugin;
 
 	public PlayerJoin(InfoBoardReborn pl) {
-		plugin = pl;
+		this.plugin = pl;
 	}
 
 	@EventHandler

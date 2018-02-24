@@ -5,6 +5,7 @@ import com.infogroup.infoboard.api.WorldGuard;
 import com.infogroup.infoboard.changeable.ChangeableManager;
 import com.infogroup.infoboard.condition.ConditionManager;
 import com.infogroup.infoboard.events.ChangeWorld;
+import com.infogroup.infoboard.events.Leave;
 import com.infogroup.infoboard.events.PlayerJoin;
 import com.infogroup.infoboard.scroll.ScrollManager;
 import com.infogroup.infoboard.utils.*;
@@ -88,6 +89,7 @@ public class InfoBoardReborn extends JavaPlugin {
 
         pm.registerEvents(new ChangeWorld(this), this);
         pm.registerEvents(new PlayerJoin(this), this);
+        pm.registerEvents(new Leave(this), this);
     }
 
     private void loadMetrics() {

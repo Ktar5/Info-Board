@@ -25,8 +25,7 @@ public class ConditionManager {
      */
     public Condition createCon(Player p, int row, String c){
         //TEMP debug
-        Bukkit.broadcastMessage(c + "row: "+ String.valueOf(row));
-
+        Bukkit.broadcastMessage(c + ", row: "+ String.valueOf(row));
         Condition con =  new Condition(p, row, c, plugin.getSettings().getConInterval(c));
         ArrayList<Condition> conList;
         if(cons.containsKey(p)){

@@ -42,10 +42,10 @@ public class UpdateChecker {
 		}
 		if (!checkHigher(currentVersion, version)) {
 			plugin.getLogger().info("You are running the most recent version!");
-			plugin.update = true;
+			plugin.update = false;
 		} else {
 			plugin.getLogger().info("There is an update aviable!");
-			plugin.update = false;
+			plugin.update = true;
 		}
 	}
 

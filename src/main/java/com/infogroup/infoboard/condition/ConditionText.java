@@ -11,19 +11,19 @@ public class ConditionText {
     private static InfoBoardReborn plugin = InfoBoardReborn.getPlugin(InfoBoardReborn.class);
 
     public static void change(Player player){
-       if(plugin.getSettings().isWorldDisabled(player.getWorld().getName())
+       if(!plugin.getSettings().isWorldDisabled(player.getWorld().getName())
                && !plugin.hidefrom.contains(player.getName())
                && ((player.getScoreboard().getObjective(DisplaySlot.SIDEBAR) == null) || player.getScoreboard()
                .getObjective(DisplaySlot.SIDEBAR).getName().equalsIgnoreCase("InfoBoard")) ) {
+
            if (plugin.getCM().getCons(player) != null) {
+               Bukkit.broadcastMessage("size: " + plugin.getCM().getCons(player).size());
                for (Condition con : plugin.getCM().getCons(player)) {
                    try {
-                       Bukkit.broadcastMessage("Success in check ");
                        // Check if the condition has changed
-                       con.change(player);
-                       Bukkit.broadcastMessage("Success in trying toc change ");
+                       con.check(player);
                        String newLine = con.getMessage();
-                       Bukkit.broadcastMessage("Success in getting msg ");
+                       Bukkit.broadcastMessage("Success in getting msg "+ newLine);
 
                        Board board = new Board(player);
                        newLine = plugin.getMessages().getLine(newLine, player);
@@ -39,7 +39,7 @@ public class ConditionText {
                try {
                    Condition con = plugin.getCM().getTitleCon(player);
                    // Check if the condition has changed
-                   con.change(player);
+                   con.check(player);
                    String newLine = con.getMessage();
 
                    Board board = new Board(player);
@@ -50,7 +50,7 @@ public class ConditionText {
 
                    }
                }
-            }else {
+            } else {
              plugin.getCM().reset(player);
             }
         }

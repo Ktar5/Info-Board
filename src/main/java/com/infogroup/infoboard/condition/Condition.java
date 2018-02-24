@@ -35,23 +35,27 @@ public class Condition {
          * =========================================================================
          */
         //TODO TIMER works?
-        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this.plugin, () -> ConditionText.change(p), 0, (long) this.interval * 20);
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this.plugin, () -> {
+            ConditionText.change(p);
+            Bukkit.broadcastMessage("Timer works");
+            }, 0, (long) (this.interval * 20));
     }
 
     /**
      *
      * @param player
      */
-    public void change(Player player){
+    public void check(Player player){
         //TODO TEST and FIX
        String newCheck = GetVariables.replaceVariables(this.check, player);
+       Bukkit.broadcastMessage("Check: "+ newCheck);
        for(String s : this.answers){
            if(s.contains("%")){
             s = GetVariables.replaceVariables(s, player);
            }
            if(s.equals(newCheck)){
                this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon() + ".answer." + s);
-           }else{
+           } else {
                this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon() + ".answer.default");
            }
        }

@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 public class UpdateChecker {
 	public InfoBoardReborn plugin;
-//TODO fix update available when not
+//TODO test if update always available is fixed
 	public UpdateChecker(InfoBoardReborn pl) {
 		plugin = pl;
 	}
@@ -44,7 +44,7 @@ public class UpdateChecker {
 			plugin.getLogger().info("You are running the most recent version!");
 			plugin.update = false;
 		} else {
-			plugin.getLogger().info("There is an update aviable!");
+			plugin.getLogger().info("There is an update available!");
 			plugin.update = true;
 		}
 	}

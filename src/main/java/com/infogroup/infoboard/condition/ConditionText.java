@@ -17,13 +17,12 @@ public class ConditionText {
                .getObjective(DisplaySlot.SIDEBAR).getName().equalsIgnoreCase("InfoBoard")) ) {
 
            if (plugin.getCM().getCons(player) != null) {
-               Bukkit.broadcastMessage("size: " + plugin.getCM().getCons(player).size());
                for (Condition con : plugin.getCM().getCons(player)) {
                    try {
                        // Check if the condition has changed
                        con.check(player);
                        String newLine = con.getMessage();
-                       Bukkit.broadcastMessage("Success in getting msg "+ newLine);
+                       Bukkit.broadcastMessage("Success in getting msg: "+ newLine);
 
                        Board board = new Board(player);
                        newLine = plugin.getMessages().getLine(newLine, player);

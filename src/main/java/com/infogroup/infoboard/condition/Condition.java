@@ -42,7 +42,7 @@ public class Condition {
      * @param player
      */
     public void check(Player player){
-        //TODO TEST and FIX
+        //TODO FIX
        String newCheck = GetVariables.replaceVariables(this.check, player);
        for(String s : this.answers){
            if(s.contains("%")){

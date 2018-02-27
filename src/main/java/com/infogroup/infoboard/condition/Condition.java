@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Condition {
     private InfoBoardReborn plugin = InfoBoardReborn.getPlugin(InfoBoardReborn.class);
@@ -13,6 +14,7 @@ public class Condition {
     private String msg, con, check;
     private Integer row, interval;
     private ArrayList<String> answers;
+    private HashMap<String, String> answer;
 
     /**
      *
@@ -26,7 +28,8 @@ public class Condition {
         this.interval = interval;
         this.con = con;
         this.check = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".check");
-        this.answers =  plugin.getSettings().getConText(con);
+      //  this.answers =  plugin.getSettings().getConText(con);
+        this.answer = plugin.getSettings().getConFull(con);
         this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".answer.default");
 
         /*
@@ -44,17 +47,26 @@ public class Condition {
     public void check(Player player){
         //TODO TEST and FIX
        String newCheck = GetVariables.replaceVariables(this.check, player);
-       for(String s : this.answers){
+      /* for(String s : this.answers){
            if(s.contains("%")){
             s = GetVariables.replaceVariables(s, player);
            }
            Bukkit.broadcastMessage(s);
            if(s.equals(newCheck)){
-               this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon() + ".answer." + s);
+                this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon() + ".answer." + s);
            } else {
                this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon() + ".answer.default");
            }
-       }
+       }*/
+      Bukkit.broadcastMessage("size: "+this.answer.size());
+      for (String s : this.answer.keySet()){
+          Bukkit.broadcastMessage(s);
+          if(s.contains("%")){
+              s = GetVariables.replaceVariables(s, player);
+          }
+
+      }
+
     }
 
     /**

@@ -58,7 +58,6 @@ public class Timers {
                         Create.createScoreBoard(p);
                     }
                 }
-
             }
             time++;
         }, 0, 20);
@@ -118,7 +117,6 @@ public class Timers {
                     plugin.getUC().checkUpdate(plugin.pdfFile.getVersion());
                 } catch (Exception e) {
                     plugin.logger.warning("Failed to check for updates, because: " + e);
-
                 }
             }, 0, 3600 * 20);
 		}
@@ -129,7 +127,6 @@ public class Timers {
 		time = 0;
 		rotation = 1;
 		showtime = plugin.getFm().getFile("board").getInt("InfoBoard." + String.valueOf(rotation) + ".ShowTime");
-
 		Bukkit.getScheduler().cancelTasks(plugin);
 	}
 

@@ -1,6 +1,7 @@
 package com.infogroup.infoboard.utils;
 
 import com.infogroup.infoboard.InfoBoardReborn;
+import org.bukkit.Bukkit;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -227,7 +228,8 @@ public class Settings {
 	public HashMap<String, String> getConFull(String condition){
         HashMap<String, String> answers = new HashMap<>();
         for (String s: plugin.getFm().getFile("config").getStringList("Conditions.condition." + condition )){
-            answers.put(s, plugin.getFm().getFile("config").getString("Conditions.condition." + condition + "." + s));
+			Bukkit.broadcastMessage(s);
+            answers.put(s, plugin.getFm().getFile("config").getString("Conditions.condition." + condition + "." + s ));
         }
         return answers;
 

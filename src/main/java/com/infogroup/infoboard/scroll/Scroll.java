@@ -6,7 +6,7 @@ import org.bukkit.ChatColor;
 public class Scroll {
 	private InfoBoardReborn plugin;
 	private String message;
-	private String origionalMessage;
+	private String originalMessage;
 
 	private ChatColor color = ChatColor.RESET;
 
@@ -26,7 +26,7 @@ public class Scroll {
 		this.plugin = plugin;
 		this.row = row;
 		this.width = width;
-		this.origionalMessage = message;
+		this.originalMessage = message;
 		StringBuilder builder = new StringBuilder(message);
 		while (builder.length() <= (width * 2)) {
 			builder.append("          ").append(message);
@@ -80,7 +80,7 @@ public class Scroll {
 			position++;
 			pause = 0;
 
-			if (position == (origionalMessage.length() + 10)) {
+			if (position == (originalMessage.length() + 10)) {
 				position = 0;
 			}
 		}

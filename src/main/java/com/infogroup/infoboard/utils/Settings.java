@@ -225,11 +225,17 @@ public class Settings {
 		return answers;
 	}
 
+	/**
+	 *
+	 * @param condition
+	 * @return
+	 */
 	public HashMap<String, String> getConFull(String condition){
         HashMap<String, String> answers = new HashMap<>();
-        for (String s: plugin.getFm().getFile("config").getStringList("Conditions.condition." + condition )){
+        for (String s: plugin.getFm().getFile("config").getStringList("Condition.Conditions." + condition + ".answer" )){
+            // plugin.getFm().getFile("config").getMapList("Condition.Conditions." + condition + ".answer");
 			Bukkit.broadcastMessage(s);
-            answers.put(s, plugin.getFm().getFile("config").getString("Conditions.condition." + condition + "." + s ));
+            answers.put(s, plugin.getFm().getFile("config").getString("Condition.Conditions." + condition + ".answer." + s ));
         }
         return answers;
 

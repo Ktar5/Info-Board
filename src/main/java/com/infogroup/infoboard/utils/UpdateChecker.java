@@ -10,9 +10,8 @@ import java.net.URL;
 import java.util.regex.Pattern;
 
 public class UpdateChecker {
-	public InfoBoardReborn plugin;
+	private InfoBoardReborn plugin;
 //TODO test if update always available is fixed
-	//TODO Fix nullpointerexeption
 	public UpdateChecker(InfoBoardReborn pl) {
 		plugin = pl;
 	}
@@ -59,7 +58,7 @@ public class UpdateChecker {
 	private String getVersion(String key, int resourceId) {
 		String version = null;
 		try {
-			HttpURLConnection con = (HttpURLConnection) new URL("http://www.spigotmc.org/api/general.php")
+			HttpURLConnection con = (HttpURLConnection) new URL("https://www.spigotmc.org/api/general.php")
 					.openConnection();
 			con.setDoOutput(true);
 			con.setRequestMethod("POST");

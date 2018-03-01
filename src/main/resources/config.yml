@@ -71,12 +71,12 @@ Condition:
   Enabled: false
   Conditions:
     temp:
-      check: "%player_health%"
+      check: "%player_health_rounded%"
       answer:
-        '20,0': "full health"
-        '10,0': "half health"
-        '1,0': "close to death"
-        '0,0': "dead"
+        '20': "full health"
+        '10': "half health"
+        '1': "close to death"
+        '0': "dead"
         default: "still alive"
       interval: 1
   

@@ -69,7 +69,6 @@ public class Create {
             }
             List<String> conditions = plugin.getSettings().getConditions();
 
-
             // Now we go to the title setting method thats down below
             board.setTitle(plugin.getMessages().getTitle(player, worldName, rankName));
 

@@ -2,7 +2,6 @@ package com.infogroup.infoboard.condition;
 
 import com.infogroup.infoboard.InfoBoardReborn;
 import com.infogroup.infoboard.scoreboard.Board;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
 
@@ -22,7 +21,7 @@ public class ConditionText {
                        // Check if the condition has changed
                        con.check(player);
                        String newLine = con.getMessage();
-                       Bukkit.broadcastMessage("Success in getting msg: "+ newLine);
+                      // Bukkit.broadcastMessage("Success in getting msg: "+ newLine);
 
                        Board board = new Board(player);
                        newLine = plugin.getMessages().getLine(newLine, player);
@@ -49,9 +48,9 @@ public class ConditionText {
 
                    }
                }
-            } else {
-             plugin.getCM().reset(player);
-            }
+           } else {
+               plugin.getCM().reset(player);
+           }
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.infogroup.infoboard.changeable;
 
 import com.infogroup.infoboard.InfoBoardReborn;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -9,10 +8,9 @@ import java.util.ArrayList;
 public class Changeable {
 	private InfoBoardReborn plugin = InfoBoardReborn.getPlugin(InfoBoardReborn.class);
 	
-	private int counter = 0;
+	private int counter, count = 0;
 	private String message;
-	private int row;
-	private int interval;
+	private int row, interval;
 	private ArrayList<String> lines;
 
 	/**
@@ -33,10 +31,24 @@ public class Changeable {
 		 * CHANGEABLE TEXT UPDATES VALUE
 		 * =========================================================================
 		 */
-		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> ChangeableText.change(p), 0, (long) this.interval * 20);
+	//	Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> ChangeableText.change(p), 0, (long) this.interval * 20);
 
 	}
 
+    /**
+     *
+     */
+
+    public void add(){
+        if (count != interval){
+            this.count++;
+        } else {
+            this.count =0;
+            this.next();
+        }
+
+
+    }
 	/**
 	 * Gets the row
 	 * 

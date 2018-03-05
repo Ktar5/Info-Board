@@ -11,7 +11,7 @@ public class Leave implements Listener {
     private InfoBoardReborn plugin;
 
     public Leave(InfoBoardReborn plugin) { this.plugin = plugin; }
-
+// TODO keep or remove ?
     @EventHandler
     public void Leave(PlayerQuitEvent event){
         Player player = event.getPlayer();

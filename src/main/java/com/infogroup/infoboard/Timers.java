@@ -1,10 +1,13 @@
 package com.infogroup.infoboard;
 
+import com.infogroup.infoboard.changeable.Changeable;
 import com.infogroup.infoboard.scoreboard.Create;
 import com.infogroup.infoboard.scoreboard.Update;
 import com.infogroup.infoboard.scroll.ScrollText;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
 
 public class Timers {
 	private int showtime;
@@ -120,6 +123,33 @@ public class Timers {
                 }
             }, 0, 3600 * 20);
 		}
+        /*
+         * =========================================================================
+         * Changeable timer
+         * =========================================================================
+         */
+        if(plugin.getSettings().changeableTextEnabled()){
+            Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
+                for(Player p : Bukkit.getOnlinePlayers()){
+                    ArrayList<Changeable> changeables = plugin.getCHM().getChangeables(p);
+                    for(Changeable ch: changeables){
+                        ch.add();
+                    }
+                }
+            },0, 20);
+        }
+        /*
+         * =========================================================================
+         * Condition timer
+         * =========================================================================
+         */
+        if(plugin.getSettings().conditionsEnabled()){
+            Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
+                for(Player p : Bukkit.getOnlinePlayers()){
+                  
+                }
+            },0, 20);
+        }
 
 	}
 

@@ -1,6 +1,7 @@
 package com.infogroup.infoboard;
 
 import com.infogroup.infoboard.changeable.Changeable;
+import com.infogroup.infoboard.condition.Condition;
 import com.infogroup.infoboard.scoreboard.Create;
 import com.infogroup.infoboard.scoreboard.Update;
 import com.infogroup.infoboard.scroll.ScrollText;
@@ -146,7 +147,10 @@ public class Timers {
         if(plugin.getSettings().conditionsEnabled()){
             Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
                 for(Player p : Bukkit.getOnlinePlayers()){
-                  
+                  ArrayList<Condition> conditions = plugin.getCM().getCons(p);
+                  for(Condition con : conditions){
+                      //TODO finish
+                  }
                 }
             },0, 20);
         }

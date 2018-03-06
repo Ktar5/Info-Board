@@ -35,15 +35,11 @@ public class Changeable {
 
 	}
 
-    /**
-     *
-     */
-
     public void add(){
         if (count != interval){
             this.count++;
         } else {
-            this.count =0;
+            this.count = 0;
             this.next();
         }
 
@@ -55,7 +51,7 @@ public class Changeable {
 	 * @return row (Integer)
 	 */
 	public int getRow() {
-		return row;
+		return this.row;
 	}
 
 	/**
@@ -64,7 +60,7 @@ public class Changeable {
 	 * @return message (String)
 	 */
 	public String getMessage() {
-		return message;
+		return this.message;
 	}
 
 	/**
@@ -72,20 +68,18 @@ public class Changeable {
 	 */
 	public void next() {
 		if (lines.size() == counter) {
-			counter = 0;
+			this.counter = 0;
 		} else {
-			message = lines.get(counter);
-			counter++;
+			this.message = this.lines.get(counter);
+			this.counter++;
 		}
 	}
 
 	/**
 	 * Gets the changeable interval
-	 * 
-	 * @return interval (Integer)
+     *
+	 * @return Integer
 	 */
-	public int getInterval() {
-		return interval;
-	}
+	public int getInterval() {	return interval; }
 
 }

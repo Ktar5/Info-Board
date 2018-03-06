@@ -26,10 +26,10 @@
 # |                                Condition                                  |
 # |                      Use like: <condition_<variable>>                     |
 # |                         Enabled: enable or disable                        |
+# |              Interval: how fast you want to check in seconds              |
 # |                   Conditions: Custom condition variables                  |
 # |                       Check: variable you check for                       |
 # |                  Answer: possible answers on the check                    |
-# |             Interval: how fast you want to check in seconds               |
 # =============================================================================
 Updater: true
 Debug: false
@@ -69,6 +69,7 @@ Changeable Text:
 
 Condition:
   Enabled: false
+  Interval: 1
   Conditions:
     temp:
       check: "%player_health_rounded%"
@@ -78,5 +79,4 @@ Condition:
         '1': "close to death"
         '0': "dead"
         default: "still alive"
-      interval: 1
   

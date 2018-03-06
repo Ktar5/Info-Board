@@ -150,9 +150,10 @@ public class Timers {
                   ArrayList<Condition> conditions = plugin.getCM().getCons(p);
                   for(Condition con : conditions){
                       //TODO finish
+                      con.check(p);
                   }
                 }
-            },0, 20);
+            },0, (long) (plugin.getSettings().getConditionsInterval() * 20));
         }
 
 	}

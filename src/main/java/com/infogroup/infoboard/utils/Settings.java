@@ -211,6 +211,13 @@ public class Settings {
 	    return plugin.getFm().getFile("config").getInt("Condition.Conditions." + con +". interval");
     }
 
+    /**
+     *
+     * @return
+     */
+    public Integer getConditionsInterval(){
+        return plugin.getFm().getFile("config").getInt("Condition.Interval");
+    }
 	/**
 	 *
 	 * @param condition

@@ -2,7 +2,6 @@ package com.infogroup.infoboard.condition;
 
 import com.infogroup.infoboard.GetVariables;
 import com.infogroup.infoboard.InfoBoardReborn;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -13,6 +12,7 @@ public class Condition {
 
     private String msg, con, check;
     private Integer row, interval;
+    private Integer count = 0;
     private ArrayList<String> answers;
     private HashMap<String, String> answer;
 
@@ -28,7 +28,7 @@ public class Condition {
         this.interval = interval;
         this.con = con;
         this.check = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".check");
-        this.answers =  plugin.getSettings().getConText(con);
+        this.answers = plugin.getSettings().getConText(con);
         this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".answer.default");
 
         /*
@@ -36,8 +36,17 @@ public class Condition {
          * CHANGEABLE TEXT UPDATES VALUE
          * =========================================================================
          */
-        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this.plugin, () ->   ConditionText.change(p), 0, (long) (this.interval * 20));
+       // Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this.plugin, () ->   ConditionText.change(p), 0, (long) (this.interval * 20));
     }
+//TEMP
+    public void add(Player player){
+        if(this.count != this.interval){
+            count++;
+        }else{
+            this.check(player);
+        }
+    }
+
 
     /**
      *

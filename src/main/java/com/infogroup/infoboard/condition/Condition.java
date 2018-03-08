@@ -40,10 +40,11 @@ public class Condition {
     }
 //TEMP
     public void add(Player player){
-        if(this.count != this.interval){
-            count++;
+        if(count != this.interval){
+           this.count++;
         }else{
             this.check(player);
+            this.count = 0;
         }
     }
 
@@ -53,8 +54,8 @@ public class Condition {
      * @param player
      */
     public void check(Player player){
-        //TODO FIX
        String newCheck = GetVariables.replaceVariables(this.check, player);
+       //TODO FIX
        for(String s : this.answers){
            if(s.contains("%")) {
                s = GetVariables.replaceVariables(s, player);

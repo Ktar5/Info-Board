@@ -5,7 +5,6 @@ import com.infogroup.infoboard.api.WorldGuard;
 import com.infogroup.infoboard.changeable.ChangeableManager;
 import com.infogroup.infoboard.condition.ConditionManager;
 import com.infogroup.infoboard.events.ChangeWorld;
-import com.infogroup.infoboard.events.Leave;
 import com.infogroup.infoboard.events.PlayerJoin;
 import com.infogroup.infoboard.scroll.ScrollManager;
 import com.infogroup.infoboard.utils.*;
@@ -60,8 +59,12 @@ public class InfoBoardReborn extends JavaPlugin {
         getCommand("InfoBoardReborn").setExecutor(new Commands(this));
 
         if (settings.changeableTextEnabled()) {
-            logger.info("Feature: changeable Text is enabled!");
-            logger.info(settings.getChangeable().size() + " changeable(s) loaded");
+            logger.info("Feature: Changeable Text is enabled!");
+            logger.info(settings.getChangeable().size() + " changeable(s) loaded.");
+        }
+        if (settings.conditionsEnabled()){
+            logger.info("Feature: Condition is enabled!");
+            logger.info(settings.getConditions().size() + " condition(s) loaded.");
         }
         if (settings.scrollingEnabled()) {
             logger.info("Feature: Scrolling is enabled!");
@@ -89,8 +92,6 @@ public class InfoBoardReborn extends JavaPlugin {
 
         pm.registerEvents(new ChangeWorld(this), this);
         pm.registerEvents(new PlayerJoin(this), this);
-        //keep?
-        pm.registerEvents(new Leave(this), this);
     }
 
     private void loadMetrics() {
@@ -98,13 +99,13 @@ public class InfoBoardReborn extends JavaPlugin {
         metrics.addCustomChart(new Metrics.SimpleBarChart("features", () -> {
             Map<String, Integer> map = new HashMap<>();
             if (settings.changeableTextEnabled()) {
-                map.put("Changeables", 1);
+                map.put("Changeable", 1);
             }
             if (settings.scrollingEnabled()) {
                 map.put("Scroll", 1);
             }
             if (settings.conditionsEnabled()) {
-                map.put("Conditions", 1);
+                map.put("Condition", 1);
             }
             return map;
         }));

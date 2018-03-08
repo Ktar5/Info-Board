@@ -145,7 +145,7 @@ public class Timers {
             Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
                 for(Player p : Bukkit.getOnlinePlayers()){
                   for(Condition con : plugin.getCM().getCons(p)){
-                      //TODO finish
+                      //TODO test
                       con.check(p);
                   }
                 }

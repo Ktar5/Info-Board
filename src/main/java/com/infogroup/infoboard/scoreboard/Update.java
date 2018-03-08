@@ -140,7 +140,7 @@ public class Update {
 	 * @param s
 	 * @return true/false (boolean)
 	 */
-	public static boolean updateTitle(Player player, String s) {
+	public static boolean updateTitle(Player player) {
 		//TODO Finish
 		return true;
 	}

@@ -89,6 +89,7 @@ public class InfoBoardReborn extends JavaPlugin {
 
         pm.registerEvents(new ChangeWorld(this), this);
         pm.registerEvents(new PlayerJoin(this), this);
+        //keep?
         pm.registerEvents(new Leave(this), this);
     }
 
@@ -101,6 +102,9 @@ public class InfoBoardReborn extends JavaPlugin {
             }
             if (settings.scrollingEnabled()) {
                 map.put("Scroll", 1);
+            }
+            if (settings.conditionsEnabled()) {
+                map.put("Conditions", 1);
             }
             return map;
         }));

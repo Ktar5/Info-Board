@@ -71,7 +71,7 @@ Condition:
   Enabled: false
   Interval: 1
   Conditions:
-    temp:
+    health:
       check: "%player_health_rounded%"
       answer:
         '20': "full health"

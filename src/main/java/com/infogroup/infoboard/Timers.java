@@ -8,8 +8,6 @@ import com.infogroup.infoboard.scroll.ScrollText;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
-
 public class Timers {
 	private int showtime;
 	private int time;
@@ -87,7 +85,7 @@ public class Timers {
             // TODO finish
             for (Player p : Bukkit.getOnlinePlayers()) {
                 if (p.hasPermission("ibr.View")) {
-                    Update.updateTitle(p, "test");
+                    Update.updateTitle(p);
                 }
             }
 
@@ -132,8 +130,7 @@ public class Timers {
         if(plugin.getSettings().changeableTextEnabled()){
             Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
                 for(Player p : Bukkit.getOnlinePlayers()){
-                    ArrayList<Changeable> changeables = plugin.getCHM().getChangeables(p);
-                    for(Changeable ch: changeables){
+                    for(Changeable ch: plugin.getCHM().getChangeables(p)){
                         ch.add();
                     }
                 }
@@ -147,8 +144,7 @@ public class Timers {
         if(plugin.getSettings().conditionsEnabled()){
             Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
                 for(Player p : Bukkit.getOnlinePlayers()){
-                  ArrayList<Condition> conditions = plugin.getCM().getCons(p);
-                  for(Condition con : conditions){
+                  for(Condition con : plugin.getCM().getCons(p)){
                       //TODO finish
                       con.check(p);
                   }

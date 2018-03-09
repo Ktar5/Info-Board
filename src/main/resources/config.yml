@@ -1,4 +1,4 @@
-# InfoBoardReborn Config, Last Edited in v2.1.0
+# InfoBoardReborn Config, Last Edited in v2.0.3
 # =============================================================================
 # |                     Updater: Checks for updates on enable                 |
 # |           Debug: Gives extra info on plugin (cmds/startup/errors)         |
@@ -66,7 +66,7 @@ Changeable Text:
       - '&a%player_x%&7, &a%player_y%&7, &a%player_z%'
       - '&l%player_first_join_date%'
       interval: 1
-
+# Comming soon!
 Condition:
   Enabled: false
   Interval: 1

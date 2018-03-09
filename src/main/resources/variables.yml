@@ -13,19 +13,12 @@
 # BungeeCord, EZRanksPro, MVdW (not recommended), SkyFreeze, FactionsUUID, Multiverse, GangPlus,
 # PowerfulPerms, Reputation, Thirst, Guilds, VotingPlugin, ListPlayers, LuckPerms, MySQL, onetimeitem, 
 # GemsEconomy, Server, ProVotes, xpboost, CraftEconomy, UltimateVotes, Tokenenchant, Javascript, 
-# deenchantment, acl, and a lot more...
+# deenchantment, acl, GriefPrevention, and a lot more...
 #
 #
 # Plugin Placeholders that are not support by PlaceHolderAPI:
 # (If the become supported I will update this file)
 #
-# ######################################################
-# +--------------------------------------------------+ #
-# |               GriefPrevention                    | #
-# |  dev.bukkit.org/bukkit-plugins/grief-prevention/ | #
-# +--------------------------------------------------+ #
-# ######################################################
-# Spigot expansion link: https://www.spigotmc.org/resources/griefprevention-expansion.44640/
 #
 # ######################################################
 # +--------------------------------------------------+ #

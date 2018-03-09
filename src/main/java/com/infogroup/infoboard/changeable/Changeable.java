@@ -34,7 +34,7 @@ public class Changeable {
 	//	Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> ChangeableText.change(p), 0, (long) this.interval * 20);
 
 	}
-
+//TODO TEST
     public void add(Player p){
         if (count != interval){
             this.count++;

@@ -128,6 +128,7 @@ public class Timers {
          * =========================================================================
          */
         if(plugin.getSettings().changeableTextEnabled()){
+            //TODO TEST
             Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
                 for(Player p : Bukkit.getOnlinePlayers()){
                     for(Changeable ch: plugin.getCHM().getChangeables(p)){
@@ -142,10 +143,10 @@ public class Timers {
          * =========================================================================
          */
         if(plugin.getSettings().conditionsEnabled()){
+            //TODO TEST
             Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
                 for(Player p : Bukkit.getOnlinePlayers()){
                   for(Condition con : plugin.getCM().getCons(p)){
-                      //TODO test
                       con.check(p);
                   }
                 }

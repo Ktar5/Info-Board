@@ -19,7 +19,7 @@ public class ChangeableText {
 				for (Changeable ch : plugin.getCHM().getChangeables(player)) {
 					try {
 						// Move changeable over one, and add the new line
-						ch.next();
+                        ch.add(player);
 						String newLine = ch.getMessage();
 
 						newLine = plugin.getMessages().getLine(newLine, player);
@@ -36,7 +36,7 @@ public class ChangeableText {
 				try {
 					Changeable ch = plugin.getCHM().getChangeableTitle(player);
 					// Move changeable over one, and add the new line
-					ch.next();
+                    ch.add(player);
 					String newLine = ch.getMessage();
 
 					newLine = plugin.getMessages().getLine(newLine, player);
@@ -54,4 +54,8 @@ public class ChangeableText {
 
 	}
 
+    public static void add(Player player) {
+
+
+    }
 }

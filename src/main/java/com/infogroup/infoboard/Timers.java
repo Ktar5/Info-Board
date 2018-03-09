@@ -1,7 +1,7 @@
 package com.infogroup.infoboard;
 
 import com.infogroup.infoboard.changeable.Changeable;
-import com.infogroup.infoboard.condition.Condition;
+import com.infogroup.infoboard.changeable.ChangeableText;
 import com.infogroup.infoboard.condition.ConditionText;
 import com.infogroup.infoboard.scoreboard.Create;
 import com.infogroup.infoboard.scoreboard.Update;
@@ -133,8 +133,8 @@ public class Timers {
                 for(Player p : Bukkit.getOnlinePlayers()){
                     for(Changeable ch: plugin.getCHM().getChangeables(p)){
                         //TODO Fix NULL because player doesn't have the condition in his board
-                        ConditionText.change(p);
-                      //  ch.add(p);
+                        ChangeableText.change(p);
+                        //ch.add(p);
                     }
                 }
             },0, 20);
@@ -148,9 +148,7 @@ public class Timers {
             //TODO TEST
             Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
                 for(Player p : Bukkit.getOnlinePlayers()){
-                  for(Condition con : plugin.getCM().getCons(p)){
-                      con.check(p);
-                  }
+                    ConditionText.change(p);
                 }
             },0, 20);
         }

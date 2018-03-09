@@ -36,11 +36,11 @@ public class Changeable {
 	}
 //TODO TEST
     public void add(Player p){
-        if (count != interval){
+        if (count != interval && count < interval) {
             this.count++;
         } else {
             this.count = 0;
-			ChangeableText.change(p);
+            this.next();
         }
 
 

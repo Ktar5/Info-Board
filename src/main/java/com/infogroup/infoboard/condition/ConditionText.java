@@ -19,14 +19,18 @@ public class ConditionText {
            if (plugin.getCM().getCons(player) != null) {
                for (Condition con : plugin.getCM().getCons(player)) {
                    try {
-                       // Check if the condition has changed
-                       con.add(player);
-                       String newLine = con.getMessage();
-                      // Bukkit.broadcastMessage("Success in getting msg: "+ newLine);
+                       if (con.getCount() == con.getInterval()) {
+                           // Check if the condition has changed
+                           con.check(player);
+                           String newLine = con.getMessage();
+                           // Bukkit.broadcastMessage("Success in getting msg: "+ newLine);
 
-                       newLine = plugin.getMessages().getLine(newLine, player);
-                       Board board = new Board(player);
-                       board.update(newLine, con.getRow());
+                           newLine = plugin.getMessages().getLine(newLine, player);
+                           Board board = new Board(player);
+                           board.update(newLine, con.getRow());
+                       } else {
+                           con.addCount();
+                       }
                    } catch (Exception ex) {
                         if(plugin.getSettings().debug()){
                             Bukkit.getConsoleSender().sendMessage("Could not recheck condition, because: "+ ex);
@@ -38,7 +42,7 @@ public class ConditionText {
                try {
                    Condition con = plugin.getCM().getTitleCon(player);
                    // Check if the condition has changed
-                   con.add(player);
+                   con.check(player);
                    String newLine = con.getMessage();
 
                    newLine = plugin.getMessages().getLine(newLine, player);

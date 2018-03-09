@@ -36,16 +36,6 @@ public class Condition {
          */
        // Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this.plugin, () ->   ConditionText.change(p), 0, (long) (this.interval * 20));
     }
-//TEMP
-    public void add(Player p){
-        if(count != this.interval){
-           this.count++;
-        }else{
-            ConditionText.change(p);
-            this.count = 0;
-        }
-    }
-
 
     /**
      *
@@ -84,4 +74,22 @@ public class Condition {
      * @return
      */
     public Integer getRow(){ return this.row; }
+
+    /**
+     * @return
+     */
+    public Integer getInterval() {
+        return this.interval;
+    }
+
+    /**
+     * @return
+     */
+    public Integer getCount() {
+        return this.count;
+    }
+
+    public void addCount() {
+        this.count++;
+    }
 }

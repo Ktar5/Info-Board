@@ -50,8 +50,8 @@ WorldGuard:
 
 Update Time:
   Lines: 0.5
-# Comming soon!
-#  Title: 0.5
+#Comming soon!
+# Title: 0.5
 
 Scrolling Text:
   Enable: false
@@ -66,10 +66,10 @@ Changeable Text:
       - '&a%player_x%&7, &a%player_y%&7, &a%player_z%'
       - '&l%player_first_join_date%'
       interval: 1
-# Comming soon!
+
+#Comming soon!
 Condition:
   Enabled: false
-  Interval: 1
   Conditions:
     health:
       check: "%player_health_rounded%"
@@ -79,4 +79,5 @@ Condition:
         '1': "close to death"
         '0': "dead"
         default: "still alive"
+      interval: 1
   

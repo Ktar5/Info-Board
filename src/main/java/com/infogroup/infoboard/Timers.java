@@ -131,7 +131,7 @@ public class Timers {
             Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
                 for(Player p : Bukkit.getOnlinePlayers()){
                     for(Changeable ch: plugin.getCHM().getChangeables(p)){
-                        ch.add();
+                        ch.add(p);
                     }
                 }
             },0, 20);

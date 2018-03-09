@@ -5,7 +5,6 @@ import com.infogroup.infoboard.InfoBoardReborn;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Condition {
     private InfoBoardReborn plugin = InfoBoardReborn.getPlugin(InfoBoardReborn.class);
@@ -14,7 +13,6 @@ public class Condition {
     private Integer row, interval;
     private Integer count = 0;
     private ArrayList<String> answers;
-    private HashMap<String, String> answer;
 
     /**
      *
@@ -39,11 +37,11 @@ public class Condition {
        // Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this.plugin, () ->   ConditionText.change(p), 0, (long) (this.interval * 20));
     }
 //TEMP
-    public void add(Player player){
+    public void add(Player p){
         if(count != this.interval){
            this.count++;
         }else{
-            this.check(player);
+            ConditionText.change(p);
             this.count = 0;
         }
     }

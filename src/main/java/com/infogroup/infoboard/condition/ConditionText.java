@@ -2,6 +2,7 @@ package com.infogroup.infoboard.condition;
 
 import com.infogroup.infoboard.InfoBoardReborn;
 import com.infogroup.infoboard.scoreboard.Board;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
 
@@ -26,9 +27,9 @@ public class ConditionText {
                        Board board = new Board(player);
                        newLine = plugin.getMessages().getLine(newLine, player);
                        board.update(newLine, con.getRow());
-                   } catch (Exception ignored) {
+                   } catch (Exception ex) {
                         if(plugin.getSettings().debug()){
-
+                            Bukkit.getConsoleSender().sendMessage("Could not recheck condition, because: "+ ex);
                         }
                    }
                }
@@ -43,9 +44,9 @@ public class ConditionText {
                    Board board = new Board(player);
                    newLine = plugin.getMessages().getLine(newLine, player);
                    board.setTitle(newLine);
-               } catch (Exception ignored) {
+               } catch (Exception ex) {
                    if(plugin.getSettings().debug()){
-
+                       Bukkit.getConsoleSender().sendMessage("Could not recheck condition, because: "+ ex);
                    }
                }
            } else {

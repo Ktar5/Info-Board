@@ -35,12 +35,12 @@ public class Changeable {
 
 	}
 
-    public void add(){
+    public void add(Player p){
         if (count != interval){
             this.count++;
         } else {
             this.count = 0;
-            this.next();
+			ChangeableText.change(p);
         }
 
 

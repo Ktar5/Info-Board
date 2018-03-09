@@ -14,7 +14,6 @@ public class Update {
 
 	public static HashMap<Integer, String> getLines(List<String> list) {
 		HashMap<Integer, String> toAdd = new HashMap<>();
-
 		int i = 0;
 		for (String line : list) {
 			if (!line.equals(" ") && !line.equals("")

@@ -2,6 +2,7 @@ package com.infogroup.infoboard;
 
 import com.infogroup.infoboard.changeable.Changeable;
 import com.infogroup.infoboard.condition.Condition;
+import com.infogroup.infoboard.condition.ConditionText;
 import com.infogroup.infoboard.scoreboard.Create;
 import com.infogroup.infoboard.scoreboard.Update;
 import com.infogroup.infoboard.scroll.ScrollText;
@@ -128,11 +129,12 @@ public class Timers {
          * =========================================================================
          */
         if(plugin.getSettings().changeableTextEnabled()){
-            //TODO TEST
             Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
                 for(Player p : Bukkit.getOnlinePlayers()){
                     for(Changeable ch: plugin.getCHM().getChangeables(p)){
-                        ch.add(p);
+                        //TODO Fix NULL because player doesn't have the condition in his board
+                        ConditionText.change(p);
+                      //  ch.add(p);
                     }
                 }
             },0, 20);
@@ -150,7 +152,7 @@ public class Timers {
                       con.check(p);
                   }
                 }
-            },0, (long) (plugin.getSettings().getConditionsInterval() * 20));
+            },0, 20);
         }
 
 	}

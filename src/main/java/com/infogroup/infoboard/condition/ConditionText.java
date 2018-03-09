@@ -20,7 +20,7 @@ public class ConditionText {
                for (Condition con : plugin.getCM().getCons(player)) {
                    try {
                        // Check if the condition has changed
-                       con.check(player);
+                       con.add(player);
                        String newLine = con.getMessage();
                       // Bukkit.broadcastMessage("Success in getting msg: "+ newLine);
 
@@ -38,7 +38,7 @@ public class ConditionText {
                try {
                    Condition con = plugin.getCM().getTitleCon(player);
                    // Check if the condition has changed
-                   con.check(player);
+                   con.add(player);
                    String newLine = con.getMessage();
 
                    newLine = plugin.getMessages().getLine(newLine, player);

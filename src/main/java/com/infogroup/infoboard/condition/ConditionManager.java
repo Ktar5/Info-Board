@@ -31,7 +31,7 @@ public class ConditionManager {
             conList = new ArrayList<>();
         }
         conList.add(con);
-        cons.put(p, conList);
+        this.cons.put(p, conList);
         return con;
     }
 

@@ -22,8 +22,8 @@ public class ChangeableText {
 						ch.next();
 						String newLine = ch.getMessage();
 
-						Board board = new Board(player);
 						newLine = plugin.getMessages().getLine(newLine, player);
+						Board board = new Board(player);
 						board.update(newLine, ch.getRow());
 					} catch (Exception ex) {
 						if(plugin.getSettings().debug()){
@@ -33,15 +33,14 @@ public class ChangeableText {
 				}
 			}
 			if (plugin.getCHM().getChangeableTitle(player) != null) {
-
 				try {
 					Changeable ch = plugin.getCHM().getChangeableTitle(player);
 					// Move changeable over one, and add the new line
 					ch.next();
 					String newLine = ch.getMessage();
 
-					Board board = new Board(player);
 					newLine = plugin.getMessages().getLine(newLine, player);
+					Board board = new Board(player);
 					board.setTitle(newLine);
 				} catch (Exception ex) {
 					if(plugin.getSettings().debug()){

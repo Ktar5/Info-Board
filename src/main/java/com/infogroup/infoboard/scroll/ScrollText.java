@@ -23,7 +23,6 @@ public class ScrollText {
 						String newLine = sc.getMessage();
 
 						Board board = new Board(player);
-
 						board.update(newLine, sc.getRow());
 					} catch (Exception ex) {
 						if(plugin.getSettings().debug()){
@@ -42,7 +41,6 @@ public class ScrollText {
 					String newLine = sc.getMessage();
 
 					Board board = new Board(player);
-
 					board.setTitle(newLine);
 				} catch (Exception ex) {
 					if(plugin.getSettings().debug()){
@@ -50,7 +48,6 @@ public class ScrollText {
 					}
 				}
 			}
-
 		} else {
 			plugin.getSM().reset(player);
 		}

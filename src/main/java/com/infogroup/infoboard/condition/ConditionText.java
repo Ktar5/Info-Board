@@ -24,8 +24,8 @@ public class ConditionText {
                        String newLine = con.getMessage();
                       // Bukkit.broadcastMessage("Success in getting msg: "+ newLine);
 
-                       Board board = new Board(player);
                        newLine = plugin.getMessages().getLine(newLine, player);
+                       Board board = new Board(player);
                        board.update(newLine, con.getRow());
                    } catch (Exception ex) {
                         if(plugin.getSettings().debug()){
@@ -41,8 +41,8 @@ public class ConditionText {
                    con.check(player);
                    String newLine = con.getMessage();
 
-                   Board board = new Board(player);
                    newLine = plugin.getMessages().getLine(newLine, player);
+                   Board board = new Board(player);
                    board.setTitle(newLine);
                } catch (Exception ex) {
                    if(plugin.getSettings().debug()){

@@ -53,13 +53,11 @@ public class Scroll {
 			message = message.substring(1, message.length());
 			message = "" + color + message;
 		}
-
 		if (message.charAt(message.length() - 1) == COLORCHAR) {
 			message = message.substring(0, message.length() - 2);
 			message = message + " ";
 		}
 		return message;
-
 	}
 
 	/**
@@ -84,7 +82,5 @@ public class Scroll {
 				position = 0;
 			}
 		}
-
 	}
-
 }

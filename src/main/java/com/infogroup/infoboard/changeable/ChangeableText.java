@@ -2,6 +2,7 @@ package com.infogroup.infoboard.changeable;
 
 import com.infogroup.infoboard.InfoBoardReborn;
 import com.infogroup.infoboard.scoreboard.Board;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
 
@@ -24,8 +25,10 @@ public class ChangeableText {
 						Board board = new Board(player);
 						newLine = plugin.getMessages().getLine(newLine, player);
 						board.update(newLine, ch.getRow());
-					} catch (Exception ignored) {
-
+					} catch (Exception ex) {
+						if(plugin.getSettings().debug()){
+							Bukkit.getConsoleSender().sendMessage("Could not get the next value for Changeable, because: " + ex);
+						}
 					}
 				}
 			}
@@ -40,10 +43,11 @@ public class ChangeableText {
 					Board board = new Board(player);
 					newLine = plugin.getMessages().getLine(newLine, player);
 					board.setTitle(newLine);
-				} catch (Exception ignored) {
-
+				} catch (Exception ex) {
+					if(plugin.getSettings().debug()){
+						Bukkit.getConsoleSender().sendMessage("Could not get the next value for Changeable, because: " + ex);
+					}
 				}
-
 			}
 		} else {
 			plugin.getCHM().reset(player);

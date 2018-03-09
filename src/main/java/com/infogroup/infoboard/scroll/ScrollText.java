@@ -2,6 +2,7 @@ package com.infogroup.infoboard.scroll;
 
 import com.infogroup.infoboard.InfoBoardReborn;
 import com.infogroup.infoboard.scoreboard.Board;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
 
@@ -24,8 +25,10 @@ public class ScrollText {
 						Board board = new Board(player);
 
 						board.update(newLine, sc.getRow());
-					} catch (Exception ignored) {
-
+					} catch (Exception ex) {
+						if(plugin.getSettings().debug()){
+							Bukkit.getConsoleSender().sendMessage("Could not scroll, because: " + ex);
+						}
 					}
 				}
 			}
@@ -41,7 +44,10 @@ public class ScrollText {
 					Board board = new Board(player);
 
 					board.setTitle(newLine);
-				} catch (Exception ignored) {
+				} catch (Exception ex) {
+					if(plugin.getSettings().debug()){
+						Bukkit.getConsoleSender().sendMessage("Could not scroll, because: " + ex);
+					}
 				}
 			}
 

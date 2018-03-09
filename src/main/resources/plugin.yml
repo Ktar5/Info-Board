@@ -10,7 +10,7 @@ softdepend: [ProtocolLib]
 commands:
   InfoBoardReborn:
     usage: /<command> [args]
-    description: The main command for this plugin
+    description: The main command for IBR
     aliases: [ibr, ib, iboard, infob, Infoboard]
     
 permissions:

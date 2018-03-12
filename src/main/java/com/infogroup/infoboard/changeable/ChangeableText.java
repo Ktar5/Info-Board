@@ -29,11 +29,11 @@ public class ChangeableText {
 							ch.resetCount();
 						} else {
 							ch.addCount();
-						//	Bukkit.broadcastMessage("Count: " + ch.getCount());
 						}
 					} catch (Exception ex) {
 						if(plugin.getSettings().debug()){
 							Bukkit.getConsoleSender().sendMessage("Could not get the next value for Changeable, because: " + ex);
+							ex.printStackTrace();
 						}
 					}
 				}
@@ -42,7 +42,7 @@ public class ChangeableText {
 				try {
 					Changeable ch = plugin.getCHM().getChangeableTitle(player);
 					if (ch.getCount() == ch.getInterval()) {
-						// Move changeable over one, and add the new line
+						// Move changeable over one, and add the new title
 						ch.next();
 						String newLine = ch.getMessage();
 

@@ -44,12 +44,12 @@ public class Changeable {
 	 * Moves to the next line
 	 */
 	public void next() {
-		if (lines.size() == counter) {
+		if (counter == (lines.size() - 1)) {
 			this.counter = 0;
 			this.message = this.lines.get(counter);
 		} else {
-			this.message = this.lines.get(counter);
 			this.counter++;
+			this.message = this.lines.get(counter);
 		}
 	}
 
@@ -75,5 +75,5 @@ public class Changeable {
 	/**
 	 * Resets the count
 	 */
-	public void resetCount() { this.count = -1;	}
+	public void resetCount() { this.count = 0;	}
 }

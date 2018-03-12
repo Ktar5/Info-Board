@@ -34,17 +34,6 @@ public class Changeable {
 	//	Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> ChangeableText.change(p), 0, (long) this.interval * 20);
 
 	}
-//TODO TEST
-    public void add(Player p){
-        if (count != interval && count < interval) {
-            this.count++;
-        } else {
-            this.count = 0;
-            this.next();
-        }
-
-
-    }
 	/**
 	 * Gets the row
 	 * 
@@ -82,4 +71,19 @@ public class Changeable {
 	 */
 	public int getInterval() {	return interval; }
 
+	/**
+	 * adds 1 too the count
+	 */
+	public void addCount() {
+		this.count++;
+	}
+
+	/**
+	 * Get's the count
+	 *
+	 * @return Integer
+	 */
+	public int getCount() {
+		return this.count;
+	}
 }

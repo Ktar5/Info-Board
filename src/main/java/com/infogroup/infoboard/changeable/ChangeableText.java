@@ -18,13 +18,17 @@ public class ChangeableText {
 			if (plugin.getCHM().getChangeables(player) != null) {
 				for (Changeable ch : plugin.getCHM().getChangeables(player)) {
 					try {
-						// Move changeable over one, and add the new line
-                        ch.add(player);
-						String newLine = ch.getMessage();
+						if (ch.getCount() == ch.getInterval()) {
+							// Move changeable over one, and add the new line
+							ch.next();
+							String newLine = ch.getMessage();
 
-						newLine = plugin.getMessages().getLine(newLine, player);
-						Board board = new Board(player);
-						board.update(newLine, ch.getRow());
+							newLine = plugin.getMessages().getLine(newLine, player);
+							Board board = new Board(player);
+							board.update(newLine, ch.getRow());
+						} else {
+							ch.addCount();
+						}
 					} catch (Exception ex) {
 						if(plugin.getSettings().debug()){
 							Bukkit.getConsoleSender().sendMessage("Could not get the next value for Changeable, because: " + ex);
@@ -35,13 +39,17 @@ public class ChangeableText {
 			if (plugin.getCHM().getChangeableTitle(player) != null) {
 				try {
 					Changeable ch = plugin.getCHM().getChangeableTitle(player);
-					// Move changeable over one, and add the new line
-                    ch.add(player);
-					String newLine = ch.getMessage();
+					if (ch.getCount() == ch.getInterval()) {
+						// Move changeable over one, and add the new line
+						ch.next();
+						String newLine = ch.getMessage();
 
-					newLine = plugin.getMessages().getLine(newLine, player);
-					Board board = new Board(player);
-					board.setTitle(newLine);
+						newLine = plugin.getMessages().getLine(newLine, player);
+						Board board = new Board(player);
+						board.setTitle(newLine);
+					} else {
+						ch.addCount();
+					}
 				} catch (Exception ex) {
 					if(plugin.getSettings().debug()){
 						Bukkit.getConsoleSender().sendMessage("Could not get the next value for Changeable, because: " + ex);
@@ -53,9 +61,4 @@ public class ChangeableText {
 		}
 
 	}
-
-    public static void add(Player player) {
-
-
-    }
 }

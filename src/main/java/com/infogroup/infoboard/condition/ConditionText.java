@@ -34,6 +34,7 @@ public class ConditionText {
                    } catch (Exception ex) {
                         if(plugin.getSettings().debug()){
                             Bukkit.getConsoleSender().sendMessage("Could not recheck condition, because: "+ ex);
+                            ex.printStackTrace();
                         }
                    }
                }
@@ -56,6 +57,7 @@ public class ConditionText {
                } catch (Exception ex) {
                    if(plugin.getSettings().debug()){
                        Bukkit.getConsoleSender().sendMessage("Could not recheck condition, because: "+ ex);
+                       ex.printStackTrace();
                    }
                }
            } else {

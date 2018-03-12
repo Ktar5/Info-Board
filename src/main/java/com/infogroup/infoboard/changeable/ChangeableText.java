@@ -56,6 +56,7 @@ public class ChangeableText {
 				} catch (Exception ex) {
 					if(plugin.getSettings().debug()){
 						Bukkit.getConsoleSender().sendMessage("Could not get the next value for Changeable, because: " + ex);
+						ex.printStackTrace();
 					}
 				}
 			}

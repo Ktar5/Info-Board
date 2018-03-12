@@ -330,6 +330,24 @@ public class Commands implements CommandExecutor {
 	 * =============================================================================
 	 */
 	public void infoCmd(CommandSender sender) {
+		String SC;
+		if (plugin.getSettings().scrollingEnabled()) {
+			SC = String.valueOf(ChatColor.DARK_GREEN + "" + plugin.getSettings().scrollingEnabled());
+		} else {
+			SC = String.valueOf(ChatColor.DARK_RED + "" + plugin.getSettings().scrollingEnabled());
+		}
+		String CH;
+		if (plugin.getSettings().changeableTextEnabled()) {
+			CH = String.valueOf(ChatColor.DARK_GREEN + "" + plugin.getSettings().changeableTextEnabled());
+		} else {
+			CH = String.valueOf(ChatColor.DARK_RED + "" + plugin.getSettings().changeableTextEnabled());
+		}
+		String C;
+		if (plugin.getSettings().conditionsEnabled()) {
+			C = String.valueOf(ChatColor.DARK_GREEN + "" + plugin.getSettings().conditionsEnabled());
+		} else {
+			C = String.valueOf(ChatColor.DARK_RED + "" + plugin.getSettings().conditionsEnabled());
+		}
 		if (!sender.hasPermission("ibr.Info")) {
 			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("no-permission")));
 		} else {
@@ -338,23 +356,22 @@ public class Commands implements CommandExecutor {
 					+ plugin.getDescription().getVersion() + ChatColor.GOLD + " " + ChatColor.STRIKETHROUGH
 					+ "]========");
 			sender.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Features:");
-			sender.sendMessage("Scrolling Text: " + plugin.getSettings().scrollingEnabled());
-			sender.sendMessage(
-					"" + ChatColor.GOLD + ChatColor.STRIKETHROUGH + "--------------------------------------------");
+			//Scrolling info
+			sender.sendMessage(ChatColor.GOLD + " - Scrolling Text enabled: " + SC);
 			//Conditions info
-			sender.sendMessage("Conditions: " + plugin.getSettings().conditionsEnabled());
+			sender.sendMessage(ChatColor.GOLD + " - Conditions enabled: " + C);
 			if (plugin.getSettings().conditionsEnabled()) {
+				sender.sendMessage(ChatColor.DARK_AQUA + "    Conditions loaded: ");
 				for (String s : plugin.getSettings().getConditions()) {
-					sender.sendMessage(ChatColor.GOLD + s);
+					sender.sendMessage(ChatColor.GREEN + "    " + s);
 				}
 			}
-			sender.sendMessage(
-					"" + ChatColor.GOLD + ChatColor.STRIKETHROUGH + "--------------------------------------------");
 			//Changeables info
-			sender.sendMessage("Changeable Text: " + plugin.getSettings().changeableTextEnabled());
+			sender.sendMessage(ChatColor.GOLD + " - Changeable Text enabled: " + CH);
 			if (plugin.getSettings().changeableTextEnabled()) {
+				sender.sendMessage(ChatColor.DARK_AQUA + "    Changeables loaded: ");
 				for (String s : plugin.getSettings().getChangeable()) {
-					sender.sendMessage(ChatColor.GOLD + s);
+					sender.sendMessage(ChatColor.GREEN + "    " + s);
 				}
 			}
 			sender.sendMessage(

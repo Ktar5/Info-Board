@@ -133,7 +133,7 @@ public class Timers {
                         //TODO Fix NULL because player doesn't have the condition in his board
                         ChangeableText.change(p);
                 }
-            },0, 20);
+            },0, 1);
         }
         /*
          * =========================================================================
@@ -146,7 +146,7 @@ public class Timers {
                 for(Player p : Bukkit.getOnlinePlayers()){
                     ConditionText.change(p);
                 }
-            },0, 20);
+            },0, 1);
         }
 
 	}

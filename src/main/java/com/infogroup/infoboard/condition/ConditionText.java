@@ -23,11 +23,11 @@ public class ConditionText {
                            // Check if the condition has changed
                            con.check(player);
                            String newLine = con.getMessage();
-                           // Bukkit.broadcastMessage("Success in getting msg: "+ newLine);
 
                            newLine = plugin.getMessages().getLine(newLine, player);
                            Board board = new Board(player);
                            board.update(newLine, con.getRow());
+                           con.resetCount();
                        } else {
                            con.addCount();
                        }
@@ -41,13 +41,18 @@ public class ConditionText {
            if (plugin.getCM().getTitleCon(player) != null) {
                try {
                    Condition con = plugin.getCM().getTitleCon(player);
-                   // Check if the condition has changed
-                   con.check(player);
-                   String newLine = con.getMessage();
+                   if (con.getCount() == con.getInterval()) {
+                       // Check if the condition has changed
+                       con.check(player);
+                       String newLine = con.getMessage();
 
-                   newLine = plugin.getMessages().getLine(newLine, player);
-                   Board board = new Board(player);
-                   board.setTitle(newLine);
+                       newLine = plugin.getMessages().getLine(newLine, player);
+                       Board board = new Board(player);
+                       board.setTitle(newLine);
+                       con.resetCount();
+                   } else {
+                       con.addCount();
+                   }
                } catch (Exception ex) {
                    if(plugin.getSettings().debug()){
                        Bukkit.getConsoleSender().sendMessage("Could not recheck condition, because: "+ ex);

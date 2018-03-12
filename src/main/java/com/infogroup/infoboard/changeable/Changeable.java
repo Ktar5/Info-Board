@@ -1,12 +1,8 @@
 package com.infogroup.infoboard.changeable;
 
-import com.infogroup.infoboard.InfoBoardReborn;
-import org.bukkit.entity.Player;
-
 import java.util.ArrayList;
 
 public class Changeable {
-	private InfoBoardReborn plugin = InfoBoardReborn.getPlugin(InfoBoardReborn.class);
 	
 	private int counter, count = 0;
 	private String message;
@@ -15,38 +11,30 @@ public class Changeable {
 
 	/**
 	 * Create a new changeable
-	 * 
-	 * @param p
+	 *
 	 * @param row
 	 * @param lines
 	 * @param interval
 	 */
-	public Changeable(Player p, int row, ArrayList<String> lines, int interval) {
-		this.interval = interval;
+	public Changeable(int row, ArrayList<String> lines, int interval) {
+		this.interval = interval * 20;
 		this.row = row;
 		this.lines = new ArrayList<>(lines);
 		this.message = this.lines.get(0);
-		/*
-		 * =========================================================================
-		 * CHANGEABLE TEXT UPDATES VALUE
-		 * =========================================================================
-		 */
-	//	Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> ChangeableText.change(p), 0, (long) this.interval * 20);
-
 	}
 	/**
 	 * Gets the row
 	 * 
-	 * @return row (Integer)
+	 * @return Integer
 	 */
 	public int getRow() {
 		return this.row;
 	}
 
 	/**
-	 * Gets the Message
+	 * Gets the message
 	 * 
-	 * @return message (String)
+	 * @return String
 	 */
 	public String getMessage() {
 		return this.message;
@@ -58,6 +46,7 @@ public class Changeable {
 	public void next() {
 		if (lines.size() == counter) {
 			this.counter = 0;
+			this.message = this.lines.get(counter);
 		} else {
 			this.message = this.lines.get(counter);
 			this.counter++;
@@ -72,18 +61,19 @@ public class Changeable {
 	public int getInterval() {	return interval; }
 
 	/**
-	 * adds 1 too the count
+	 * Adds 1 too the count
 	 */
-	public void addCount() {
-		this.count++;
-	}
+	public void addCount() { this.count++; }
 
 	/**
-	 * Get's the count
+	 * Gets the count
 	 *
 	 * @return Integer
 	 */
-	public int getCount() {
-		return this.count;
-	}
+	public int getCount(){ return this.count; }
+
+	/**
+	 * Resets the count
+	 */
+	public void resetCount() { this.count = -1;	}
 }

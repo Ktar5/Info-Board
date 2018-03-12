@@ -15,29 +15,23 @@ public class Condition {
     private ArrayList<String> answers;
 
     /**
+     * Create a new condition
      *
-     * @param p
      * @param row
      * @param con
      * @param interval
      */
-    public Condition(Player p, int row, String con, int interval){
+    public Condition(int row, String con, int interval){
         this.row = row;
-        this.interval = interval;
+        this.interval = interval * 20;
         this.con = con;
         this.check = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".check");
         this.answers = plugin.getSettings().getConText(con);
         this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".answer.default");
-
-        /*
-         * =========================================================================
-         * CHANGEABLE TEXT UPDATES VALUE
-         * =========================================================================
-         */
-       // Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this.plugin, () ->   ConditionText.change(p), 0, (long) (this.interval * 20));
     }
 
     /**
+     * Check if the condition has changed and change the msg if it has.
      *
      * @param player
      */
@@ -49,47 +43,58 @@ public class Condition {
                s = GetVariables.replaceVariables(s, player);
            }
            if(s.equals(newCheck)){
-               this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon() + ".answer." + s);
+               this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + this.getCon() + ".answer." + s);
            } else {
-               this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + getCon() + ".answer.default");
+               this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + this.getCon() + ".answer.default");
            }
        }
 
     }
 
     /**
+     * Get the name of the condition
      *
-     * @return
+     * @returnString
      */
     public String getCon(){ return this.con; }
 
     /**
+     * Get the current message
      *
-     * @return
+     * @return String
      */
     public String getMessage(){ return this.msg; }
 
     /**
+     * Gets the conditions row
      *
-     * @return
+     * @return Integer
      */
     public Integer getRow(){ return this.row; }
 
     /**
-     * @return
+     * Gets the interval of the condition
+     *
+     * @return Integer
      */
     public Integer getInterval() {
         return this.interval;
     }
 
     /**
-     * @return
+     * @return Integer
      */
     public Integer getCount() {
         return this.count;
     }
 
-    public void addCount() {
-        this.count++;
-    }
+    /**
+     * add 1 to the count
+     */
+    public void addCount() { this.count++; }
+
+    /**
+     * reset the count
+     */
+    public void resetCount(){ this.count = 0;}
 }

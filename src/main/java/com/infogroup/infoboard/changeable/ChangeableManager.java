@@ -23,12 +23,12 @@ public class ChangeableManager {
 	 * @param p
 	 * @param changeable
 	 * @param row
-	 * @return
+	 * @return changeable
 	 */
 	public Changeable createChangeables(Player p, String changeable, int row) {
 		ArrayList<String> lines = plugin.getSettings().getText(changeable);
 		int time = plugin.getSettings().getInterval(changeable);
-		Changeable ch = new Changeable(p, row, lines, time);
+		Changeable ch = new Changeable(row, lines, time);
 		ArrayList<Changeable> chs;
 		if (this.changeables.containsKey(p)) {
 			chs = this.changeables.get(p);
@@ -45,12 +45,12 @@ public class ChangeableManager {
 	 *
 	 * @param p
 	 * @param changeable
-	 * @return
+	 * @return changeable
 	 */
 	public Changeable createChangeableTitle(Player p, String changeable) {
 		ArrayList<String> lines = plugin.getSettings().getText(changeable);
 		int time = plugin.getSettings().getInterval(changeable);
-		Changeable ch = new Changeable(p, 0, lines, time);
+		Changeable ch = new Changeable( 0, lines, time);
 		this.title.put(p, ch);
 		return ch;
 	}
@@ -59,7 +59,7 @@ public class ChangeableManager {
 	 * Get the players changeable title
 	 * 
 	 * @param p
-	 * @return
+	 * @return Changeable
 	 */
 	public Changeable getChangeableTitle(Player p) {
 		return this.title.get(p);

@@ -26,8 +26,10 @@ public class ChangeableText {
 							newLine = plugin.getMessages().getLine(newLine, player);
 							Board board = new Board(player);
 							board.update(newLine, ch.getRow());
+							ch.resetCount();
 						} else {
 							ch.addCount();
+						//	Bukkit.broadcastMessage("Count: " + ch.getCount());
 						}
 					} catch (Exception ex) {
 						if(plugin.getSettings().debug()){
@@ -47,6 +49,7 @@ public class ChangeableText {
 						newLine = plugin.getMessages().getLine(newLine, player);
 						Board board = new Board(player);
 						board.setTitle(newLine);
+						ch.resetCount();
 					} else {
 						ch.addCount();
 					}

@@ -38,6 +38,8 @@ public class Commands implements CommandExecutor {
 				// SET <PAGE>
 				else if (args[0].equalsIgnoreCase("Set")) {
 					setCmd(sender, args);
+				} else if (args[0].equalsIgnoreCase("Info")) {
+					infoCmd(sender);
 				}
 				// RELOAD [FILE]
 				else if (args[0].equalsIgnoreCase("Reload")) {
@@ -300,6 +302,7 @@ public class Commands implements CommandExecutor {
 			((Player) sender).getScoreboard().clearSlot(DisplaySlot.SIDEBAR);
 		}
 	}
+
     /*
      * =============================================================================
      * TOGGLE
@@ -323,12 +326,58 @@ public class Commands implements CommandExecutor {
 
 	/*
 	 * =============================================================================
-	 * RELOAD [file]
+	 * Info
 	 * =============================================================================
 	 */
-	/**
-	 * @param sender
-	 * @param file
+	public void infoCmd(CommandSender sender) {
+		if (!sender.hasPermission("ibr.Info")) {
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("no-permission")));
+		} else {
+			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.STRIKETHROUGH + "========[" + ChatColor.DARK_AQUA
+					+ ChatColor.BOLD + " InfoBoardReborn " + ChatColor.ITALIC + "v"
+					+ plugin.getDescription().getVersion() + ChatColor.GOLD + " " + ChatColor.STRIKETHROUGH
+					+ "]========");
+			sender.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Features:");
+			sender.sendMessage("Scrolling Text: " + plugin.getSettings().scrollingEnabled());
+			sender.sendMessage(
+					"" + ChatColor.GOLD + ChatColor.STRIKETHROUGH + "--------------------------------------------");
+			//Conditions info
+			sender.sendMessage("Conditions: " + plugin.getSettings().conditionsEnabled());
+			if (plugin.getSettings().conditionsEnabled()) {
+				for (String s : plugin.getSettings().getConditions()) {
+					sender.sendMessage(ChatColor.GOLD + s);
+				}
+			}
+			sender.sendMessage(
+					"" + ChatColor.GOLD + ChatColor.STRIKETHROUGH + "--------------------------------------------");
+			//Changeables info
+			sender.sendMessage("Changeable Text: " + plugin.getSettings().changeableTextEnabled());
+			if (plugin.getSettings().changeableTextEnabled()) {
+				for (String s : plugin.getSettings().getChangeable()) {
+					sender.sendMessage(ChatColor.GOLD + s);
+				}
+			}
+			sender.sendMessage(
+					"" + ChatColor.GOLD + ChatColor.STRIKETHROUGH + "--------------------------------------------");
+			sender.sendMessage("" + ChatColor.DARK_AQUA + ChatColor.BOLD + "Authors: " + ChatColor.WHITE
+					+ ChatColor.BOLD + "Ktar5 & pixar02");
+			sender.sendMessage("" + ChatColor.DARK_AQUA + ChatColor.BOLD + "Websites: " + ChatColor.WHITE
+					+ ChatColor.BOLD + plugin.pdfFile.getWebsite());
+
+			sender.sendMessage(
+					"" + ChatColor.GOLD + ChatColor.STRIKETHROUGH + "--------------------------------------------");
+			if (plugin.update) {
+				sender.sendMessage(ChatColor.DARK_GREEN + plugin.getFm().getFile("messages").getString("update"));
+				sender.sendMessage("" + ChatColor.GOLD + ChatColor.STRIKETHROUGH
+						+ "--------------------------------------------");
+			}
+		}
+	}
+
+	/*
+	 * =============================================================================
+	 * RELOAD [file]
+	 * =============================================================================
 	 */
 	public void reloadCmd(CommandSender sender, String file) {
 		if (!sender.hasPermission("ibr.Reload")) {

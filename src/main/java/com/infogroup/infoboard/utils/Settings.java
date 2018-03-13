@@ -81,7 +81,7 @@ public class Settings {
 	}
 
 	/**
-	 * Get the list of blocked regions for worldguard
+	 * Get the list of blocked regions for WorldGuard
 	 *
 	 * @return list
 	 */
@@ -118,6 +118,14 @@ public class Settings {
 	}
 
 	/**
+	 * Get if conditions are enabled
+	 *
+	 * @return true/false
+	 */
+	public boolean conditionsEnabled(){
+		return plugin.getFm().getFile("config").getBoolean("Condition.Enabled");
+	}
+	/**
 	 * Get if updater is enabled
 	 * 
 	 * @return true/false
@@ -139,7 +147,6 @@ public class Settings {
 	 * Get the lines for give changeable
 	 * 
 	 * @return ArrayList
-	 * 
 	 */
 	public ArrayList<String> getText(String changeable) {
 		ArrayList<String> lines = new ArrayList<>();
@@ -150,7 +157,6 @@ public class Settings {
 
 	/**
 	 * Loads the changeable's in a list.
-	 * 
 	 */
 	public void loadChangeable() {
 		changeable.clear();
@@ -159,7 +165,7 @@ public class Settings {
 	}
 
 	/**
-	 * Get's the changeable list
+	 * Gets the changeable's list
 	 * 
 	 * @return List
 	 */
@@ -177,15 +183,8 @@ public class Settings {
 	}
 
     /**
-     *
-     * @return
-     */
-	public boolean conditionsEnabled(){
-		return plugin.getFm().getFile("config").getBoolean("Condition.Enabled");
-	}
-
-    /**
-     *
+     * Gets the condition list
+	 *
      * @return
      */
 	public List<String> getConditions(){
@@ -193,8 +192,7 @@ public class Settings {
     }
 
     /**
-     * Loads the changeable's in a list.
-     *
+     * Loads the conditions in a list.
      */
     public void loadConditions(){
 	    conditions.clear();
@@ -203,6 +201,7 @@ public class Settings {
     }
 
 	/**
+	 * Gets the given condition their interval
 	 *
 	 * @param con
 	 * @return
@@ -211,14 +210,8 @@ public class Settings {
 	    return plugin.getFm().getFile("config").getInt("Condition.Conditions." + con +". interval");
     }
 
-    /**
-     *
-     * @return
-     */
-    public Integer getConditionsInterval(){
-        return plugin.getFm().getFile("config").getInt("Condition.Interval");
-    }
 	/**
+	 * Gets the given condition their possible answers
 	 *
 	 * @param condition
 	 * @return

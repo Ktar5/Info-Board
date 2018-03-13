@@ -123,7 +123,6 @@ public class Update {
 							}
 							// Just a regular line
 							else {
-
 								board.update(plugin.getMessages().getLine(line, player), -row);
 							}
 					}

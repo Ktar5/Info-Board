@@ -117,8 +117,9 @@ public class Timers {
                 plugin.logger.info("Checking for updates...");
                 try {
                     plugin.getUC().checkUpdate(plugin.pdfFile.getVersion());
-                } catch (Exception e) {
-                    plugin.logger.warning("Failed to check for updates, because: " + e);
+                } catch (Exception ex) {
+                    plugin.logger.warning("Failed to check for updates, because: " + ex);
+                    ex.printStackTrace();
                 }
             }, 0, 3600 * 20);
 		}
@@ -130,7 +131,6 @@ public class Timers {
         if(plugin.getSettings().changeableTextEnabled()){
             Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
                 for(Player p : Bukkit.getOnlinePlayers()){
-                        //TODO Fix NULL because player doesn't have the condition in his board
                         ChangeableText.change(p);
                 }
             },0, 1);

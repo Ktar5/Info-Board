@@ -21,11 +21,11 @@ public class Condition {
      * @param con
      * @param interval
      */
-    public Condition(int row, String con, int interval){
+    public Condition(int row, String con, String check, int interval){
         this.row = row;
         this.interval = interval * 20;
         this.con = con;
-        this.check = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".check");
+        this.check = check;
         this.answers = plugin.getSettings().getConText(con);
         this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".answer.default");
     }
@@ -54,7 +54,7 @@ public class Condition {
     /**
      * Get the name of the condition
      *
-     * @returnString
+     * @return String
      */
     public String getCon(){ return this.con; }
 
@@ -77,24 +77,22 @@ public class Condition {
      *
      * @return Integer
      */
-    public Integer getInterval() {
-        return this.interval;
-    }
+    public Integer getInterval(){ return this.interval; }
 
     /**
+     * Get the current value of Count
+     *
      * @return Integer
      */
-    public Integer getCount() {
-        return this.count;
-    }
+    public Integer getCount(){ return this.count; }
 
     /**
      * add 1 to the count
      */
-    public void addCount() { this.count++; }
+    public void addCount(){ this.count++; }
 
     /**
      * reset the count
      */
-    public void resetCount(){ this.count = 0;}
+    public void resetCount(){ this.count = 0; }
 }

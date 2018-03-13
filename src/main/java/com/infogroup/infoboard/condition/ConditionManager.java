@@ -22,8 +22,10 @@ public class ConditionManager {
      * @param p
      * @param row
      */
-    public Condition createCon(Player p, int row, String c){
-        Condition con =  new Condition(row, c, plugin.getSettings().getConInterval(c));
+    public Condition createCon(Player p, int row, String co){
+        Condition con =  new Condition(row, co,
+                plugin.getFm().getFile("config").getString("Condition.Conditions." + co + ".check"),
+                plugin.getSettings().getConInterval(co));
         ArrayList<Condition> conList;
         if(cons.containsKey(p)){
             conList = cons.get(p);
@@ -39,8 +41,10 @@ public class ConditionManager {
      *
      * @param p
      */
-    public Condition createTitleCon(Player p, String s){
-        Condition con = new Condition(0, s, plugin.getSettings().getConInterval(s));
+    public Condition createTitleCon(Player p, String co){
+        Condition con = new Condition(0, co,
+                plugin.getFm().getFile("config").getString("Condition.Conditions." + co + ".check"),
+                plugin.getSettings().getConInterval(co));
         this.titleCon.put(p, con);
         return con;
     }

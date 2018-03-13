@@ -27,6 +27,8 @@ public class Timers {
     }
 
 	/**
+	 * Get the current page
+	 *
 	 * @return
 	 */
 	public int getPage() {
@@ -34,6 +36,8 @@ public class Timers {
 	}
 
 	/**
+	 * Set the page to the given value
+	 *
 	 * @param page
 	 */
 	public void setPage(int page) {
@@ -42,6 +46,9 @@ public class Timers {
 		showtime = plugin.getFm().getFile("board").getInt("InfoBoard." + rotation + ".ShowTime");
 	}
 
+	/**
+	 * Start all the runnable's
+	 */
 	public void start() {
 		/*
 		 * =========================================================================
@@ -151,6 +158,9 @@ public class Timers {
 
 	}
 
+	/**
+	 * Stop the runnable's
+	 */
 	public void stop() {
 		time = 0;
 		rotation = 1;
@@ -158,6 +168,9 @@ public class Timers {
 		Bukkit.getScheduler().cancelTasks(plugin);
 	}
 
+	/**
+	 * Reset the runnable's
+	 */
 	public void reset() {
 		time = 0;
 		rotation = 1;

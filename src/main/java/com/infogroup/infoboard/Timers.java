@@ -131,7 +131,7 @@ public class Timers {
         if(plugin.getSettings().changeableTextEnabled()){
             Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
                 for(Player p : Bukkit.getOnlinePlayers()){
-                        ChangeableText.change(p);
+                	ChangeableText.change(p);
                 }
             },0, 1);
         }

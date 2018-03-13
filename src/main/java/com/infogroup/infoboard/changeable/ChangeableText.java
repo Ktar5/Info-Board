@@ -9,6 +9,10 @@ import org.bukkit.scoreboard.DisplaySlot;
 public class ChangeableText {
 	private static InfoBoardReborn plugin = InfoBoardReborn.getPlugin(InfoBoardReborn.class);
 
+	/**
+	 *
+	 * @param player
+	 */
 	public static void change(Player player) {
 		// Make sure the user can see the board
 		if (!plugin.getSettings().isWorldDisabled(player.getWorld().getName())

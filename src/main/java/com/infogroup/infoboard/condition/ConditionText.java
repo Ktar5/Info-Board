@@ -10,6 +10,10 @@ public class ConditionText {
 
     private static InfoBoardReborn plugin = InfoBoardReborn.getPlugin(InfoBoardReborn.class);
 
+    /**
+     *
+     * @param player
+     */
     public static void change(Player player){
        if(!plugin.getSettings().isWorldDisabled(player.getWorld().getName())
                && !plugin.hidefrom.contains(player.getName())

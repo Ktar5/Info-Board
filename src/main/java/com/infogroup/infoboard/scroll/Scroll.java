@@ -5,15 +5,12 @@ import org.bukkit.ChatColor;
 
 public class Scroll {
 	private InfoBoardReborn plugin;
-	private String message;
-	private String originalMessage;
+	private String message, originalMessage;
 
 	private ChatColor color = ChatColor.RESET;
 
-	private int width;
-	private int position = 0;
-	private int pause = 0;
-	private int row;
+	private int width, row;
+	private int position, pause = 0;
 
 	/**
 	 * Create a new scroller
@@ -23,6 +20,7 @@ public class Scroll {
 	 * @param width
 	 */
 	public Scroll(InfoBoardReborn plugin, String message, int row, int width) {
+		//TODO Fix colors when scrolling
 		this.plugin = plugin;
 		this.row = row;
 		this.width = width;
@@ -41,7 +39,7 @@ public class Scroll {
 	/**
 	 * Get the scrolled message
 	 *
-	 * @return message
+	 * @return String
 	 */
 	public String getMessage() {
 
@@ -61,7 +59,9 @@ public class Scroll {
 	}
 
 	/**
-	 * @return the row
+	 * Get the row
+	 *
+	 * @return Integer
 	 */
 	public int getRow() {
 		return row;
@@ -71,13 +71,11 @@ public class Scroll {
 	 * Move position up one unless it's being paused for 3 counts first
 	 */
 	public void next() {
-
 		if ((position == 0) && (pause != 3)) {
 			pause++;
 		} else {
 			position++;
 			pause = 0;
-
 			if (position == (originalMessage.length() + 10)) {
 				position = 0;
 			}

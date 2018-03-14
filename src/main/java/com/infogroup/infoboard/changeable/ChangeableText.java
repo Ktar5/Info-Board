@@ -33,6 +33,9 @@ public class ChangeableText {
 							ch.resetCount();
 						} else {
 							ch.addCount();
+							Board board = new Board(player);
+							String line = plugin.getMessages().getLine(ch.getMessage(), player);
+							board.update(line, ch.getRow());
 						}
 					} catch (Exception ex) {
 						if(plugin.getSettings().debug()){
@@ -56,6 +59,9 @@ public class ChangeableText {
 						ch.resetCount();
 					} else {
 						ch.addCount();
+						Board board = new Board(player);
+						String line = plugin.getMessages().getLine(ch.getMessage(), player);
+						board.setTitle(line);
 					}
 				} catch (Exception ex) {
 					if(plugin.getSettings().debug()){

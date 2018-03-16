@@ -3,7 +3,7 @@ package com.infogroup.infoboard.changeable;
 import java.util.ArrayList;
 
 public class Changeable {
-	
+
 	private int counter, count = 0;
 	private String message;
 	private int row, interval;
@@ -75,5 +75,5 @@ public class Changeable {
 	/**
 	 * Resets the count
 	 */
-	public void resetCount() { this.count = 0;	}
+	public void resetCount() { this.count = 0; }
 }

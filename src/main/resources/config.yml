@@ -23,7 +23,7 @@
 # |                  Text - the text lines you want to display                |
 # |	             interval- how fast the lines should update in seconds        | 
 # |---------------------------------------------------------------------------|
-# |                               COMMING SOON!!                              |
+# |                               COMING SOON!!                               |
 # |                                Condition                                  |
 # |                      Use like: <condition_<variable>>                     |
 # |                         Enabled: enable or disable                        |
@@ -63,7 +63,7 @@ Changeable Text:
   Changeables:
     healthloc:
       text:
-      - '&e%player_health%&a/&c%player_max_health%'
+      - '&e%player_health_rounded%&a/&c%player_max_health_rounded%'
       - '&a%player_x%&7, &a%player_y%&7, &a%player_z%'
       - '&l%player_first_join_date%'
       interval: 1

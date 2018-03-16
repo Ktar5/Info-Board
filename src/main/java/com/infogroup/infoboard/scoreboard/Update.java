@@ -135,7 +135,6 @@ public class Update {
 	/**
 	 * 
 	 * @param player
-	 * @param s
 	 * @return true/false (boolean)
 	 */
 	public static boolean updateTitle(Player player) {

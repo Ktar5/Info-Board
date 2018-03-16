@@ -9,6 +9,10 @@ import org.bukkit.scoreboard.DisplaySlot;
 public class ChangeableText {
 	private static InfoBoardReborn plugin = InfoBoardReborn.getPlugin(InfoBoardReborn.class);
 
+	/**
+	 *
+	 * @param player
+	 */
 	public static void change(Player player) {
 		// Make sure the user can see the board
 		if (!plugin.getSettings().isWorldDisabled(player.getWorld().getName())
@@ -29,6 +33,9 @@ public class ChangeableText {
 							ch.resetCount();
 						} else {
 							ch.addCount();
+							Board board = new Board(player);
+							String line = plugin.getMessages().getLine(ch.getMessage(), player);
+							board.update(line, ch.getRow());
 						}
 					} catch (Exception ex) {
 						if(plugin.getSettings().debug()){
@@ -52,6 +59,9 @@ public class ChangeableText {
 						ch.resetCount();
 					} else {
 						ch.addCount();
+						Board board = new Board(player);
+						String line = plugin.getMessages().getLine(ch.getMessage(), player);
+						board.setTitle(line);
 					}
 				} catch (Exception ex) {
 					if(plugin.getSettings().debug()){

@@ -81,4 +81,24 @@ public class Scroll {
 			}
 		}
 	}
+
+
+	public String GetMessage(String msg){
+		//TODO FINISH color code fix
+
+		//check if msg contains colorchar
+		if(msg.contains("&")|| msg.contains("")){
+			//split every line at the color char
+			String[] split = msg.split("&");
+			//loop trough all splits and make a Colorcode to add per
+			for(int i= 0; i < msg.length(); i++){
+				if(split[i].length() == 1){
+
+				}
+			}
+
+		}
+		//TODO change to correct msg
+		return msg;
+	}
 }

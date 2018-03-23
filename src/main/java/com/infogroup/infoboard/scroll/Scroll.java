@@ -90,14 +90,10 @@ public class Scroll {
 		if(msg.contains("&")|| msg.contains("")){
 			//split every line at the color char
 			String[] split = msg.split("&");
-			//loop trough all splits and make a Colorcode to add per letter
-			
-			for(int i= 0; i < split.length ; i++){
-				//check if the
-				if(split[i].length() > 1){
-					//get the color code letter of number
-					String cchar = split[i].substring(0,1);
-					//
+			//loop trough all splits and make a Colorcode to add per
+			for(int i= 0; i < msg.length(); i++){
+				if(split[i].length() == 1){
+
 				}
 			}
 

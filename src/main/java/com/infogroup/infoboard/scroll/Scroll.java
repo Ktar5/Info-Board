@@ -3,6 +3,9 @@ package com.infogroup.infoboard.scroll;
 import com.infogroup.infoboard.InfoBoardReborn;
 import org.bukkit.ChatColor;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public class Scroll {
 	private InfoBoardReborn plugin;
 	private String message, originalMessage;
@@ -31,9 +34,9 @@ public class Scroll {
 		}
 		String string = builder.toString();
 
-		string = this.plugin.getMessages().getColored(string);
+		string = translateMsg(string);
 
-		this.message = translateMsg(string);
+		this.message = this.plugin.getMessages().getColored(string);
 	}
 
 	/**
@@ -46,7 +49,7 @@ public class Scroll {
 		String message = this.message.substring(position, Math.min(this.message.length(), (width - 2) + position));
 		char COLORCHAR = '&';
 
-		//need a check to see if the previous message had a color at 0
+		//need a check to see if the previous message had a color at 0 location
 		if (message.charAt(0) == COLORCHAR) {
 			color = ChatColor.getByChar(message.charAt(1));
 		} else {
@@ -93,31 +96,13 @@ public class Scroll {
 	 */
 	public String translateMsg(String msg){
 		//TODO FINISH color code fix
+		String result = Arrays.asList(msg.split(" ")).stream().map(word -> {
+			String prefix = msg.substring(0, 2);
 
-		//check if msg contains ColorChar
-		if(msg.contains("&")|| msg.contains("")){
-			//split every line at the color char
-			String[] split = msg.split("&");
-			//loop trough all splits and make a Color Code to add per
-			String color;
-			for(int i= 0; i < split.length; i++){
-				//if the Color Code has a length of 1 (means there is more then 1 code)
-				if(split[i].length() == 1){
-					 color = "&" + split[i] + "&" + split[i+1];
-				}else if(split[i].length() > 1){
-					color = split[i].substring(0, 1);
-				}
-			}
-			//make to full msg again with a color code every letter
-			for(int i =0; i< split.length; i++){
-				if(i != 0){
-					msg =  msg + split[i];
-				}else{
-					msg = split[i];
-				}
-			}
-		}
+			return Arrays.stream(msg.substring(2).split(""))
+					.collect(Collectors.joining(prefix, prefix, ""));
+		}).collect(Collectors.joining(" "));
 		//return the msg
-		return msg;
+		return result;
 	}
 }

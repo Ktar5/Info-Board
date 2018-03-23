@@ -33,7 +33,7 @@ public class Scroll {
 
 		string = this.plugin.getMessages().getColored(string);
 
-		this.message = string;
+		this.message = translateMsg(string);
 	}
 
 	/**
@@ -42,7 +42,7 @@ public class Scroll {
 	 * @return String
 	 */
 	public String getMessage() {
-
+//TODO fix the removing of the color char one a move
 		String message = this.message.substring(position, Math.min(this.message.length(), (width - 2) + position));
 		char COLORCHAR = '&';
 		if (message.charAt(0) == COLORCHAR) {
@@ -83,22 +83,33 @@ public class Scroll {
 	}
 
 
-	public String GetMessage(String msg){
+	public String translateMsg(String msg){
 		//TODO FINISH color code fix
 
-		//check if msg contains colorchar
+		//check if msg contains ColorChar
 		if(msg.contains("&")|| msg.contains("")){
 			//split every line at the color char
 			String[] split = msg.split("&");
-			//loop trough all splits and make a Colorcode to add per
-			for(int i= 0; i < msg.length(); i++){
+			//loop trough all splits and make a Color Code to add per
+			String color;
+			for(int i= 0; i < split.length; i++){
+				//if the Color Code has a length of 1 (means there is more then 1 code)
 				if(split[i].length() == 1){
-
+					 color = "&" + split[i] + "&" + split[i+1];
+				}else if(split[i].length() > 1){
+					color = split[i].substring(0, 1);
 				}
 			}
-
+			//make to full msg again with a color code every letter
+			for(int i =0; i< split.length; i++){
+				if(i != 0){
+					msg =  msg + split[i];
+				}else{
+					msg = split[i];
+				}
+			}
 		}
-		//TODO change to correct msg
+		//return the msg
 		return msg;
 	}
 }

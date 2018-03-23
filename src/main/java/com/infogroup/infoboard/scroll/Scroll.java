@@ -45,6 +45,8 @@ public class Scroll {
 //TODO fix the removing of the color char one a move
 		String message = this.message.substring(position, Math.min(this.message.length(), (width - 2) + position));
 		char COLORCHAR = '&';
+
+		//need a check to see if the previous message had a color at 0
 		if (message.charAt(0) == COLORCHAR) {
 			color = ChatColor.getByChar(message.charAt(1));
 		} else {
@@ -56,6 +58,7 @@ public class Scroll {
 			message = message + " ";
 		}
 		return message;
+
 	}
 
 	/**
@@ -82,7 +85,12 @@ public class Scroll {
 		}
 	}
 
-
+	/**
+	 * adds the color code after each letter in the message
+	 *
+	 * @param msg
+	 * @return
+	 */
 	public String translateMsg(String msg){
 		//TODO FINISH color code fix
 

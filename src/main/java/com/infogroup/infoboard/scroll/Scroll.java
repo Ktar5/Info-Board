@@ -95,13 +95,32 @@ public class Scroll {
 	 * @return
 	 */
 	public String translateMsg(String msg){
-		//TODO FINISH color code fix
+		//TODO FINISH color code fix (not finished)
+
+		//works for "&7Hello &cWorld!"
 		String result = Arrays.asList(msg.split(" ")).stream().map(word -> {
 			String prefix = msg.substring(0, 2);
 
 			return Arrays.stream(msg.substring(2).split(""))
 					.collect(Collectors.joining(prefix, prefix, ""));
 		}).collect(Collectors.joining(" "));
+
+
+
+		String[] split = msg.split("&");
+		for(int i=0; i < split.length; i++){
+			String color = null;
+			if (split[i].length()==1){
+				color = "&" + split[i];
+				continue;
+			}else{
+				color = color + "&" + split[i].substring(0,1);
+			}
+			//add all letter with color code
+			result = result;
+		}
+
+
 		//return the msg
 		return result;
 	}

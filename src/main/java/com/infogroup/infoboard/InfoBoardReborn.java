@@ -2,6 +2,7 @@ package com.infogroup.infoboard;
 
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
+import com.infogroup.infoboard.api.API;
 import com.infogroup.infoboard.api.Vault;
 import com.infogroup.infoboard.api.WorldGuard;
 import com.infogroup.infoboard.changeable.ChangeableManager;
@@ -47,6 +48,7 @@ public class InfoBoardReborn extends JavaPlugin {
     private WorldGuard WG;
     private Vault V;
     private ProtocolManager PM;
+    private API api;
 
     public void onEnable() {
         saveDefaultConfig();
@@ -126,6 +128,7 @@ public class InfoBoardReborn extends JavaPlugin {
         this.V = new Vault(this);
         this.WG = new WorldGuard(this);
         this.UC = new UpdateChecker(this);
+        this.api = new API(this);
 
         if(Bukkit.getServer().getPluginManager().getPlugin("ProtocolLib")!= null){
             this.PM = ProtocolLibrary.getProtocolManager();
@@ -188,4 +191,6 @@ public class InfoBoardReborn extends JavaPlugin {
     public ConditionManager getCM(){return this.CM; }
 
     public ProtocolManager getPM(){ return this.PM; }
+
+    public API getAPI(){return this.api;}
 }

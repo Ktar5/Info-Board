@@ -1,0 +1,37 @@
+#General 
+#
+no-permission: 'Vous n\'avez pas la permission d'éxecuter cette commande!'
+not-player: 'Vous devez etre un joueur pour utiliser cette commande!'
+update: 'Il y a une nouvelle version de InfoBoardReborn!'
+wrong-usage: 'Vous n'avez pas utilisé la commande correctement!'
+
+#Hide Command
+already-hidden: 'Ce scorebaord est déjà caché'
+hiding: 'Scoreboard caché!'
+
+#Show Command
+already-shown: 'Ce scoreboard est déjà affiché'
+showing: 'Scoreboard affiché!'
+
+#Set Command
+#
+#/ibr set 5 -> 'invalid-page 5' or 'set-page 5'
+invalid-page: 'Page introuvable: '
+set-page: 'Page mise à: '
+
+#Reload Command
+board-reload: 'board.yml a été rechargé.'
+config-reload: 'config.yml a été rechargé.'
+messages-reload: 'messages.yml a été rechargé.'
+all-reload: 'Toutes les configurations ont été rechargées.'
+
+#Create Command
+page-exists: 'Cette page existe déjà.'
+create-success: 'Page créée avec succés!'
+
+#Add Command
+#
+page-doesnot-exist: 'Cette page n'existe pas.'
+add-success: 'Ligne ajoutée à la page: '
+title-exists: 'Un titre à déjà été donné à la page.'
+max-lines: 'Vous ne pouvez que avoir 15 lignes par scoreboard!'

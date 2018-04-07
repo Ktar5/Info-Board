@@ -13,7 +13,7 @@ public class Board {
 	 * Create a brand new objective and scoreboard
 	 */
 	public Board() {
-		scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
+		this.scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
 		setup();
 	}
 
@@ -23,8 +23,8 @@ public class Board {
 	 * @param player
 	 */
 	public Board(Player player) {
-		scoreboard = player.getScoreboard();
-		objective = scoreboard.getObjective(DisplaySlot.SIDEBAR);
+		this.scoreboard = player.getScoreboard();
+		this.objective = scoreboard.getObjective(DisplaySlot.SIDEBAR);
 	}
 
 	/**
@@ -33,8 +33,8 @@ public class Board {
 	 * @param board
 	 */
 	public Board(Scoreboard board) {
-		scoreboard = board;
-		objective = board.getObjective(DisplaySlot.SIDEBAR);
+		this.scoreboard = board;
+		this.objective = board.getObjective(DisplaySlot.SIDEBAR);
 	}
 
 	/**
@@ -109,7 +109,7 @@ public class Board {
 	 * @return score
 	 */
 	public Score getScore(String line) {
-		return objective.getScore(line);
+		return this.objective.getScore(line);
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class Board {
 	 * @return the scoreboard
 	 */
 	public Scoreboard getScoreboard() {
-		return scoreboard;
+		return this.scoreboard;
 	}
 
 	/**
@@ -127,7 +127,7 @@ public class Board {
 	 * @return the title
 	 */
 	public String getTitle() {
-		return objective.getDisplayName();
+		return this.objective.getDisplayName();
 	}
 
 	/**
@@ -136,7 +136,7 @@ public class Board {
 	 * @param title
 	 */
 	public void setTitle(String title) {
-		objective.setDisplayName(title);
+		this.objective.setDisplayName(title);
 	}
 
 	/**

@@ -10,6 +10,7 @@ public class BoardManager {
     private InfoBoardReborn plugin;
     private HashMap<Integer, InfoBoard> boards = new HashMap<>();
 
+    //TODO FINISH and Change to per file scoreboard (FileManager)
     public BoardManager(InfoBoardReborn plugin){
         this.plugin = plugin;
         loadBoards();
@@ -26,7 +27,7 @@ public class BoardManager {
 
     private void loadBoards(){
         FileConfiguration board = plugin.getFm().getFile("board");
-        for(int i= 0; i < board.getList("InfoBoard").size(); i++){
+        for(int i= 0; i < board.getStringList("InfoBoard").size(); i++){
 
         }
     }

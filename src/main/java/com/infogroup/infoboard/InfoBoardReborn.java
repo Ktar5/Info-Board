@@ -39,7 +39,7 @@ public class InfoBoardReborn extends JavaPlugin {
     private UpdateChecker UC;
     private Timers timers;
     private FileManager fm;
-    private MessagesManager mm;
+    private BoardManager bm;
     private Settings settings;
     private Messages msgs;
     private ChangeableManager CHM;
@@ -129,7 +129,7 @@ public class InfoBoardReborn extends JavaPlugin {
         this.WG = new WorldGuard(this);
         this.UC = new UpdateChecker(this);
         this.api = new API(this);
-
+        this.bm = new BoardManager(this);
         if(Bukkit.getServer().getPluginManager().getPlugin("ProtocolLib")!= null){
             this.PM = ProtocolLibrary.getProtocolManager();
         }
@@ -186,7 +186,7 @@ public class InfoBoardReborn extends JavaPlugin {
         return this.UC;
     }
 
-    public MessagesManager getMM(){ return this.mm; }
+    public BoardManager getMM(){ return this.bm; }
 
     public ConditionManager getCM(){return this.CM; }
 

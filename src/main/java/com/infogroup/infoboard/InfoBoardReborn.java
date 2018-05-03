@@ -186,7 +186,7 @@ public class InfoBoardReborn extends JavaPlugin {
         return this.UC;
     }
 
-    public BoardManager getMM(){ return this.bm; }
+    public BoardManager getBM(){ return this.bm; }
 
     public ConditionManager getCM(){return this.CM; }
 

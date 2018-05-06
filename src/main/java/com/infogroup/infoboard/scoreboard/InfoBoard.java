@@ -18,9 +18,15 @@ public class InfoBoard {
     public InfoBoard(InfoBoardReborn plugin, String name) {
         this.plugin = plugin;
         this.name = name;
+
+
     }
 
     public String getName() { return this.name; }
 
     public Integer getNumber() { return this.number; }
+
+    public List<String> getRows(){ return this.rows; }
+
+    public void addRow(String row, int pos){ this.rows.add(pos, row); }
 }

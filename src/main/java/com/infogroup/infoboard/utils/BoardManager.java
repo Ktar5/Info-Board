@@ -53,6 +53,11 @@ public class BoardManager {
         }
     }
 
+    /**
+     * Get the give Board
+     * @param name
+     * @return
+     */
     public InfoBoard getBoard(int name){
         return this.boards.get(name);
     }

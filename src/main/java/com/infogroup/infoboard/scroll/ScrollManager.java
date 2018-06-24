@@ -27,6 +27,7 @@ public class ScrollManager {
 	 * @return
 	 */
 	public Scroll createScroller(Player p, String message, int row, int width) {
+
 		Scroll sc = new Scroll(plugin, message, row, width);
 		ArrayList<Scroll> scs;
 		if (this.scrollers.containsKey(p)) {
@@ -37,6 +38,7 @@ public class ScrollManager {
 		scs.add(sc);
 		this.scrollers.put(p, scs);
 		return sc;
+
 	}
 
 	/**
@@ -63,6 +65,7 @@ public class ScrollManager {
 	public ArrayList<Scroll> getScrollers(Player p) {
 		return this.scrollers.get(p);
 	}
+
 
 	/**
 	 * Get the players title scroller

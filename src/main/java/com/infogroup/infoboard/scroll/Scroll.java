@@ -117,7 +117,7 @@ public class Scroll {
 				color = color + "&" + split[i].substring(0,1);
 			}
 			//add all letter with color code
-			result = result;
+			result = color + result;
 		}
 
 

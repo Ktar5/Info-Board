@@ -52,7 +52,6 @@ public class ScrollManager {
 
 		Scroll sc = new Scroll(plugin, message, 0, 16);
 		this.title.put(p, sc);
-
 		return sc;
 	}
 
@@ -89,6 +88,7 @@ public class ScrollManager {
 				new Board(p).remove(lastString);
 			}
 		}
+
 		this.scrollers.remove(p);
 		this.title.remove(p);
 	}

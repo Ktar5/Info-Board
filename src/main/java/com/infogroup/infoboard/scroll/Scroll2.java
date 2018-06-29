@@ -1,7 +1,7 @@
 package com.infogroup.infoboard.scroll;
 
 import com.infogroup.infoboard.InfoBoardReborn;
-import org.bukkit.ChatColor;
+import org.bukkit.Bukkit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,28 +22,43 @@ public class Scroll2 {
      * @param width
      * @param spaces
      */
-    public Scroll2(InfoBoardReborn plugin, int row, String message, int width, int spaces) {
+    public Scroll2(InfoBoardReborn plugin, String message, int row, int width, int spaces) {
         this.plugin = plugin;
         this.row = row;
         this.message = message;
         this.width = width;
         this.spaces = spaces;
 
+        //DEBUG
+        Bukkit.broadcastMessage(message);
+        //new arraylist
         this.list = new ArrayList<>();
+        //loop trough all Chars oof the message
         for (int i = 0; i < message.length(); i++) {
+            //create String for all colors per section
             String color = "";
-
-            if (list.get(i).equals("&")) {
-                if (list.get(i + 2).equals("&")) {
-                    color = list.get(i) + list.get(i + 1) + list.get(i + 2) + list.get(i + 3);
+            //check when color code starts
+            if (message.substring(i).equals("&")) {
+                //check if there is a following color code
+                if (message.substring(i+2).equals("&")) {
+                    //if there is, String color = color codes
+                    color = message.substring(i, i+3);
+                    //skip 3 chars in the string
+                    i += 3;
                 } else {
-                    color = list.get(i) + list.get(i + 1);
+                    //only 1 pair, String color = color codes
+                    color = message.substring(i, i+1);
+                    //skip 1 char
+                    i += 1;
                 }
-                i += 3;
+
                 continue;
             }
-            list.add(color + message.substring(i));
+            //add the correct color per remaining string
+            list.add(color + message.charAt(i));
+
         }
+
         while (list.size() < width) {
             list.add(" ");
         }
@@ -56,13 +71,13 @@ public class Scroll2 {
     public String getMessage(){
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < list.size(); i++){
-            sb.append(i);
+            sb.append(list.get(i));
         }
 
         list.add(list.get(0));
         list.remove(0);
 
-        return ChatColor.translateAlternateColorCodes('&', sb.toString());
+        return sb.toString();
     }
 
     /**

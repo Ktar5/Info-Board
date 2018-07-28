@@ -25,7 +25,7 @@ public class ChangeableManager {
 	 * @param row
 	 * @return changeable
 	 */
-	public Changeable createChangeables(Player p, String changeable, int row) {
+	public Changeable createChangeables(Player p, String changeable, int row, String option) {
 		ArrayList<String> lines = plugin.getSettings().getText(changeable);
 		int time = plugin.getSettings().getInterval(changeable);
 		Changeable ch = new Changeable(row, lines, time);

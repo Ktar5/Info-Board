@@ -182,6 +182,16 @@ public class Settings {
 		return plugin.getFm().getFile("config").getInt("Changeable Text.Changeables." + changeable + ".interval");
 	}
 
+	/**
+	 * Get the changeable Option
+	 * @param CH
+	 * @return
+	 */
+	public String getChangeableOption(String CH){
+		return plugin.getFm().getFile("config").getString("Changeable Text.Changeables."+ CH + ".option");
+	}
+
+
     /**
      * Gets the condition list
 	 *

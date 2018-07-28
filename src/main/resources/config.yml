@@ -1,4 +1,4 @@
-# InfoBoardReborn Config, Last Edited in v2.0.3
+# InfoBoardReborn Config, Last Edited in v2.0.4
 # =============================================================================
 # |                     Updater: Checks for updates on enable                 |
 # |           Debug: Gives extra info on plugin (cmds/startup/errors)         |
@@ -19,7 +19,9 @@
 # |                             Changeable text:                              |
 # |                     Use like: <changeable_<variable>>                     |
 # |                       Enabled- enable or disable                          |
-# |                  Changeables - Custom changeable variables                |
+# |                   Changeables - Custom changeable variables               |
+# |                        Option - how you want the time                     |
+# |                            OPTIONS: BLINK / TIMED                         |
 # |                  Text - the text lines you want to display                |
 # |	             interval- how fast the lines should update in seconds        | 
 # |---------------------------------------------------------------------------|
@@ -62,8 +64,9 @@ Changeable Text:
   Enable: false   
   Changeables:
     healthloc:
+      option: BLINK
       text:
-      - '&e%player_health_rounded%&a/&c%player_max_health_rounded%'
+      - '&e%player_health_rounded%&a/&c%player_max_health_rounded%': 5
       - '&a%player_x%&7, &a%player_y%&7, &a%player_z%'
       - '&l%player_first_join_date%'
       interval: 1

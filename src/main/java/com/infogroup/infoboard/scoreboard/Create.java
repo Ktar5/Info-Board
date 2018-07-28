@@ -108,7 +108,7 @@ public class Create {
                                 if (plugin.getSettings().changeableTextEnabled()) {
                                     line = line.replaceAll("<changeable_", "").replaceAll(">", "").replaceAll(" ", "");
                                     if (changeables.contains(line)) {
-                                        Changeable ch = plugin.getCHM().createChangeables(player, line, row);
+                                        Changeable ch = plugin.getCHM().createChangeables(player, line, row, plugin.getSettings().getChangeableOption(line));
                                         line = ch.getMessage();
                                         line = plugin.getMessages().getLine(line, player);
                                         board.add(line, row);

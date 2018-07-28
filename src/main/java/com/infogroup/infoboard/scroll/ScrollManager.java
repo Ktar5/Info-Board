@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class ScrollManager {
 	private InfoBoardReborn plugin;
 
-	private HashMap<Player, ArrayList<Scroll2>> scrollers = new HashMap<>();
+	private HashMap<Player, ArrayList<Scroll>> scrollers = new HashMap<>();
 	private HashMap<Player, Scroll> title = new HashMap<>();
 
 	public ScrollManager(InfoBoardReborn plugin) {
@@ -26,10 +26,10 @@ public class ScrollManager {
 	 * @param width
 	 * @return
 	 */
-	public Scroll2 createScroller(Player p, String message, int row, int width) {
+	public Scroll createScroller(Player p, String message, int row, int width) {
 
-		Scroll2 sc = new Scroll2(plugin, message, row, width,10);
-		ArrayList<Scroll2> scs;
+		Scroll sc = new Scroll(plugin, message, row, width);
+		ArrayList<Scroll> scs;
 		if (this.scrollers.containsKey(p)) {
 			scs = this.scrollers.get(p);
 		} else {
@@ -61,7 +61,7 @@ public class ScrollManager {
 	 * @param p
 	 * @return
 	 */
-	public ArrayList<Scroll2> getScrollers(Player p) {
+	public ArrayList<Scroll> getScrollers(Player p) {
 		return this.scrollers.get(p);
 	}
 
@@ -83,7 +83,7 @@ public class ScrollManager {
 	 */
 	public void reset(Player p) {
 		if (getScrollers(p) != null) {
-			for (Scroll2 sc : getScrollers(p)) {
+			for (Scroll sc : getScrollers(p)) {
 				String lastString = sc.getMessage();
 				new Board(p).remove(lastString);
 			}

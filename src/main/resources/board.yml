@@ -60,6 +60,7 @@ InfoBoard:
         - ' '
         - '&e&lWebsite:'
         - '<website>'
+        - ' '
         - '&6----[InfoBoard]----'
   '2':
     ShowTime: 10
@@ -80,6 +81,7 @@ InfoBoard:
         - ' '
         - '&e&lWebsite:'
         - '<website>'
+       - ' '
         - '&6----[InfoBoard]----'
       Admin:
         Title: '&e&lServer Stats'

@@ -114,22 +114,6 @@ public class Timers {
             }, 0, (long) (plugin.getFm().getFile("config").getDouble("Scrolling Text.Shift Time") * 20));
 		}
 
-		/*
-		 * =========================================================================
-		 * UPDATE TIMER
-		 * =========================================================================
-		 */
-		if (plugin.getSettings().updater()) {
-			Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
-                plugin.logger.info("Checking for updates...");
-                try {
-                    plugin.getUC().checkUpdate(plugin.pdfFile.getVersion());
-                } catch (Exception ex) {
-                    plugin.logger.warning("Failed to check for updates, because: " + ex);
-                    ex.printStackTrace();
-                }
-            }, 0, 3600 * 20);
-		}
         /*
          * =========================================================================
          * Changeable timer
@@ -138,7 +122,9 @@ public class Timers {
         if(plugin.getSettings().changeableTextEnabled()){
             Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
                 for(Player p : Bukkit.getOnlinePlayers()){
-                	ChangeableText.change(p);
+					if (p.hasPermission("ibr.view")) {
+                		ChangeableText.change(p);
+					}
                 }
             },0, 1);
         }
@@ -148,14 +134,31 @@ public class Timers {
          * =========================================================================
          */
         if(plugin.getSettings().conditionsEnabled()){
-            //TODO TEST
+            //TODO TEST && FIX
             Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
                 for(Player p : Bukkit.getOnlinePlayers()){
-                    ConditionText.change(p);
+					if (p.hasPermission("ibr.view")) {
+						ConditionText.change(p);
+					}
                 }
             },0, 1);
         }
-
+		/*
+		 * =========================================================================
+		 * UPDATE TIMER
+		 * =========================================================================
+		 */
+		if (plugin.getSettings().updater()) {
+			Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
+				plugin.logger.info("Checking for updates...");
+				try {
+					plugin.getUC().checkUpdate(plugin.pdfFile.getVersion());
+				} catch (Exception ex) {
+					plugin.logger.warning("Failed to check for updates, because: " + ex);
+					ex.printStackTrace();
+				}
+			}, 0, 3600 * 20);
+		}
 	}
 
 	/**

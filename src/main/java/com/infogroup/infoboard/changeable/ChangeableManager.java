@@ -48,6 +48,7 @@ public class ChangeableManager {
 	 * @return changeable
 	 */
 	public Changeable createChangeableTitle(Player p, String changeable) {
+		//TODO FIX issue with TITLE showing on all boards instead of the given one.
 		ArrayList<String> lines = plugin.getSettings().getText(changeable);
 		int time = plugin.getSettings().getInterval(changeable);
 		Changeable ch = new Changeable( 0, lines, time, plugin.getSettings().getChangeableOption(changeable));

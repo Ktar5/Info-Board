@@ -70,6 +70,13 @@ Changeable Text:
       - '&a%player_x%&7, &a%player_y%&7, &a%player_z%'
       - '&l%player_first_join_date%'
       interval: 1
+    titlewelcome:
+      option: BLINK
+      text:
+      - '&eWelcome &a%player_name%!'
+      - '&aWelcome &6%player_name%!'
+      - '&6Welcome &e%player_name%!'
+      interval: 1
 
 Condition:
   Enabled: false

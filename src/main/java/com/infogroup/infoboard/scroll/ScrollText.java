@@ -16,7 +16,7 @@ public class ScrollText {
 				&& ((player.getScoreboard().getObjective(DisplaySlot.SIDEBAR) == null) || player.getScoreboard()
 						.getObjective(DisplaySlot.SIDEBAR).getName().equalsIgnoreCase("InfoBoard"))) {
 			if (plugin.getSM().getScrollers(player) != null) {
-				for (Scroll2 sc : plugin.getSM().getScrollers(player)) {
+				for (Scroll sc : plugin.getSM().getScrollers(player)) {
 					try {
 						// Move scroller over one, and add the new line
 						//sc.next();

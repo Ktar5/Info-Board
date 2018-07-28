@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Changeable {
 
 	private int counter, count = 0;
-	private String message;
+	private String message, option;
 	private int row, interval;
 	private ArrayList<String> lines;
 
@@ -16,11 +16,12 @@ public class Changeable {
 	 * @param lines
 	 * @param interval
 	 */
-	public Changeable(int row, ArrayList<String> lines, int interval) {
+	public Changeable(int row, ArrayList<String> lines, int interval, String option) {
 		this.interval = interval * 20;
 		this.row = row;
 		this.lines = new ArrayList<>(lines);
 		this.message = this.lines.get(0);
+		this.option = option;
 	}
 	/**
 	 * Gets the row

@@ -28,7 +28,7 @@ public class ChangeableManager {
 	public Changeable createChangeables(Player p, String changeable, int row) {
 		ArrayList<String> lines = plugin.getSettings().getText(changeable);
 		int time = plugin.getSettings().getInterval(changeable);
-		Changeable ch = new Changeable(row, lines, time);
+		Changeable ch = new Changeable(row, lines, time, plugin.getSettings().getChangeableOption(changeable));
 		ArrayList<Changeable> chs;
 		if (this.changeables.containsKey(p)) {
 			chs = this.changeables.get(p);
@@ -50,7 +50,7 @@ public class ChangeableManager {
 	public Changeable createChangeableTitle(Player p, String changeable) {
 		ArrayList<String> lines = plugin.getSettings().getText(changeable);
 		int time = plugin.getSettings().getInterval(changeable);
-		Changeable ch = new Changeable( 0, lines, time);
+		Changeable ch = new Changeable( 0, lines, time, plugin.getSettings().getChangeableOption(changeable));
 		this.title.put(p, ch);
 		return ch;
 	}

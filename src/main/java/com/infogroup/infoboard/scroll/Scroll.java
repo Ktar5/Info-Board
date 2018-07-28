@@ -45,7 +45,7 @@ public class Scroll {
 	 * @return String
 	 */
 	public String getMessage() {
-//TODO fix the removing of the color char one a move
+	//TODO fix the removing of the color char one a move
 		String message = this.message.substring(position, Math.min(this.message.length(), (width - 2) + position));
 		char COLORCHAR = '&';
 

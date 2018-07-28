@@ -1,6 +1,7 @@
 package com.infogroup.infoboard.scroll;
 
 import com.infogroup.infoboard.InfoBoardReborn;
+import org.bukkit.Bukkit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,7 @@ public class Scroll2 {
         this.list = new ArrayList<>();
         //loop trough all Chars oof the message
         for (int i = 0; i < message.length(); i++) {
+
             //create String for all colors per section
             String color = "";
             //check when color code starts
@@ -40,11 +42,13 @@ public class Scroll2 {
                 if (message.charAt(i + 2) == '&') {
                     //if there is, String color = color codes
                     color = message.substring(i, i + 3);
+                    Bukkit.broadcastMessage(color);
                     //skip 3 chars in the string
                     i = i + 3;
                 } else {
                     //only 1 pair, String color = color codes
                     color = message.substring(i, i + 1);
+                    Bukkit.broadcastMessage(color);
                     //skip 1 char
                     i = i + 1;
                 }
@@ -60,6 +64,7 @@ public class Scroll2 {
         while (list.size() < width) {
             list.add(" ");
         }
+
     }
 
     /**
@@ -75,7 +80,7 @@ public class Scroll2 {
         list.add(list.get(0));
         list.remove(0);
 
-        return sb.toString();
+        return plugin.getMessages().getColored(sb.toString());
     }
 
     /**

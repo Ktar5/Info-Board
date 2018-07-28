@@ -95,7 +95,7 @@ public class Create {
                             if (plugin.getSettings().scrollingEnabled()) {
                                 line = line.replaceAll("<scroll>", "");
                                 int longestLine = getLongestLine(lines, player);
-                                String string = plugin.getMessages().getLine(line, player);
+                                String string = plugin.getMessages().getReplacements(line, player);
                                 Scroll2 sc = plugin.getSM().createScroller(player, string, row, longestLine);
                                 line = sc.getMessage();
                                 board.add(line, row);

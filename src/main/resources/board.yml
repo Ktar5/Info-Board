@@ -47,7 +47,7 @@ InfoBoard:
       default:
         Title: '&lLookie here!'
         Rows:
-        - '&6----[InfoBoard]----'
+        - '&r&6----[InfoBoard]----'
         - ' '
         - '&e&lWelcome!'
         - '&l%player_name%'

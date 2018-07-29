@@ -9,6 +9,8 @@ public class Changeable {
 	private int row, interval;
 	private ArrayList<String> lines;
 
+	private ArrayList<Integer> delays;
+
 	/**
 	 * Create a new changeable
 	 *
@@ -59,7 +61,7 @@ public class Changeable {
      *
 	 * @return Integer
 	 */
-	public int getInterval() {	return interval; }
+	public int getInterval() { return interval; }
 
 	/**
 	 * Adds 1 too the count

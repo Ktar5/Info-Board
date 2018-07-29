@@ -3,7 +3,7 @@ package com.infogroup.infoboard.scoreboard;
 import com.infogroup.infoboard.InfoBoardReborn;
 import com.infogroup.infoboard.changeable.Changeable;
 import com.infogroup.infoboard.condition.Condition;
-import com.infogroup.infoboard.scroll.Scroll2;
+import com.infogroup.infoboard.scroll.Scroll;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
@@ -96,7 +96,7 @@ public class Create {
                                 line = line.replaceAll("<scroll>", "");
                                 int longestLine = getLongestLine(lines, player);
                                 String string = plugin.getMessages().getReplacements(line, player);
-                                Scroll2 sc = plugin.getSM().createScroller(player, string, row, longestLine);
+                                Scroll sc = plugin.getSM().createScroller(player, string, row, longestLine);
                                 line = sc.getMessage();
                                 board.add(line, row);
                             } else {

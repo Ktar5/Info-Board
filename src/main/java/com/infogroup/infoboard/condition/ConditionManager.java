@@ -23,8 +23,7 @@ public class ConditionManager {
      * @param row
      */
     public Condition createCon(Player p, int row, String co){
-        Condition con =  new Condition(row, co,
-                plugin.getFm().getFile("config").getString("Condition.Conditions." + co + ".check"),
+        Condition con =  new Condition(row, co, plugin.getFm().getFile("config").getString("Condition.Conditions." + co + ".check"),
                 plugin.getSettings().getConInterval(co));
         ArrayList<Condition> conList;
         if(cons.containsKey(p)){

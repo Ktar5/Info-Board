@@ -5,12 +5,10 @@ import java.util.ArrayList;
 public class Changeable {
 
 	private int counter, count = 0;
-	private String message, option;
+	private String message;
 	private int row, interval;
 	private ArrayList<String> lines;
-
-	private ArrayList<Integer> delays;
-
+//TODO create option for TIMED lines...
 	/**
 	 * Create a new changeable
 	 *
@@ -18,12 +16,12 @@ public class Changeable {
 	 * @param lines
 	 * @param interval
 	 */
-	public Changeable(int row, ArrayList<String> lines, int interval, String option) {
+	public Changeable(int row, ArrayList<String> lines, int interval) {
 		this.interval = interval * 20;
 		this.row = row;
 		this.lines = new ArrayList<>(lines);
 		this.message = this.lines.get(0);
-		this.option = option;
+
 	}
 	/**
 	 * Gets the row
@@ -79,4 +77,7 @@ public class Changeable {
 	 * Resets the count
 	 */
 	public void resetCount() { this.count = 0; }
+
+
+
 }

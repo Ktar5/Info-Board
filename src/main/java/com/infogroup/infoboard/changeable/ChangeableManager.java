@@ -28,7 +28,7 @@ public class ChangeableManager {
 	public Changeable createChangeables(Player p, String changeable, int row, String option) {
 		ArrayList<String> lines = plugin.getSettings().getText(changeable);
 		int time = plugin.getSettings().getInterval(changeable);
-		Changeable ch = new Changeable(row, lines, time, plugin.getSettings().getChangeableOption(changeable));
+		Changeable ch = new Changeable(row, lines, time);
 		ArrayList<Changeable> chs;
 		if (this.changeables.containsKey(p)) {
 			chs = this.changeables.get(p);
@@ -51,7 +51,7 @@ public class ChangeableManager {
 		//TODO FIX issue with TITLE showing on all boards instead of the given one.
 		ArrayList<String> lines = plugin.getSettings().getText(changeable);
 		int time = plugin.getSettings().getInterval(changeable);
-		Changeable ch = new Changeable( 0, lines, time, plugin.getSettings().getChangeableOption(changeable));
+		Changeable ch = new Changeable( 0, lines, time);
 		this.title.put(p, ch);
 		return ch;
 	}

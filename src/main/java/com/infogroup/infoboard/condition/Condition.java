@@ -5,14 +5,16 @@ import com.infogroup.infoboard.InfoBoardReborn;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Condition {
     private InfoBoardReborn plugin = InfoBoardReborn.getPlugin(InfoBoardReborn.class);
 
-    private String msg, con, check;
+    private String msg, con, check, dmsg;
     private Integer row, interval;
     private Integer count = 0;
-    private ArrayList<String> answers;
+    private ArrayList<String> answer;
+    private Map<String, String> answers;
 
     /**
      * Create a new condition
@@ -27,7 +29,9 @@ public class Condition {
         this.con = con;
         this.check = check;
         this.answers = plugin.getSettings().getConText(con);
+        this.dmsg = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".answer.default");
         this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".answer.default");
+
     }
 
     /**
@@ -38,14 +42,14 @@ public class Condition {
     public void check(Player player){
        String newCheck = GetVariables.replaceVariables(this.check, player);
        //TODO FIX
-       for(String s : this.answers){
+       for(String s : this.answer){
            if(s.contains("%")) {
                s = GetVariables.replaceVariables(s, player);
            }
            if(s.equals(newCheck)){
                this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + this.getCon() + ".answer." + s);
            } else {
-               this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + this.getCon() + ".answer.default");
+               this.msg = this.dmsg;
            }
        }
 

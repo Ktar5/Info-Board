@@ -3,7 +3,9 @@ package com.infogroup.infoboard.utils;
 import com.infogroup.infoboard.InfoBoardReborn;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Settings {
 	private InfoBoardReborn plugin;
@@ -226,10 +228,9 @@ public class Settings {
 	 * @param condition
 	 * @return
 	 */
-    public ArrayList<String> getConText(String condition){
-		ArrayList<String> answers = new ArrayList<>();
-		answers.addAll(plugin.getFm().getFile("config")
-				.getConfigurationSection("Condition.Conditions." + condition + ".answer").getKeys(false));
+    public Map<String, String> getConText(String condition){
+		Map<String, String> answers= new HashMap<>();
+
 		return answers;
 	}
 

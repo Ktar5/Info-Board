@@ -28,7 +28,6 @@ import java.util.logging.Logger;
 public class InfoBoardReborn extends JavaPlugin {
 
     public boolean update = false;
-    public boolean debug = false;
     public ArrayList<String> hidefrom = new ArrayList<>();
     public Economy economy;
     public Permission permission;
@@ -36,6 +35,7 @@ public class InfoBoardReborn extends JavaPlugin {
     public boolean permissionB;
     PluginDescriptionFile pdfFile = getDescription();
     Logger logger = getLogger();
+
     private UpdateChecker UC;
     private Timers timers;
     private FileManager fm;
@@ -49,6 +49,7 @@ public class InfoBoardReborn extends JavaPlugin {
     private Vault V;
     private ProtocolManager PM;
     private API api;
+
 
     public void onEnable() {
 
@@ -94,6 +95,9 @@ public class InfoBoardReborn extends JavaPlugin {
 
     }
 
+    /**
+     * register events
+     */
     private void registerEvents() {
         PluginManager pm = getServer().getPluginManager();
 
@@ -101,6 +105,9 @@ public class InfoBoardReborn extends JavaPlugin {
         pm.registerEvents(new PlayerJoin(this), this);
     }
 
+    /**
+     * Load the metrics system
+     */
     private void loadMetrics() {
         Metrics metrics = new Metrics(this);
         metrics.addCustomChart(new Metrics.SimpleBarChart("features", () -> {
@@ -118,6 +125,9 @@ public class InfoBoardReborn extends JavaPlugin {
         }));
     }
 
+    /**
+     * Instance all classes that are necessary
+     */
     private void Instance() {
         this.fm = new FileManager(this);
         this.settings = new Settings(this);
@@ -140,6 +150,9 @@ public class InfoBoardReborn extends JavaPlugin {
         V.load();
     }
 
+    /**
+     * Check for all dependencies
+     */
     private void dependencies() {
         if (!Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             throw new RuntimeException("Could not find PlaceholderAPI!! Plugin can not work without it!");
@@ -152,47 +165,81 @@ public class InfoBoardReborn extends JavaPlugin {
         }
     }
 
-    public FileManager getFm() {
-        return this.fm;
-    }
+    /**
+     * Get's Filemanager
+     * @return
+     */
+    public FileManager getFm() { return this.fm; }
 
-    public Settings getSettings() {
-        return this.settings;
-    }
+    /**
+     * Get's Settings
+     * @return
+     */
+    public Settings getSettings() { return this.settings; }
 
-    public Messages getMessages() {
-        return this.msgs;
-    }
+    /**
+     * Get's Messages
+     * @return
+     */
+    public Messages getMessages() { return this.msgs; }
 
-    public ChangeableManager getCHM() {
-        return this.CHM;
-    }
+    /**
+     * Get's ChangeableManager
+     * @return
+     */
+    public ChangeableManager getCHM() { return this.CHM; }
 
-    public ScrollManager getSM() {
-        return this.SM;
-    }
+    /**
+     * Get's ScrollManager
+     * @return
+     */
+    public ScrollManager getSM() { return this.SM; }
 
-    public WorldGuard getWG() {
-        return this.WG;
-    }
+    /**
+     * Get's WorldGuard
+     * @return
+     */
+    public WorldGuard getWG() { return this.WG; }
 
-    public Vault getV() {
-        return this.V;
-    }
+    /**
+     * Get's Vault
+     * @return
+     */
+    public Vault getV() { return this.V; }
 
-    public Timers getTimers() {
-        return this.timers;
-    }
+    /**
+     * Get's Timers
+     * @return
+     */
+    public Timers getTimers() { return this.timers; }
 
-    public UpdateChecker getUC() {
-        return this.UC;
-    }
+    /**
+     * Get's UpdateChecker
+     * @return
+     */
+    public UpdateChecker getUC() { return this.UC; }
 
+    /**
+     * Get's BoardManager
+     * @return
+     */
     public BoardManager getBM(){ return this.bm; }
 
+    /**
+     * Get's ConditionManager
+     * @return
+     */
     public ConditionManager getCM(){return this.CM; }
 
+    /**
+     * Get's ProtocolManager
+     * @return
+     */
     public ProtocolManager getPM(){ return this.PM; }
 
+    /**
+     * Get's API
+     * @return
+     */
     public API getAPI(){return this.api;}
 }

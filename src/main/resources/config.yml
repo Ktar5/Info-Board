@@ -7,7 +7,7 @@
 # |       Custom Variables allow for you to create your own variables         |
 # |                  <Variable>: What it gets replaced to                     |
 # |---------------------------------------------------------------------------|
-# |     Disabled Worlds    - A List of worlds that won't have scoreboards     |
+# |     Disabled Worlds - A List of worlds that won't have scoreboards        |
 # | WorldGuard.Prevent Showing In - A List of regions the board won't show in |
 # |---------------------------------------------------------------------------|
 # |          Update Time how fast you scoreboard updates in seconds           |
@@ -18,12 +18,12 @@
 # |---------------------------------------------------------------------------|
 # |                             Changeable text:                              |
 # |                     Use like: <changeable_<variable>>                     |
-# |                       Enabled- enable or disable                          |
+# |                       Enabled - enable or disable                          |
 # |                   Changeables - Custom changeable variables               |
 # |                        Option - how you want the time                     |
 # |                            OPTIONS: BLINK / TIMED                         |
 # |                  Text - the text lines you want to display                |
-# |	             interval- how fast the lines should update in seconds        | 
+# |	             interval - how fast the lines should update in seconds        | 
 # |---------------------------------------------------------------------------|
 # |                               COMING SOON!!                               |
 # |                                Condition                                  |

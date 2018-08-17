@@ -85,10 +85,10 @@ Condition:
     health:
       check: "%player_health_rounded%"
       answer:
-      - '20':"full health"
-      - '10':"half health"
-      - '1':"close to death"
-      - '0':"dead"
-      - default: "still alive"
+        '20': full health
+        '10': half health
+        '1': close to death
+        '0': dead
+        default: "still alive"
       interval: 1
   

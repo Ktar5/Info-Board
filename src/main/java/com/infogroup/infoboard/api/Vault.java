@@ -23,6 +23,7 @@ public class Vault {
 			try {
 				rank = plugin.permission.getPlayerGroups(player.getWorld().getName(), player.getPlayer())[0];
 			} catch (UnsupportedOperationException ignored) {
+				ignored.printStackTrace();
 			}
 		return rank;
 	}

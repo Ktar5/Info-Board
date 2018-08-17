@@ -55,22 +55,23 @@ public class Timers {
 		 * PAGE ROTATION
 		 * =========================================================================
 		 */
-		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
-            if (time >= showtime) {
-                setPage(getPage() + 1);
+		if (plugin.getSettings().staticBoard() == false) {
+			Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
+				if (time >= showtime) {
+					setPage(getPage() + 1);
 
-                if (showtime == 0) {
-                    setPage(1);
-                }
-                for (Player p : Bukkit.getOnlinePlayers()) {
-                    if (p.hasPermission("ibr.view")) {
-                        Create.createScoreBoard(p);
-                    }
-                }
-            }
-            time++;
-        }, 0, 20);
-
+					if (showtime == 0) {
+						setPage(1);
+					}
+					for (Player p : Bukkit.getOnlinePlayers()) {
+						if (p.hasPermission("ibr.view")) {
+							Create.createScoreBoard(p);
+						}
+					}
+				}
+				time++;
+			}, 0, 20);
+		}
 		/*
 		 * =========================================================================
 		 * UPDATES BOARD'S VALUE

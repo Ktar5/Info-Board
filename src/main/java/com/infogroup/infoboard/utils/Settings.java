@@ -146,6 +146,15 @@ public class Settings {
 	}
 
 	/**
+	 * if a static board should be used
+	 *
+	 * @return
+	 */
+	public boolean staticBoard() {
+		return plugin.getFm().getFile("config").getBoolean("Static Board");
+	}
+
+	/**
 	 * Get the lines for give changeable
 	 * 
 	 * @return ArrayList
@@ -228,7 +237,8 @@ public class Settings {
 	 * @param condition
 	 * @return
 	 */
-    public Map<String, String> getConText(String condition){
+    public Map<String, String> getConText(String condition) {
+		//TODO FIX
 		Map<String, String> answers= new HashMap<>();
 
 		return answers;

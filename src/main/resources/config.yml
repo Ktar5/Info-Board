@@ -37,6 +37,7 @@
 Updater: true
 Debug: false
 give-onjoin: true
+Static Board: false
 
 Custom Variables:
   <website>: yoursitehere.net

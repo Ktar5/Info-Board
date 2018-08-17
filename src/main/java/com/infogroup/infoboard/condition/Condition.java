@@ -4,7 +4,6 @@ import com.infogroup.infoboard.GetVariables;
 import com.infogroup.infoboard.InfoBoardReborn;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 public class Condition {
@@ -13,7 +12,6 @@ public class Condition {
     private String msg, con, check, dmsg;
     private Integer row, interval;
     private Integer count = 0;
-    private ArrayList<String> answer;
     private Map<String, String> answers;
 
     /**
@@ -29,8 +27,8 @@ public class Condition {
         this.con = con;
         this.check = check;
         this.answers = plugin.getSettings().getConText(con);
-        this.dmsg = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".answer.default");
-        this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".answer.default");
+        this.dmsg = answers.get("default");
+        this.msg = this.dmsg;
 
     }
 
@@ -40,8 +38,30 @@ public class Condition {
      * @param player
      */
     public void check(Player player){
-       String newCheck = GetVariables.replaceVariables(this.check, player);
-       //TODO FIX
+
+        //TODO TEST
+
+        String newCheck = GetVariables.replaceVariables(this.check, player);
+
+        //Loop trough entries
+        for (Map.Entry<String, String> entry : answers.entrySet()) {
+
+            String key = entry.getKey();
+
+            //check if the check equals an other placeholder, replace by it's value if so
+            if (entry.getKey().contains("%")) {
+                key = GetVariables.replaceVariables(key, player);
+            }
+            //check if the key equals the check, if so get key's value and set that as msg, else dmsg is msg
+            if (key.equals(newCheck)) {
+                this.msg = answers.get(key);
+            } else {
+                this.msg = this.dmsg;
+            }
+
+
+        }
+        /**
        for(String s : this.answer){
            if(s.contains("%")) {
                s = GetVariables.replaceVariables(s, player);
@@ -52,7 +72,7 @@ public class Condition {
                this.msg = this.dmsg;
            }
        }
-
+         */
     }
 
     /**

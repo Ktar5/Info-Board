@@ -46,9 +46,10 @@ public class Board {
 	public void add(String line, int row) {
 
 		row = 15 - row;
-
-		if (line.length() > 16) {
-			addCreatingTeam(line, row);
+		if (!Bukkit.getVersion().contains("1.13")) {
+			if (line.length() > 16) {
+				addCreatingTeam(line, row);
+			}
 		} else {
 			Score score = objective.getScore(line);
 			//score.setScore(1);

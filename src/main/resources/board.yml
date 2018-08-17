@@ -81,7 +81,7 @@ InfoBoard:
         - ' '
         - '&e&lWebsite:'
         - '<website>'
-       - ' '
+        - ' '
         - '&6----[InfoBoard]----'
       Admin:
         Title: '&e&lServer Stats'

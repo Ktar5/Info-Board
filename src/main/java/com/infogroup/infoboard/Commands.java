@@ -348,6 +348,12 @@ public class Commands implements CommandExecutor {
 		} else {
 			C = String.valueOf(ChatColor.DARK_RED + "" + plugin.getSettings().conditionsEnabled());
 		}
+		String staticB;
+		if (plugin.getSettings().staticBoard()) {
+			staticB = String.valueOf(ChatColor.DARK_GREEN + "" + plugin.getSettings().staticBoard());
+		} else {
+			staticB = String.valueOf(ChatColor.DARK_RED + "" + plugin.getSettings().staticBoard());
+		}
 		if (!sender.hasPermission("ibr.Info")) {
 			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("no-permission")));
 		} else {
@@ -356,6 +362,9 @@ public class Commands implements CommandExecutor {
 					+ plugin.getDescription().getVersion() + ChatColor.GOLD + " " + ChatColor.STRIKETHROUGH
 					+ "]========");
 			sender.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Features:");
+
+			//Static Board info
+			sender.sendMessage(ChatColor.GOLD + " - Static Board enabled: " + staticB);
 			//Scrolling info
 			sender.sendMessage(ChatColor.GOLD + " - Scrolling Text enabled: " + SC);
 			//Conditions info

@@ -49,6 +49,10 @@ public class Board {
 		if (!Bukkit.getVersion().contains("1.13")) {
 			if (line.length() > 16) {
 				addCreatingTeam(line, row);
+			} else {
+				Score score = objective.getScore(line);
+				//score.setScore(1);
+				score.setScore(row);
 			}
 		} else {
 			Score score = objective.getScore(line);
@@ -75,11 +79,11 @@ public class Board {
 
 		} else if (line.length() <= 32) {
 			name = line.substring(0, 16);
-			suffix = line.substring(16, line.length());
+			suffix = line.substring(16);
 		} else {
 			prefix = line.substring(0, 16);
 			name = line.substring(16, 32);
-			suffix = line.substring(32, line.length());
+			suffix = line.substring(32);
 		}
 
 		//TODO TEST

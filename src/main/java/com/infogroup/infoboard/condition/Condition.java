@@ -27,6 +27,7 @@ public class Condition {
         this.con = con;
         this.check = check;
         this.answers = plugin.getSettings().getConText(con);
+
         this.dmsg = answers.get("default");
         this.msg = this.dmsg;
 
@@ -37,9 +38,8 @@ public class Condition {
      *
      * @param player
      */
+    //TODO TEST
     public void check(Player player){
-
-        //TODO TEST
 
         String newCheck = GetVariables.replaceVariables(this.check, player);
 
@@ -59,20 +59,7 @@ public class Condition {
                 this.msg = this.dmsg;
             }
 
-
         }
-        /**
-       for(String s : this.answer){
-           if(s.contains("%")) {
-               s = GetVariables.replaceVariables(s, player);
-           }
-           if(s.equals(newCheck)){
-               this.msg = plugin.getFm().getFile("config").getString("Condition.Conditions." + this.getCon() + ".answer." + s);
-           } else {
-               this.msg = this.dmsg;
-           }
-       }
-         */
     }
 
     /**
@@ -80,43 +67,57 @@ public class Condition {
      *
      * @return String
      */
-    public String getCon(){ return this.con; }
+    public String getCon(){
+        return this.con;
+    }
 
     /**
      * Get the current message
      *
      * @return String
      */
-    public String getMessage(){ return this.msg; }
+    public String getMessage(){
+        return this.msg;
+    }
 
     /**
      * Gets the conditions row
      *
      * @return Integer
      */
-    public Integer getRow(){ return this.row; }
+    public Integer getRow(){
+        return this.row;
+    }
 
     /**
      * Gets the interval of the condition
      *
      * @return Integer
      */
-    public Integer getInterval(){ return this.interval; }
+    public Integer getInterval(){
+        return this.interval;
+    }
 
     /**
      * Get the current value of Count
      *
      * @return Integer
      */
-    public Integer getCount(){ return this.count; }
+    public Integer getCount(){
+        return this.count;
+    }
 
     /**
      * add 1 to the count
      */
-    public void addCount(){ this.count++; }
+    public void addCount(){
+        this.count++;
+    }
 
     /**
      * reset the count
      */
-    public void resetCount(){ this.count = 0; }
+    public void resetCount(){
+        this.count = 0;
+    }
 }

@@ -2,10 +2,7 @@ package com.infogroup.infoboard.utils;
 
 import com.infogroup.infoboard.InfoBoardReborn;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Settings {
 	private InfoBoardReborn plugin;
@@ -228,19 +225,23 @@ public class Settings {
 	 * @return
 	 */
     public Integer getConInterval(String con){
-	    return plugin.getFm().getFile("config").getInt("Condition.Conditions." + con +". interval");
+	    return plugin.getFm().getFile("config").getInt("Condition.Conditions." + con +".interval");
     }
 
 	/**
 	 * Gets the given condition their possible answers
 	 *
-	 * @param condition
+	 * @param con
 	 * @return
 	 */
-    public Map<String, String> getConText(String condition) {
-		//TODO FIX
-		Map<String, String> answers= new HashMap<>();
+    public Map<String, String> getConText(String con) {
+		Map<String, String> answers = new HashMap<>();
 
+		Set<String> keys = plugin.getFm().getFile("config")
+				.getConfigurationSection("Condition.Conditions." + con + ".answers").getKeys(false);
+		for(String s : keys){
+			answers.put(s, plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".answers." + s));
+		}
 		return answers;
 	}
 

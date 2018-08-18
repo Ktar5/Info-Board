@@ -9,7 +9,7 @@ import java.util.Map;
 public class Condition {
     private InfoBoardReborn plugin = InfoBoardReborn.getPlugin(InfoBoardReborn.class);
 
-    private String msg, con, check, dmsg;
+    private String msg, con, check;
     private Integer row, interval;
     private Integer count = 0;
     private Map<String, String> answers;
@@ -27,9 +27,8 @@ public class Condition {
         this.con = con;
         this.check = check;
         this.answers = plugin.getSettings().getConText(con);
+        this.msg = answers.get("default");
 
-        this.dmsg = answers.get("default");
-        this.msg = this.dmsg;
 
     }
 
@@ -38,7 +37,7 @@ public class Condition {
      *
      * @param player
      */
-    //TODO TEST
+    //TODO FIX
     public void check(Player player){
 
         String newCheck = GetVariables.replaceVariables(this.check, player);
@@ -56,7 +55,7 @@ public class Condition {
             if (key.equals(newCheck)) {
                 this.msg = answers.get(key);
             } else {
-                this.msg = this.dmsg;
+                this.msg = answers.get("default");
             }
 
         }

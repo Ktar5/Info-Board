@@ -8,7 +8,7 @@ public class Changeable {
 	private String message;
 	private int row, interval;
 	private ArrayList<String> lines;
-//TODO create option for TIMED lines...
+	//TODO create option for TIMED lines...
 	/**
 	 * Create a new changeable
 	 *

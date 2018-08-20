@@ -2,6 +2,7 @@ package com.infogroup.infoboard.condition;
 
 import com.infogroup.infoboard.GetVariables;
 import com.infogroup.infoboard.InfoBoardReborn;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.util.Map;
@@ -44,7 +45,7 @@ public class Condition {
 
         //Loop trough entries
         for (Map.Entry<String, String> entry : answers.entrySet()) {
-
+            Bukkit.broadcastMessage("key: "+ entry.getKey()+ " Value: "+ entry.getValue());
             String key = entry.getKey();
 
             //check if the check equals an other placeholder, replace by it's value if so

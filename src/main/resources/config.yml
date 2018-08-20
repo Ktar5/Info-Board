@@ -54,8 +54,6 @@ WorldGuard:
 
 Update Time:
   Lines: 0.5
-#Comming soon!
-# Title: 0.5
 
 Scrolling Text:
   Enable: false
@@ -66,18 +64,20 @@ Changeable Text:
   Changeables:
     healthloc:
       option: BLINK
+      interval: 1
       text:
       - '&e%player_health_rounded%&a/&c%player_max_health_rounded%'
       - '&a%player_x%&7, &a%player_y%&7, &a%player_z%'
       - '&l%player_first_join_date%'
-      interval: 1
+
     titlewelcome:
       option: BLINK
+      interval: 1
       text:
       - '&eWelcome &a%player_name%!'
       - '&aWelcome &6%player_name%!'
       - '&6Welcome &e%player_name%!'
-      interval: 1
+
 
 Condition:
   Enabled: false

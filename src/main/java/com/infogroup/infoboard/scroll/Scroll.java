@@ -3,9 +3,6 @@ package com.infogroup.infoboard.scroll;
 import com.infogroup.infoboard.InfoBoardReborn;
 import org.bukkit.ChatColor;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 public class Scroll {
 	private InfoBoardReborn plugin;
 	private String message, originalMessage;
@@ -33,8 +30,6 @@ public class Scroll {
 			builder.append("          ").append(message);
 		}
 		String string = builder.toString();
-
-		string = translateMsg(string);
 
 		this.message = this.plugin.getMessages().getColored(string);
 	}
@@ -86,42 +81,5 @@ public class Scroll {
 				position = 0;
 			}
 		}
-	}
-
-	/**
-	 * adds the color code after each letter in the message
-	 *
-	 * @param msg
-	 * @return
-	 */
-	public String translateMsg(String msg){
-		//TODO FINISH color code fix (not finished)
-
-		//works for "&7Hello &cWorld!"
-		String result = Arrays.asList(msg.split(" ")).stream().map(word -> {
-			String prefix = msg.substring(0, 2);
-
-			return Arrays.stream(msg.substring(2).split(""))
-					.collect(Collectors.joining(prefix, prefix, ""));
-		}).collect(Collectors.joining(" "));
-
-
-
-		String[] split = msg.split("&");
-		for(int i=0; i < split.length; i++){
-			String color = null;
-			if (split[i].length()==1){
-				color = "&" + split[i];
-				continue;
-			}else{
-				color = color + "&" + split[i].substring(0,1);
-			}
-			//add all letter with color code
-			result = color + result;
-		}
-
-
-		//return the msg
-		return result;
 	}
 }

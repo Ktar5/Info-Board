@@ -19,7 +19,7 @@ public class Update {
 			if (!line.equals(" ") && !line.equals("")
 					&& !line.contains("<scroll>")
 					&& !line.contains("<changeable_")
-				&& !line.contains("<condition_")){
+					&& !line.contains("<condition_")){
 				toAdd.put(-i, line);
 			}
 			i++;
@@ -32,7 +32,7 @@ public class Update {
 	 * 
 	 * @param list
 	 */
-	public static void getTitle(List<String> list) {
+	public static ArrayList<String> getTitle(List<String> list) {
 		ArrayList<String> titles = new ArrayList<>();
 		for (String title : list) {
 			if (!title.equals(" ") && title.equals(" ")
@@ -42,6 +42,7 @@ public class Update {
 				titles.add(title);
 			}
 		}
+		return titles;
 	}
 
 	/**

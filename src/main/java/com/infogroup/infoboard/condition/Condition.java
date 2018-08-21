@@ -45,20 +45,22 @@ public class Condition {
 
         //Loop trough entries
         for (Map.Entry<String, String> entry : answers.entrySet()) {
+
+            //debug
             Bukkit.broadcastMessage("key: "+ entry.getKey()+ " Value: "+ entry.getValue());
-            String key = entry.getKey();
+
+            String answer = entry.getKey();
 
             //check if the check equals an other placeholder, replace by it's value if so
             if (entry.getKey().contains("%")) {
-                key = GetVariables.replaceVariables(key, player);
+                answer = GetVariables.replaceVariables(answer, player);
             }
             //check if the key equals the check, if so get key's value and set that as msg, else dmsg is msg
-            if (key.equals(newCheck)) {
-                this.msg = answers.get(key);
+            if (newCheck.equals(answer)) {
+                this.msg = answers.get(answer);
             } else {
                 this.msg = answers.get("default");
             }
-
         }
     }
 
@@ -76,7 +78,23 @@ public class Condition {
      *
      * @return String
      */
-    public String getMessage(){
+    public String getMessage(Player player){
+
+        String con = GetVariables.replaceVariables(this.check, player);
+
+        for (Map.Entry<String, String> entry : answers.entrySet()){
+            String check = entry.getKey();
+            if (check.contains("%")){
+                check = GetVariables.replaceVariables(check, player);
+            }
+
+
+            if (entry.getKey().equals(con)){
+                this.msg = answers.get(entry.getKey());
+            }else{
+                this.msg = answers.get("default");
+            }
+        }
         return this.msg;
     }
 

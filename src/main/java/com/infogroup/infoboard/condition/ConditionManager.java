@@ -22,18 +22,18 @@ public class ConditionManager {
      * @param p
      * @param row
      */
-    public Condition createCon(Player p, int row, String co){
-        Condition con =  new Condition(row, co, plugin.getFm().getFile("config").getString("Condition.Conditions." + co + ".check"),
-                plugin.getSettings().getConInterval(co));
+    public Condition createCon(Player p, int row, String con){
+        Condition cond =  new Condition(row, con, plugin.getFm().getFile("config").getString("Condition.Conditions." + con + ".check"),
+                plugin.getSettings().getConInterval(con));
         ArrayList<Condition> conList;
         if(cons.containsKey(p)){
             conList = cons.get(p);
         }else{
             conList = new ArrayList<>();
         }
-        conList.add(con);
+        conList.add(cond);
         this.cons.put(p, conList);
-        return con;
+        return cond;
     }
 
     /**
@@ -73,7 +73,7 @@ public class ConditionManager {
     public void reset(Player p){
         if(getCons(p)!= null){
             for(Condition con : this.getCons(p)){
-                String lastString = con.getMessage();
+                String lastString = con.getMessage(p);
                 new Board(p).remove(lastString);
             }
         }

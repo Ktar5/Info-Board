@@ -126,7 +126,7 @@ public class Create {
                                         line = line.replace("<condition_", "").replace(">", "");
                                         if(conditions.contains(line)){
                                             Condition con = plugin.getCM().createCon(player, row, line);
-                                            line = con.getMessage();
+                                            line = con.getMessage(player);
                                             line = plugin.getMessages().getLine(line, player);
                                             board.add(line, row);
                                         }else{

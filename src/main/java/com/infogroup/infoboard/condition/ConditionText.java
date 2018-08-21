@@ -25,8 +25,7 @@ public class ConditionText {
                    try {
                        if (con.getCount() == con.getInterval()) {
                            // Check if the condition has changed
-                           con.check(player);
-                           String newLine = con.getMessage();
+                           String newLine = con.getMessage(player);
 
                            newLine = plugin.getMessages().getLine(newLine, player);
                            Board board = new Board(player);
@@ -48,8 +47,7 @@ public class ConditionText {
                    Condition con = plugin.getCM().getTitleCon(player);
                    if (con.getCount() == con.getInterval()) {
                        // Check if the condition has changed
-                       con.check(player);
-                       String newLine = con.getMessage();
+                       String newLine = con.getMessage(player);
 
                        newLine = plugin.getMessages().getLine(newLine, player);
                        Board board = new Board(player);

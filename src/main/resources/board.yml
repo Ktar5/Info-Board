@@ -68,7 +68,7 @@ InfoBoard:
       default:
         Title: '&e&lPlayer Stats'
         Rows:
-        - '&6----[InfoBoard]----'
+        - '&r&6----[InfoBoard]----'
         - ' '
         - '&e&lDate Joined:'
         - '&l%player_first_join_date%'
@@ -86,7 +86,7 @@ InfoBoard:
       Admin:
         Title: '&e&lServer Stats'
         Rows:
-        - '&6----[InfoBoard]----'
+        - '&r&6----[InfoBoard]----'
         - ' '
         - '&a&lMemory:'
         - '&e%server_ram_used%&7/&e%server_ram_max%'

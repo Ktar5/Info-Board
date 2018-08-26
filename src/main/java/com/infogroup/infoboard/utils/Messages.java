@@ -81,7 +81,7 @@ public class Messages {
 		} else if(title.startsWith("<condition_")&& plugin.getSettings().conditionsEnabled()){
             title = title.replaceAll("<condition_","").replaceAll(">","");
             // create changeable title
-            title = plugin.getCM().createTitleCon(player, title).getMessage();
+			title = plugin.getCM().createTitleCon(player, title).getMessage(player);
 
 		} else {
 			title = getLine(title.substring(0, Math.min(title.length(), 32)), player);

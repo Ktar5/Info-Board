@@ -54,7 +54,6 @@ public class InfoBoardReborn extends JavaPlugin {
 
     public void onEnable() {
 
-        //TODO 1.13 FIX COLORS
         saveDefaultConfig();
         dependencies();
         this.Instance();

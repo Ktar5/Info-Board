@@ -1,8 +1,17 @@
 # InfoBoardReborn Board file
 # ===============================================================================================
-# |                               Max Rows for a board is 15                                    |
+# |                                  FOR 1.12.2 AND BELOW                                       |
+# |---------------------------------------------------------------------------------------------|
+# |                                Max Rows for a board is 15                                   |
 # |                            Max characters for a title is 32                                 |
 # |                             Max characters for a line is 48                                 |
+# |---------------------------------------------------------------------------------------------|
+# |                                  FOR 1.13 AND ABOVE                                         |
+# |                              Max Rows for a board is 15                                     |
+# |                                                                                             |
+# |                               Cumming soon: INFINITE RANGE                                  |
+# |                            Max characters for a title is  XX                                |
+# |                             Max characters for a line is  XX                                |
 # |---------------------------------------------------------------------------------------------|
 # |               When using scroll there is no limit for characters per line                   |
 # |=============================================================================================|
@@ -53,7 +62,7 @@ InfoBoard:
         - '&l%player_name%'
         - ' '
         - '&a&lHealth:'
-        - '&e%player_health%&a/&c%player_max_health%'
+        - '&e%player_health_rounded%&a/&c%player_max_health_rounded%'
         - ' '
         - '&5&lCoded by:'
         - '<plugindev>'

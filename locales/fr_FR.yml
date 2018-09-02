@@ -1,7 +1,7 @@
 #General 
 #
 no-permission: 'Vous n\'avez pas la permission d'éxecuter cette commande!'
-not-player: 'Vous devez etre un joueur pour utiliser cette commande!'
+not-player: 'Vous devez être un joueur pour utiliser cette commande!'
 update: 'Il y a une nouvelle version de InfoBoardReborn!'
 wrong-usage: 'Vous n'avez pas utilisé la commande correctement!'
 
@@ -33,5 +33,5 @@ create-success: 'Page créée avec succés!'
 #
 page-doesnot-exist: 'Cette page n'existe pas.'
 add-success: 'Ligne ajoutée à la page: '
-title-exists: 'Un titre à déjà été donné à la page.'
+title-exists: 'Un titre a déjà été donné à la page.'
 max-lines: 'Vous ne pouvez que avoir 15 lignes par scoreboard!'

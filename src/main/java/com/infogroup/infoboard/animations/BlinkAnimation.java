@@ -6,18 +6,43 @@ public class BlinkAnimation {
 
     /*
     Settings contains Keys:
-    -Color
-    -Return Color
-    -Interval
-    -Message
+    -color
+    -return color
+    -interval
+    -text
+    -row
      */
     private HashMap<String, String> settings;
+    private boolean colored;
 
     /*
     Coloring a given string for a given time and undo it, keep repeating.
      */
     public BlinkAnimation(HashMap<String, String> settings) {
         this.settings = settings;
+        this.colored = false;
     }
 
+    /**
+     * get the next possible message
+     *
+     * @return String
+     */
+    public String next() {
+        String message = settings.get("text");
+        if (colored == true) {
+            return message;
+        } else {
+            return settings.get("color") + message;
+        }
+    }
+
+    /**
+     * get the animation's row
+     *
+     * @return Integer
+     */
+    public Integer getRow() {
+        return Integer.parseInt(settings.get("row"));
+    }
 }

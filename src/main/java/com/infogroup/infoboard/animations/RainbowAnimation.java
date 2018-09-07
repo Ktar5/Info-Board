@@ -2,18 +2,18 @@ package com.infogroup.infoboard.animations;
 
 import java.util.HashMap;
 
-public class ScrollAnimation {
+public class RainbowAnimation {
 
     /*
     Settings contains Keys:
-    -Width
-    -Length
-    -Single
-    -Message
-     */
+    -interval
+    -text
+    - ? StringList ? colors OR ENTRIES like color1,color2,...
+    -
+    */
     private HashMap<String, String> settings;
 
-    public ScrollAnimation(HashMap<String, String> settings) {
+    public RainbowAnimation(HashMap<String, String> settings) {
         this.settings = settings;
     }
 

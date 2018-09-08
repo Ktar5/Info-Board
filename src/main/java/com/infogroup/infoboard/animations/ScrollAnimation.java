@@ -2,14 +2,15 @@ package com.infogroup.infoboard.animations;
 
 import java.util.HashMap;
 
-public class ScrollAnimation {
+public class ScrollAnimation extends BaseAnimation {
 
     /*
     Settings contains Keys:
-    -Width
-    -Length
-    -Single
-    -Message
+    -width
+    -length
+    -single
+    -message
+    -row
      */
     private HashMap<String, String> settings;
 

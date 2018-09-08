@@ -2,7 +2,7 @@ package com.infogroup.infoboard.animations;
 
 import java.util.HashMap;
 
-public class BlinkAnimation {
+public class BlinkAnimation extends BaseAnimation {
 
     /*
     Settings contains Keys:

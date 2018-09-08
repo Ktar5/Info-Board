@@ -2,7 +2,7 @@ package com.infogroup.infoboard.animations;
 
 import java.util.HashMap;
 
-public class ChangeableAnimation {
+public class ChangeableAnimation extends BaseAnimation {
 
     /*
     Settings contains Keys:

@@ -2,7 +2,7 @@ package com.infogroup.infoboard.animations;
 
 import java.util.HashMap;
 
-public class RainbowAnimation {
+public class RainbowAnimation extends BaseAnimation {
 
     /*
     Settings contains Keys:

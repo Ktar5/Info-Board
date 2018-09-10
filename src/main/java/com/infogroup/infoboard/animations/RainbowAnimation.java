@@ -35,4 +35,11 @@ public class RainbowAnimation extends BaseAnimation {
     public Integer getRow() {
         return Integer.parseInt(settings.get("row"));
     }
+
+    /**
+     * @return
+     */
+    public String name() {
+        return "rainbow";
+    }
 }

@@ -2,6 +2,7 @@ package com.infogroup.infoboard;
 
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
+import com.infogroup.infoboard.animations.AnimationManager;
 import com.infogroup.infoboard.api.API;
 import com.infogroup.infoboard.api.Vault;
 import com.infogroup.infoboard.api.WorldGuard;
@@ -43,9 +44,14 @@ public class InfoBoardReborn extends JavaPlugin {
     private BoardManager bm;
     private Settings settings;
     private Messages msgs;
+
+    //REPLACE if read
     private ChangeableManager CHM;
     private ScrollManager SM;
     private ConditionManager CM;
+    //WITH this
+    private AnimationManager AM;
+
     private WorldGuard WG;
     private Vault V;
     private ProtocolManager PM;
@@ -135,9 +141,13 @@ public class InfoBoardReborn extends JavaPlugin {
         fm.setup();
         this.msgs = new Messages(this);
         this.timers = new Timers(this);
+
         this.CHM = new ChangeableManager(this);
         this.CM = new ConditionManager(this);
         this.SM = new ScrollManager(this);
+
+        this.AM = new AnimationManager(this);
+
         this.V = new Vault(this);
         this.WG = new WorldGuard(this);
         this.UC = new UpdateChecker(this);
@@ -184,39 +194,60 @@ public class InfoBoardReborn extends JavaPlugin {
      */
     public Messages getMessages() { return this.msgs; }
 
+
     /**
      * Get's ChangeableManager
-     * @return
+     * @return ChangeableManager
      */
     public ChangeableManager getCHM() { return this.CHM; }
 
     /**
      * Get's ScrollManager
-     * @return
+     * @return ScrollManager
      */
     public ScrollManager getSM() { return this.SM; }
 
     /**
+     * Get's ConditionManager
+     *
+     * @return ConditionManager
+     */
+    public ConditionManager getCM() {
+        return this.CM;
+    }
+
+    /**
+     * Get's AnitmationManager
+     *
+     * @return AnimationManager
+     */
+    public AnimationManager getAM() {
+        return this.AM;
+    }
+
+
+
+    /**
      * Get's WorldGuard
-     * @return
+     * @return WorldGuard
      */
     public WorldGuard getWG() { return this.WG; }
 
     /**
      * Get's Vault
-     * @return
+     * @return Vault
      */
     public Vault getV() { return this.V; }
 
     /**
      * Get's Timers
-     * @return
+     * @return Timers
      */
     public Timers getTimers() { return this.timers; }
 
     /**
      * Get's UpdateChecker
-     * @return
+     * @return UpdateChecker
      */
     public UpdateChecker getUC() { return this.UC; }
 
@@ -226,11 +257,6 @@ public class InfoBoardReborn extends JavaPlugin {
      */
     public BoardManager getBM(){ return this.bm; }
 
-    /**
-     * Get's ConditionManager
-     * @return
-     */
-    public ConditionManager getCM(){return this.CM; }
 
     /**
      * Get's ProtocolManager

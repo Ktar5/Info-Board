@@ -11,5 +11,7 @@ public abstract class BaseAnimation {
 
     public abstract Integer getRow();
 
+    public abstract String name();
+
 
 }

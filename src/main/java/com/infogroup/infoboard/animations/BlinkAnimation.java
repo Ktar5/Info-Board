@@ -4,14 +4,15 @@ import java.util.HashMap;
 
 public class BlinkAnimation extends BaseAnimation {
 
+
     /*
-    Settings contains Keys:
-    -color
-    -return color
-    -interval
-    -text
-    -row
-     */
+        Settings contains Keys:
+        -color
+        -return color
+        -interval
+        -text
+        -row
+         */
     private HashMap<String, String> settings;
     private boolean colored;
 
@@ -44,5 +45,12 @@ public class BlinkAnimation extends BaseAnimation {
      */
     public Integer getRow() {
         return Integer.parseInt(settings.get("row"));
+    }
+
+    /**
+     * @return
+     */
+    public String name() {
+        return "blink";
     }
 }

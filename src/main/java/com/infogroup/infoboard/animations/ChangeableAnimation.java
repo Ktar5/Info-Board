@@ -4,6 +4,9 @@ import java.util.HashMap;
 
 public class ChangeableAnimation extends BaseAnimation {
 
+    private int interval, row;
+    private String option;
+
     /*
     Settings contains Keys:
     -interval
@@ -14,7 +17,7 @@ public class ChangeableAnimation extends BaseAnimation {
     private HashMap<String, String> settings;
 
     public ChangeableAnimation(HashMap<String, String> settings) {
-        this.settings = settings;
+        this.loadSettings(settings);
     }
 
     /**
@@ -28,12 +31,25 @@ public class ChangeableAnimation extends BaseAnimation {
     }
 
     /**
+     * Load settings
+     *
+     * @param settings
+     */
+    protected void loadSettings(HashMap<String, String> settings) {
+        this.row = Integer.parseInt(settings.get("row"));
+        this.interval = Integer.parseInt(settings.get("interval"));
+        this.option = settings.get("option");
+
+
+    }
+
+    /**
      * get the animation's row
      *
      * @return Integer
      */
     public Integer getRow() {
-        return Integer.parseInt(settings.get("row"));
+        return this.row;
     }
 
     /**

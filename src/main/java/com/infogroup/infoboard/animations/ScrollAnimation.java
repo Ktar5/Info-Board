@@ -86,17 +86,12 @@ public class ScrollAnimation extends BaseAnimation {
         return color + sb.toString();
     }
 
-
-    private StringBuilder getNext() {
-        return new StringBuilder(list.get(position++ % list.size()));
-    }
-
     /**
      * Load settings
      *
      * @param settings
      */
-    private void loadSettings(HashMap<String, String> settings) {
+    protected void loadSettings(HashMap<String, String> settings) {
         this.length = Integer.parseInt(settings.get("length"));
         this.width = Integer.parseInt(settings.get("width"));
         this.message = settings.get("message");
@@ -116,5 +111,12 @@ public class ScrollAnimation extends BaseAnimation {
      */
     public String name() {
         return "scroll";
+    }
+
+    /**
+     * @return StringBuilder
+     */
+    private StringBuilder getNext() {
+        return new StringBuilder(list.get(position++ % list.size()));
     }
 }

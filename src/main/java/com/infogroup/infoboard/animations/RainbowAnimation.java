@@ -4,6 +4,9 @@ import java.util.HashMap;
 
 public class RainbowAnimation extends BaseAnimation {
 
+    private int interval, row;
+    private String option;
+
     /*
     Settings contains Keys:
     -interval
@@ -11,10 +14,9 @@ public class RainbowAnimation extends BaseAnimation {
     - ? StringList ? colors OR ENTRIES like color1,color2,...
     -
     */
-    private HashMap<String, String> settings;
 
     public RainbowAnimation(HashMap<String, String> settings) {
-        this.settings = settings;
+        this.loadSettings(settings);
     }
 
     /**
@@ -28,12 +30,22 @@ public class RainbowAnimation extends BaseAnimation {
     }
 
     /**
+     * Load settings
+     *
+     * @param settings
+     */
+    protected void loadSettings(HashMap<String, String> settings) {
+        this.row = Integer.parseInt(settings.get("row"));
+        this.interval = Integer.parseInt(settings.get("interval"));
+    }
+
+    /**
      * get the animation's row
      *
      * @return Integer
      */
     public Integer getRow() {
-        return Integer.parseInt(settings.get("row"));
+        return this.row;
     }
 
     /**

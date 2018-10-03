@@ -1,5 +1,7 @@
 package com.infogroup.infoboard.animations;
 
+import java.util.HashMap;
+
 public abstract class BaseAnimation {
 
 
@@ -13,5 +15,6 @@ public abstract class BaseAnimation {
 
     public abstract String name();
 
+    protected abstract void loadSettings(HashMap<String, String> settings);
 
 }

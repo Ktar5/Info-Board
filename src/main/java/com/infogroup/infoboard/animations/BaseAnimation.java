@@ -11,10 +11,11 @@ public abstract class BaseAnimation {
 
     public abstract String next();
 
+    protected abstract void loadSettings(HashMap<String, String> settings);
+
     public abstract Integer getRow();
 
     public abstract String name();
 
-    protected abstract void loadSettings(HashMap<String, String> settings);
-
+    public abstract Integer getInterval();
 }

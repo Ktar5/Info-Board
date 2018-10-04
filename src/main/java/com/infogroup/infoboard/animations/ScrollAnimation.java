@@ -7,21 +7,13 @@ import java.util.HashMap;
 
 public class ScrollAnimation extends BaseAnimation {
 
-    private int position;
+    private int position, interval;
     private ArrayList<String> list;
     private ChatColor color = ChatColor.RESET;
 
     private int width, length, row;
     private String message;
 
-    /*
-    Settings contains Keys:
-    -width
-    -length
-    -single
-    -message
-    -row
-     */
     public ScrollAnimation(HashMap<String, String> settings) {
         this.loadSettings(settings);
         list = new ArrayList<>();
@@ -92,10 +84,20 @@ public class ScrollAnimation extends BaseAnimation {
      * @param settings
      */
     protected void loadSettings(HashMap<String, String> settings) {
+        /*
+        Settings contains Keys:
+        -width
+        -length
+        -single
+        -message
+        -row
+        */
+
         this.length = Integer.parseInt(settings.get("length"));
         this.width = Integer.parseInt(settings.get("width"));
         this.message = settings.get("message");
         this.row = Integer.parseInt(settings.get("row"));
+        this.interval = Integer.parseInt(settings.get("interval"));
     }
     /**
      * get the animation's row
@@ -111,6 +113,11 @@ public class ScrollAnimation extends BaseAnimation {
      */
     public String name() {
         return "scroll";
+    }
+
+    @Override
+    public Integer getInterval() {
+        return this.interval;
     }
 
     /**

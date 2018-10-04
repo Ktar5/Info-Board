@@ -9,13 +9,6 @@ public class ChangeableAnimation extends BaseAnimation {
     private String option;
     private ArrayList<String> lines;
 
-    /*
-    Settings contains Keys:
-    -interval
-    -option(BLINK/TIMED)
-    -lines: TEXT1,TEXT2,...
-    -row
-     */
 
     public ChangeableAnimation(HashMap<String, String> settings) {
         this.loadSettings(settings);
@@ -44,6 +37,14 @@ public class ChangeableAnimation extends BaseAnimation {
      * @param settings
      */
     protected void loadSettings(HashMap<String, String> settings) {
+        /*
+         * Settings contains Keys:
+         * -interval
+         * -option(BLINK/TIMED)
+         * -lines: TEXT1,TEXT2,...
+         * -row
+         */
+
         this.row = Integer.parseInt(settings.get("row"));
         this.interval = Integer.parseInt(settings.get("interval"));
         this.option = settings.get("option");
@@ -51,7 +52,6 @@ public class ChangeableAnimation extends BaseAnimation {
         for (int i = 0; settings.get("text" + i) != null; i++) {
             lines.add(settings.get("text" + i));
         }
-
     }
 
     /**
@@ -64,9 +64,18 @@ public class ChangeableAnimation extends BaseAnimation {
     }
 
     /**
-     * @return
+     * @return String
      */
     public String name() {
         return "changeable";
+    }
+
+    /**
+     * Get the interval
+     *
+     * @return Integer
+     */
+    public Integer getInterval() {
+        return this.interval;
     }
 }

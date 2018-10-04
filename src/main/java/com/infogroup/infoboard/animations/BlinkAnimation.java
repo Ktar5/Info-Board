@@ -7,18 +7,11 @@ public class BlinkAnimation extends BaseAnimation {
     private int interval, row;
     private boolean colored;
     private String color, text;
-    /*
-        Settings contains Keys:
-        -color
-        -return color
-        -interval
-        -text
-        -row
-     */
+
 
     /*
-    Coloring a given string for a given time and undo it, keep repeating.
-     */
+        Coloring a given string for a given time and undo it, keep repeating.
+         */
     public BlinkAnimation(HashMap<String, String> settings) {
         this.loadSettings(settings);
     }
@@ -52,6 +45,15 @@ public class BlinkAnimation extends BaseAnimation {
      * @param settings
      */
     protected void loadSettings(HashMap<String, String> settings) {
+    /*
+        Settings contains Keys:
+        -color
+        -return color
+        -interval
+        -text
+        -row
+     */
+
         this.row = Integer.parseInt(settings.get("row"));
         this.interval = Integer.parseInt(settings.get("interval"));
         this.color = settings.get("color");
@@ -75,5 +77,14 @@ public class BlinkAnimation extends BaseAnimation {
      */
     public String name() {
         return "blink";
+    }
+
+    /**
+     * Get the interval
+     *
+     * @return Integer
+     */
+    public Integer getInterval() {
+        return this.interval;
     }
 }

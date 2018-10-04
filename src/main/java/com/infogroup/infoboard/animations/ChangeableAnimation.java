@@ -1,20 +1,21 @@
 package com.infogroup.infoboard.animations;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ChangeableAnimation extends BaseAnimation {
 
-    private int interval, row;
+    private int interval, row, position;
     private String option;
+    private ArrayList<String> lines;
 
     /*
     Settings contains Keys:
     -interval
     -option(BLINK/TIMED)
-    - ? STRINGLIST ? text OR ENTRIES like TEXT1,TEXT2,...
+    -lines: TEXT1,TEXT2,...
     -row
      */
-    private HashMap<String, String> settings;
 
     public ChangeableAnimation(HashMap<String, String> settings) {
         this.loadSettings(settings);
@@ -26,8 +27,15 @@ public class ChangeableAnimation extends BaseAnimation {
      * @return String
      */
     public String next() {
-
-        return "";
+        String message;
+        if (position == (lines.size() - 1)) {
+            this.position = 0;
+            message = this.lines.get(position);
+        } else {
+            this.position++;
+            message = this.lines.get(position);
+        }
+        return message;
     }
 
     /**
@@ -39,7 +47,10 @@ public class ChangeableAnimation extends BaseAnimation {
         this.row = Integer.parseInt(settings.get("row"));
         this.interval = Integer.parseInt(settings.get("interval"));
         this.option = settings.get("option");
-
+        this.position = 0;
+        for (int i = 0; settings.get("text" + i) != null; i++) {
+            lines.add(settings.get("text" + i));
+        }
 
     }
 

@@ -37,14 +37,6 @@ public class ChangeableAnimation extends BaseAnimation {
      * @param settings
      */
     protected void loadSettings(HashMap<String, String> settings) {
-        /*
-         * Settings contains Keys:
-         * -interval
-         * -option(BLINK/TIMED)
-         * -lines: TEXT1,TEXT2,...
-         * -row
-         */
-
         this.row = Integer.parseInt(settings.get("row"));
         this.interval = Integer.parseInt(settings.get("interval"));
         this.option = settings.get("option");

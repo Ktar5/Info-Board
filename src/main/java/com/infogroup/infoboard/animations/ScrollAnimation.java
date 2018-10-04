@@ -84,15 +84,6 @@ public class ScrollAnimation extends BaseAnimation {
      * @param settings
      */
     protected void loadSettings(HashMap<String, String> settings) {
-        /*
-        Settings contains Keys:
-        -width
-        -length
-        -single
-        -message
-        -row
-        */
-
         this.length = Integer.parseInt(settings.get("length"));
         this.width = Integer.parseInt(settings.get("width"));
         this.message = settings.get("message");
@@ -115,7 +106,6 @@ public class ScrollAnimation extends BaseAnimation {
         return "scroll";
     }
 
-    @Override
     public Integer getInterval() {
         return this.interval;
     }

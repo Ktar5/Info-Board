@@ -16,7 +16,11 @@ public class ColorCycleAnimation extends BaseAnimation {
         loadSettings(settings);
     }
 
-    @Override
+    /**
+     * Get the next message
+     *
+     * @return String
+     */
     public String next() {
         if (position == (colors.size() - 1)) {
             position = 0;
@@ -27,27 +31,21 @@ public class ColorCycleAnimation extends BaseAnimation {
         }
     }
 
+    /**
+     * Get the next random message
+     * @return String
+     */
     public String randomNext() {
         Random r = new Random();
         return colors.get(r.nextInt(colors.size()));
 
     }
 
-    public Integer getRow() {
-        return this.row;
-    }
-
-    @Override
-    public String name() {
-        return "color cycle";
-    }
-
-    @Override
-    public Integer getInterval() {
-        return this.interval;
-    }
-
-    @Override
+    /**
+     * Load all required settings
+     *
+     * @param settings
+     */
     protected void loadSettings(HashMap<String, String> settings) {
         this.text = settings.get("text");
         this.interval = Integer.parseInt(settings.get("interval"));
@@ -58,4 +56,30 @@ public class ColorCycleAnimation extends BaseAnimation {
             colors.add(settings.get("text" + i));
         }
     }
+
+    /**
+     * Get the row
+     * @return
+     */
+    public Integer getRow() {
+        return this.row;
+    }
+
+    /**
+     * Get the Animation name
+     * @return String
+     */
+    public String name() {
+        return "color cycle";
+    }
+
+    /**
+     * Get the interval
+     * @return Integer
+     */
+    public Integer getInterval() {
+        return this.interval;
+    }
+
+
 }

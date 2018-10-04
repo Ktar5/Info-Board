@@ -1,19 +1,16 @@
 package com.infogroup.infoboard.animations;
 
+import org.bukkit.ChatColor;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RainbowAnimation extends BaseAnimation {
 
-    private int interval, row;
-    private String option, text;
+    private int interval, row, position;
+    private String text;
 
-    /*
-    Settings contains Keys:
-    -interval
-    -text
-    -  ENTRIES like color1,color2,...
-    - row
-    */
+    private ArrayList<ChatColor> colors;
 
     public RainbowAnimation(HashMap<String, String> settings) {
         this.loadSettings(settings);
@@ -25,8 +22,13 @@ public class RainbowAnimation extends BaseAnimation {
      * @return String
      */
     public String next() {
-
-        return "";
+        if (this.position == (colors.size() - 1)) {
+            this.position = 0;
+            return colors.get(this.position) + this.text;
+        } else {
+            this.position++;
+            return colors.get(this.position) + this.text;
+        }
     }
 
     /**
@@ -38,6 +40,8 @@ public class RainbowAnimation extends BaseAnimation {
         this.row = Integer.parseInt(settings.get("row"));
         this.interval = Integer.parseInt(settings.get("interval"));
         this.text = settings.get("text");
+        this.position = 0;
+        loadRainbow();
     }
 
     /**
@@ -62,5 +66,19 @@ public class RainbowAnimation extends BaseAnimation {
      */
     public Integer getInterval() {
         return this.interval;
+    }
+
+    /**
+     * add all color off the rainbow
+     */
+    private void loadRainbow() {
+        this.colors.add(ChatColor.DARK_RED);
+        this.colors.add(ChatColor.GOLD);
+        this.colors.add(ChatColor.YELLOW);
+        this.colors.add(ChatColor.GREEN);
+        this.colors.add(ChatColor.BLUE);
+        this.colors.add(ChatColor.DARK_BLUE);
+        this.colors.add(ChatColor.DARK_PURPLE);
+        this.colors.add(ChatColor.LIGHT_PURPLE);
     }
 }

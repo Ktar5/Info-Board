@@ -106,6 +106,11 @@ public class ScrollAnimation extends BaseAnimation {
         return "scroll";
     }
 
+    /**
+     * Get the interval
+     *
+     * @return
+     */
     public Integer getInterval() {
         return this.interval;
     }

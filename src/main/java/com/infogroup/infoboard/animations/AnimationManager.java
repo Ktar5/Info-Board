@@ -18,7 +18,7 @@ public class AnimationManager {
 
     //ADD create animation giving settings in HashMap
     public BaseAnimation createAnimation(String line) {
-
+        loadSettings(line);
         BaseAnimation target = animations.get(0);
 
 
@@ -43,9 +43,9 @@ public class AnimationManager {
         HashMap<String, String> settings = new HashMap<>();
 
 
-        settings.put("name", "");
+        settings.put("name", "...");
         for (int i = 0; i < line.split("_").length; i++) {
-            settings.put(line.split("_")[i], line.split("_")[i].split(":")[2]);
+            settings.put(line.split("_")[i].split(":")[1], line.split("_")[i].split(":")[2]);
         }
 
         return settings;

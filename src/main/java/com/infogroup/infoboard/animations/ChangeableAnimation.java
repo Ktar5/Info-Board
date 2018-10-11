@@ -9,7 +9,6 @@ public class ChangeableAnimation extends BaseAnimation {
     private String option;
     private ArrayList<String> lines;
 
-
     public ChangeableAnimation(HashMap<String, String> settings) {
         this.loadSettings(settings);
     }

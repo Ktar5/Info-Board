@@ -3,6 +3,7 @@ package com.infogroup.infoboard.animations;
 import com.infogroup.infoboard.InfoBoardReborn;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class AnimationManager {
 
@@ -27,4 +28,26 @@ public class AnimationManager {
     //ADD ...
 
 
+    /**
+     * "<Name>KEY:VALUE_
+     * KEY:VALUE_
+     * KEY
+     * :
+     * VALUE_
+     * KEY:VALUE_...</>"
+     *
+     * @param line
+     * @return
+     */
+    private HashMap<String, String> loadSettings(String line) {
+        HashMap<String, String> settings = new HashMap<>();
+
+
+        settings.put("name", "");
+        for (int i = 0; i < line.split("_").length; i++) {
+            settings.put(line.split("_")[i], line.split("_")[i].split(":")[2]);
+        }
+
+        return settings;
+    }
 }

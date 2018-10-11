@@ -70,7 +70,7 @@ public class ColorCycleAnimation extends BaseAnimation {
      * @return String
      */
     public String name() {
-        return "color cycle";
+        return "CC";
     }
 
     /**

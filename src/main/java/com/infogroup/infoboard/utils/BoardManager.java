@@ -4,7 +4,6 @@ import com.infogroup.infoboard.InfoBoardReborn;
 import com.infogroup.infoboard.scoreboard.InfoBoard;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.HashMap;
 
@@ -33,10 +32,7 @@ public class BoardManager {
     }
 
     private void loadBoards(){
-        FileConfiguration board = plugin.getFm().getFile("board");
-        for(int i= 0; i < board.getStringList("InfoBoard").size(); i++){
 
-        }
     }
 
     public void addRow(String name, int pos, String row) {

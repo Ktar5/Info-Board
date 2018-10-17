@@ -23,8 +23,11 @@ permissions:
       ibr.View: true
       ibr.Create: true
       ibr.Info: true
+      ibr.Reset: true
   ibr.View:
     default: true
   ibr.Toggle:
     default: true
+  ibr.Reset:
+    default: false
   

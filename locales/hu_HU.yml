@@ -4,6 +4,7 @@ no-permission: 'Nincs jogod ehhez a parancshoz!'
 not-player: 'Olyan játékosnak kell lenned, aki végrehajtja ezt a parancsot!'
 update: 'Új frissítés van az InfoBoardReborn számára!'
 wrong-usage: 'Nem használtuk megfelelően a parancsot!'
+confirm: ''
 
 #Elrejtés parancs
 already-hidden: 'A scoreboard már el van rejtve!'

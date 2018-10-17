@@ -7,6 +7,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.*;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class FileManager {
@@ -20,6 +21,7 @@ public class FileManager {
     private File boardFile;
     private File variableFile;
     private File messagesFile;
+    private HashMap<File, FileConfiguration> boardfiles;
 
     public FileManager(InfoBoardReborn plugin) {
         this.plugin = plugin;
@@ -29,9 +31,10 @@ public class FileManager {
         if (!plugin.getDataFolder().exists()) {
             plugin.getDataFolder().mkdir();
         }
-        boardFile = new File(plugin.getDataFolder(), "board.yml");
+        boardFile = new File(plugin.getDataFolder() + "/boards/", "board.yml");
         variableFile = new File(plugin.getDataFolder(), "variables.yml");
         messagesFile = new File(plugin.getDataFolder(), "messages.yml");
+
 
 		/*
          * Checking if board.yml exists creating it if not
@@ -112,6 +115,7 @@ public class FileManager {
             } else if (Objects.equals(s, "config")) {
                 plugin.saveConfig();
             }
+
             if (plugin.getSettings().debug()) {
                 Bukkit.getServer().getConsoleSender()
                         .sendMessage(ChatColor.AQUA + "The " + s + ".yml file has been saved");
@@ -164,6 +168,21 @@ public class FileManager {
 
     }
 
+    /**
+     *
+     */
+    private void loadBoards() {
+        String path = plugin.getDataFolder() + "/boards/";
+        for (File file : new File(plugin.getDataFolder().getAbsolutePath() + File.separator + "boards").listFiles()) {
+            FileConfiguration name = YamlConfiguration.loadConfiguration(file);
+
+        }
+    }
+
+    /**
+     * @param in
+     * @param file
+     */
     private void copy(InputStream in, File file) {
         try {
             OutputStream out = new FileOutputStream(file);

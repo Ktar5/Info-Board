@@ -245,4 +245,15 @@ public class Settings {
 		return answers;
 	}
 
+	/**
+	 * Return the default settings for the given animation
+	 *
+	 * @param animation
+	 * @return
+	 */
+	public HashMap<String, String> loadDefaultSettings(String animation) {
+		plugin.getFm().getFile("config").getConfigurationSection("Animations.");
+
+		return null;
+	}
 }

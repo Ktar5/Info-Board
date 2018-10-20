@@ -14,8 +14,7 @@ public class FileManager2 {
 
     private InfoBoardReborn plugin;
 
-    private HashMap<File, FileConfiguration> files;
-
+    private HashMap<File, FileConfiguration> files = new HashMap<>();
 
     public FileManager2(InfoBoardReborn plugin) {
         this.plugin = plugin;
@@ -167,9 +166,13 @@ public class FileManager2 {
      * import all files located in "InfoBoard\boards"
      */
     public void importFiles() {
-        if (this.files.size() < new File(plugin.getDataFolder() + File.separator + "boards").listFiles().length) {
+        if (this.files.size() < (new File(plugin.getDataFolder() + File.separator + "boards").listFiles().length + 3)) {
             this.files.clear();
             for (File file : new File(plugin.getDataFolder() + File.separator + "boards").listFiles()) {
+                FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(file);
+                this.files.put(file, fileConfig);
+            }
+            for (File file : new File(plugin.getDataFolder().getAbsolutePath()).listFiles()) {
                 FileConfiguration fileConfig = YamlConfiguration.loadConfiguration(file);
                 this.files.put(file, fileConfig);
             }

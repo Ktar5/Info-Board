@@ -7,7 +7,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.*;
-import java.util.HashMap;
 import java.util.Objects;
 
 public class FileManager {
@@ -21,7 +20,6 @@ public class FileManager {
     private File boardFile;
     private File variableFile;
     private File messagesFile;
-    private HashMap<File, FileConfiguration> boardfiles;
 
     public FileManager(InfoBoardReborn plugin) {
         this.plugin = plugin;

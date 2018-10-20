@@ -535,7 +535,7 @@ public class Commands implements CommandExecutor {
 			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("no-permission")));
 		}
 		if (warned.get(sender) == false) {
-			//TODO FINISH (FM2)
+			//TODO Delete all yml files and recreate default.
 			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("confirm")));
 		} else {
 

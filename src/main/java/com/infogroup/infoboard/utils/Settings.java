@@ -66,6 +66,7 @@ public class Settings {
 	 * @return true/false
 	 */
 	public boolean doesWorldHaveScoreBoard(int rotation, String world) {
+		//TODO BUG #133 checking a a boards world is allowed to be in the world without their being a board...
 		boolean hasBoard = false;
 		for (String s : plugin.getFm().getFile("board").getConfigurationSection("InfoBoard." + String.valueOf(rotation))
 				.getKeys(true)) {

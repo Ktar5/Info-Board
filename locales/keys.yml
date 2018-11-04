@@ -4,6 +4,7 @@ no-permission: ''
 not-player: ''
 update: ''
 wrong-usage: ''
+confirm: ''
 
 #Hide Command
 already-hidden: ''

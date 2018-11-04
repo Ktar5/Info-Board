@@ -55,6 +55,16 @@ WorldGuard:
 Update Time:
   Lines: 0.5
 
+Animations:
+  Scroll:
+    Enabled: false
+    Width: 10
+    Length: 5
+    Interval: 0.25
+  Changeable Text:
+    Enabled: false
+
+
 Scrolling Text:
   Enable: false
   Shift Time: 0.25

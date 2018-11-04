@@ -9,12 +9,15 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
 public class Commands implements CommandExecutor {
 
 	private InfoBoardReborn plugin;
+
+	public HashMap<CommandSender, Boolean> warned = new HashMap<>();
 
 	public Commands(InfoBoardReborn plugin) {
 		this.plugin = plugin;
@@ -38,6 +41,10 @@ public class Commands implements CommandExecutor {
 				// SET <PAGE>
 				else if (args[0].equalsIgnoreCase("Set")) {
 					setCmd(sender, args);
+				}
+				// SET <PAGE>
+				else if (args[0].equalsIgnoreCase("Reset-Files")) {
+					resetCmd(sender);
 				} else if (args[0].equalsIgnoreCase("Info")) {
 					infoCmd(sender);
 				}
@@ -514,5 +521,25 @@ public class Commands implements CommandExecutor {
 				sender.sendMessage("/ibr reload [File]");
 			}
 		}
+	}
+
+	/**
+	 * Reset Files command
+	 * all config files will replaced by the default ones
+	 * added files will be deleted!
+	 *
+	 * @param sender
+	 */
+	public void resetCmd(CommandSender sender) {
+		if (!sender.hasPermission("ibr.reset")) {
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("no-permission")));
+		}
+		if (warned.get(sender) == false) {
+			//TODO Delete all yml files and recreate default.
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("confirm")));
+		} else {
+
+		}
+
 	}
 }

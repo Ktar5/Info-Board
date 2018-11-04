@@ -4,6 +4,7 @@ no-permission: 'Vous n\'avez pas la permission d'éxecuter cette commande!'
 not-player: 'Vous devez être un joueur pour utiliser cette commande!'
 update: 'Il y a une nouvelle version de InfoBoardReborn!'
 wrong-usage: 'Vous n'avez pas utilisé la commande correctement!'
+confirm: ''
 
 #Hide Command
 already-hidden: 'Ce scorebaord est déjà caché'

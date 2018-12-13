@@ -178,6 +178,31 @@ public class FileManager {
     }
 
     /**
+     * Delete given fle
+     * @param s
+     * @return
+     */
+    public boolean deleteFile(String s){
+        switch (s){
+            case "board":
+                boardFile.delete();
+                return true;
+            case "messages":
+                messagesFile.delete();
+                return true;
+            case "variables":
+                variableFile.delete();
+                return true;
+            case "config":
+                File config = new File(plugin.getDataFolder(), "config.yml");
+                config.delete();
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    /**
      * @param in
      * @param file
      */

@@ -179,6 +179,26 @@ public class FileManager2 {
         }
     }
 
+    /**
+     * Delete given fle
+     * @param s
+     * @return
+     */
+    public boolean deleteFile(String s){
+        for (File file: this.files.keySet()){
+            if (file.getName().contains(s)){
+                file.delete();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @param in
+     * @param file
+     */
     private void copy(InputStream in, File file) {
         try {
             OutputStream out = new FileOutputStream(file);

@@ -534,12 +534,18 @@ public class Commands implements CommandExecutor {
 		if (!sender.hasPermission("ibr.reset")) {
 			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("no-permission")));
 		}
-		if (warned.get(sender) == false) {
+		warned.put(sender, false);
+		if (warned.get(sender) == false || warned.get(sender) == null ) {
 			//TODO Delete all yml files and recreate default.
 			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getFm().getFile("messages").getString("confirm")));
+			warned.put(sender, true);
 		} else {
-
+			warned.remove(sender);
+			plugin.getFm().deleteFile("config");
+			plugin.getFm().deleteFile("board");
+			plugin.getFm().deleteFile("messages");
+			plugin.getFm().deleteFile("variables");
+			plugin.getFm().setup();
 		}
-
 	}
 }

@@ -5,6 +5,8 @@
       <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="com.infogroup.infoboard.main" target="1.8" />
+      <module name="com.infogroup.infoboard.test" target="1.8" />
       <module name="infoboard_main" target="1.8" />
       <module name="infoboard_test" target="1.8" />
     </bytecodeTargetLevel>

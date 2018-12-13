@@ -66,7 +66,7 @@ public class Messages {
 	public String getTitle(Player player, String worldName, String rankName) {
 
 		String title = plugin.getFm().getFile("board").getString("InfoBoard."
-				+ String.valueOf(plugin.getTimers().getPage()) + "." + worldName + "." + rankName + ".Title");
+				+ plugin.getTimers().getPage() + "." + worldName + "." + rankName + ".Title");
 
 		if (title.startsWith("<scroll>") && plugin.getSettings().scrollingEnabled()) {
 			title = title.replaceAll("<scroll>", "");
@@ -74,7 +74,7 @@ public class Messages {
 			title = plugin.getSM().createTitleScroller(player, getLine(title, player)).getMessage();
 
 		} else if (title.startsWith("<changeable_") && plugin.getSettings().changeableTextEnabled()) {
-            title =title.replaceAll("<changeable_", "").replaceAll(">", "");
+			title = title.replaceAll("<changeable_", "").replaceAll(">", "");
 			// create changeable title
 			title = plugin.getCHM().createChangeableTitle(player, title).getMessage();
 

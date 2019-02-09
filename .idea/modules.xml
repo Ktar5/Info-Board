@@ -3,10 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.infogroup.infoboard.iml" filepath="$PROJECT_DIR$/.idea/modules/com.infogroup.infoboard.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.infogroup.infoboard.iml" filepath="$PROJECT_DIR$/.idea/modules/com.infogroup.infoboard.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.infogroup.infoboard.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.infogroup.infoboard.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.infogroup.infoboard.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.infogroup.infoboard.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.infogroup.infoboard.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.infogroup.infoboard.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.infogroup.infoboard.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.infogroup.infoboard.test.iml" />
     </modules>
   </component>

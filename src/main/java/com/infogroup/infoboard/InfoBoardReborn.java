@@ -9,7 +9,6 @@ import com.infogroup.infoboard.api.WorldGuard;
 import com.infogroup.infoboard.changeable.ChangeableManager;
 import com.infogroup.infoboard.condition.ConditionManager;
 import com.infogroup.infoboard.events.ChangeWorld;
-import com.infogroup.infoboard.events.Damage;
 import com.infogroup.infoboard.events.PlayerJoin;
 import com.infogroup.infoboard.scroll.ScrollManager;
 import com.infogroup.infoboard.utils.*;
@@ -45,7 +44,7 @@ public class InfoBoardReborn extends JavaPlugin {
     private Settings settings;
     private Messages msgs;
 
-    //REPLACE if read
+    //REPLACE if ready
     private ChangeableManager CHM;
     private ScrollManager SM;
     private ConditionManager CM;
@@ -109,7 +108,7 @@ public class InfoBoardReborn extends JavaPlugin {
 
         pm.registerEvents(new ChangeWorld(this), this);
         pm.registerEvents(new PlayerJoin(this), this);
-        pm.registerEvents(new Damage(this), this);
+        //pm.registerEvents(new Damage(this), this);
     }
 
     /**

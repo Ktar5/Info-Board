@@ -8,7 +8,7 @@
 # |                  <Variable>: What it gets replaced to                     |
 # |---------------------------------------------------------------------------|
 # |     Disabled Worlds    - A List of worlds that won't have scoreboards     |
-# | WorldGuard.Prevent Showing In - A List of regions the board won't show in |
+# | WorldGuardApi.Prevent Showing In - A List of regions the board won't show in |
 # |---------------------------------------------------------------------------|
 # |          Update Time how fast you scoreboard updates in seconds           |
 # |---------------------------------------------------------------------------|

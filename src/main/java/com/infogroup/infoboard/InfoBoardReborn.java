@@ -5,7 +5,7 @@ import com.comphenix.protocol.ProtocolManager;
 import com.infogroup.infoboard.animations.AnimationManager;
 import com.infogroup.infoboard.api.API;
 import com.infogroup.infoboard.api.Vault;
-import com.infogroup.infoboard.api.WorldGuard;
+import com.infogroup.infoboard.api.WorldGuardApi;
 import com.infogroup.infoboard.changeable.ChangeableManager;
 import com.infogroup.infoboard.condition.ConditionManager;
 import com.infogroup.infoboard.events.ChangeWorld;
@@ -51,7 +51,7 @@ public class InfoBoardReborn extends JavaPlugin {
     //WITH this
     private AnimationManager AM;
 
-    private WorldGuard WG;
+    private WorldGuardApi WG;
     private Vault V;
     private ProtocolManager PM;
     private API api;
@@ -148,7 +148,7 @@ public class InfoBoardReborn extends JavaPlugin {
         this.AM = new AnimationManager(this);
 
         this.V = new Vault(this);
-        this.WG = new WorldGuard(this);
+        this.WG = new WorldGuardApi(this);
         this.UC = new UpdateChecker(this);
         this.api = new API(this);
         this.bm = new BoardManager(this);
@@ -167,8 +167,8 @@ public class InfoBoardReborn extends JavaPlugin {
         if (!Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             throw new RuntimeException("Could not find PlaceholderAPI!! Plugin can not work without it!");
         }
-        if (!Bukkit.getPluginManager().isPluginEnabled("WorldGuard")) {
-            throw new RuntimeException("Could not find WorldGuard!! Plugin can not work without it!");
+        if (!Bukkit.getPluginManager().isPluginEnabled("WorldGuardApi")) {
+            throw new RuntimeException("Could not find WorldGuardApi!! Plugin can not work without it!");
         }
         if (!Bukkit.getPluginManager().isPluginEnabled("Vault")) {
             throw new RuntimeException("Could not find Vault!! Plugin can not work without it!");
@@ -227,10 +227,12 @@ public class InfoBoardReborn extends JavaPlugin {
 
 
     /**
-     * Get's WorldGuard
-     * @return WorldGuard
+     * Get's WorldGuardApi
+     * @return WorldGuardApi
      */
-    public WorldGuard getWG() { return this.WG; }
+    public WorldGuardApi getWG() {
+        return this.WG;
+    }
 
     /**
      * Get's Vault

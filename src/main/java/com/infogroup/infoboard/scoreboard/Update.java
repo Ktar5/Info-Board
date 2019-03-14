@@ -63,7 +63,7 @@ public class Update {
 						.getObjective(DisplaySlot.SIDEBAR).getName().equalsIgnoreCase("InfoBoard"))) {
 			// If the player no longer has permissions to see the board, remove
 			// it
-			if (!player.hasPermission("ibr.View") || !plugin.getWG().boardsAllowedHere(player.getLocation())) {
+			if (!player.hasPermission("ibr.View") || !plugin.getWG().boardsAllowedHere(player)) {
 				player.getScoreboard().clearSlot(DisplaySlot.SIDEBAR);
 			} else {// If the player doesn't have a scoreboard, then just create
 					// one
@@ -97,7 +97,7 @@ public class Update {
 					Board board = new Board(player);
 
 					HashMap<Integer, String> toAdd = getLines(plugin.getFm().getFile("board")
-							.getStringList("InfoBoard." + String.valueOf(plugin.getTimers().getPage()) + "." + worldName
+							.getStringList("InfoBoard." + plugin.getTimers().getPage() + "." + worldName
 									+ "." + rankName + ".Rows"));
 
 					for (Entry<Integer, String> e : toAdd.entrySet()) {

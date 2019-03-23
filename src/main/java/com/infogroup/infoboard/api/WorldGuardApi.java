@@ -1,28 +1,35 @@
 package com.infogroup.infoboard.api;
 
 import com.infogroup.infoboard.InfoBoardReborn;
-import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
+import com.sk89q.worldedit.LocalSession;
+import com.sk89q.worldedit.WorldEdit;
+import com.sk89q.worldedit.bukkit.BukkitAdapter;
+import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
+import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 
-public class WorldGuard {
+public class WorldGuardApi {
 	private InfoBoardReborn plugin;
 
-	public WorldGuard(InfoBoardReborn plugin){ this.plugin = plugin; }
+
+	public WorldGuardApi(InfoBoardReborn plugin) {
+		this.plugin = plugin;
+	}
+
 	/**
 	 * Are the boards allowed to be shown in the players current region
 	 *
-	 * @param loc
+	 * @param player
 	 * @return
 	 */
-	public boolean boardsAllowedHere(Location loc) {
+	public boolean boardsAllowedHere(Player player) {
 		boolean allowed = true;
 		if (hasWorldGuardOnServer())
-			for (ProtectedRegion region : getRegionsIn(loc))
+			for (ProtectedRegion region : getRegionsIn(player))
 				if (plugin.getSettings().getRegionsDisabled().contains(region.getId()))
 					allowed = false;
 		return allowed;
@@ -31,19 +38,23 @@ public class WorldGuard {
 	/**
 	 * Get a list of regions the user is currently in
 	 *
-	 * @param loc
+	 * @param player
 	 * @return list of regions
 	 */
-	private ArrayList<ProtectedRegion> getRegionsIn(Location loc) {
+	private ArrayList<ProtectedRegion> getRegionsIn(Player player) {
 		ArrayList<ProtectedRegion> inRegions = new ArrayList<>();
-		WorldGuardPlugin wg = (WorldGuardPlugin) Bukkit.getPluginManager().getPlugin("WorldGuard");
 
-		RegionManager regions = wg.getRegionManager(loc.getWorld());
+		RegionManager regionManager = WorldGuard.getInstance().getPlatform().getRegionContainer().get(getLocalSession(player.getName()).getSelectionWorld());
 
-		for (ProtectedRegion protectedRegion : regions.getApplicableRegions(loc))
+		//TODO HELP???
+		for (ProtectedRegion protectedRegion : regionManager.getApplicableRegions(BukkitAdapter.asBlockVector(player.getLocation()))) {
 			inRegions.add(protectedRegion);
-
+		}
 		return inRegions;
+	}
+
+	private LocalSession getLocalSession(String playerName) {
+		return WorldEdit.getInstance().getSessionManager().findByName(playerName);
 	}
 
 	/**

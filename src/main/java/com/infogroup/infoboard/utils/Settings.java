@@ -24,7 +24,7 @@ public class Settings {
 	 */
 	public boolean doesGlobalHaveScoreBoard(int rotation) {
 		boolean hasBoard = false;
-		for (String s : plugin.getFm().getFile("board").getConfigurationSection("InfoBoard." + String.valueOf(rotation))
+        for (String s : plugin.getFm().getFile("board").getConfigurationSection("InfoBoard." + rotation)
 				.getKeys(true)) {
 			if (!s.contains(".")) {
 				if (s.equals("global")) {
@@ -47,7 +47,7 @@ public class Settings {
 	public boolean doesRankHaveScoreBoard(int rotation, String world, String rank) {
 		boolean hasBoard = false;
 		for (String s : plugin.getFm().getFile("board")
-				.getConfigurationSection("InfoBoard." + String.valueOf(rotation) + "." + world).getKeys(true)) {
+                .getConfigurationSection("InfoBoard." + rotation + "." + world).getKeys(true)) {
 			if (!s.contains(".")) {
 				if (s.equals(rank)) {
 					hasBoard = true;
@@ -68,7 +68,7 @@ public class Settings {
 	public boolean doesWorldHaveScoreBoard(int rotation, String world) {
 		//TODO BUG #133 checking a a boards world is allowed to be in the world without their being a board...
 		boolean hasBoard = false;
-		for (String s : plugin.getFm().getFile("board").getConfigurationSection("InfoBoard." + String.valueOf(rotation))
+        for (String s : plugin.getFm().getFile("board").getConfigurationSection("InfoBoard." + rotation)
 				.getKeys(true)) {
 			if (!s.contains(".")) {
 				if (s.equalsIgnoreCase(world)) {
@@ -81,12 +81,12 @@ public class Settings {
 	}
 
 	/**
-	 * Get the list of blocked regions for WorldGuard
+     * Get the list of blocked regions for WorldGuardApi
 	 *
 	 * @return list
 	 */
 	public List<String> getRegionsDisabled() {
-		return plugin.getFm().getFile("config").getStringList("WorldGuard.Prevent Showing In");
+        return plugin.getFm().getFile("config").getStringList("WorldGuardApi.Prevent Showing In");
 	}
 
 	/**

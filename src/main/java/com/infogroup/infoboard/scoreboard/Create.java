@@ -20,7 +20,7 @@ public class Create {
         int row, spaces = 0;
 
         // Make sure the player is allowed to see the scoreboard
-        if (plugin.getWG().boardsAllowedHere(player.getLocation())
+        if (plugin.getWG().boardsAllowedHere(player)
                 && !plugin.getSettings().isWorldDisabled(player.getWorld().getName())
                 && player.hasPermission("ibr.View") && !plugin.hidefrom.contains(player.getName())
                 && ((player.getScoreboard().getObjective(DisplaySlot.SIDEBAR) == null) || player.getScoreboard()
@@ -74,7 +74,7 @@ public class Create {
 
             // Loop through the lines
             List<String> lines = plugin.getFm().getFile("board").getStringList("InfoBoard."
-                    + String.valueOf(plugin.getTimers().getPage()) + "." + worldName + "." + rankName + ".Rows");
+                    + plugin.getTimers().getPage() + "." + worldName + "." + rankName + ".Rows");
 
             for (row = 0; row != lines.size(); row++) {
                 String line = lines.get(row);
@@ -87,7 +87,7 @@ public class Create {
                     // If the line is empty just assume it's an empty line
                     if (line.equals(" ") || line.equals("")) {
                         //Note, it is the
-                        String space = String.valueOf(ChatColor.COLOR_CHAR) + "" + spaces;
+                        String space = ChatColor.COLOR_CHAR + "" + spaces;
                         spaces++;
                         board.add(plugin.getMessages().getColored(space), row);
                     } else // Manage all scrolling lines

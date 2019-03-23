@@ -20,8 +20,7 @@ public class Create {
         int row, spaces = 0;
 
         // Make sure the player is allowed to see the scoreboard
-        if (plugin.getWG().boardsAllowedHere(player)
-                && !plugin.getSettings().isWorldDisabled(player.getWorld().getName())
+        if (!plugin.getSettings().isWorldDisabled(player.getWorld().getName())
                 && player.hasPermission("ibr.View") && !plugin.hidefrom.contains(player.getName())
                 && ((player.getScoreboard().getObjective(DisplaySlot.SIDEBAR) == null) || player.getScoreboard()
                 .getObjective(DisplaySlot.SIDEBAR).getName().equalsIgnoreCase("InfoBoard"))) {

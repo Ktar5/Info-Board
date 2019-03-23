@@ -1,10 +1,7 @@
 package com.infogroup.infoboard.api;
 
 import com.infogroup.infoboard.InfoBoardReborn;
-import com.sk89q.worldedit.LocalSession;
-import com.sk89q.worldedit.WorldEdit;
-import com.sk89q.worldedit.bukkit.BukkitAdapter;
-import com.sk89q.worldguard.WorldGuard;
+import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import org.bukkit.Bukkit;
@@ -44,17 +41,13 @@ public class WorldGuardApi {
 	private ArrayList<ProtectedRegion> getRegionsIn(Player player) {
 		ArrayList<ProtectedRegion> inRegions = new ArrayList<>();
 
-		RegionManager regionManager = WorldGuard.getInstance().getPlatform().getRegionContainer().get(getLocalSession(player.getName()).getSelectionWorld());
+		RegionManager regionManager = WorldGuardPlugin.inst().getRegionManager(player.getWorld());
 
 		//TODO HELP???
-		for (ProtectedRegion protectedRegion : regionManager.getApplicableRegions(BukkitAdapter.asBlockVector(player.getLocation()))) {
+		for (ProtectedRegion protectedRegion : regionManager.getApplicableRegions(player.getLocation())) {
 			inRegions.add(protectedRegion);
 		}
 		return inRegions;
-	}
-
-	private LocalSession getLocalSession(String playerName) {
-		return WorldEdit.getInstance().getSessionManager().findByName(playerName);
 	}
 
 	/**

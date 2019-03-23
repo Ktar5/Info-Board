@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="infoboard:test" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="com.infogroup" external.system.module.type="sourceSet" external.system.module.version="2.0.4" type="JAVA_MODULE" version="4">
+<module external.linked.project.id="infoboard:test" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="com.infogroup" external.system.module.type="sourceSet" external.system.module.version="2.0.5" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="minecraft" name="Minecraft">
       <configuration>
@@ -37,7 +37,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../libs/ProtocolLib.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../libs/craftbukkit-1.11.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -55,7 +55,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../libs/worldedit-bukkit-6.1.7.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../libs/craftbukkit-1.12.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -145,7 +145,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../libs/craftbukkit-1.11.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../libs/ProtocolLib.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -163,7 +163,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../libs/craftbukkit-1.12.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../libs/worldedit-bukkit-6.1.7.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

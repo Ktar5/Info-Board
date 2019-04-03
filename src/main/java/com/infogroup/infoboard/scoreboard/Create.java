@@ -52,12 +52,8 @@ public class Create {
                 player.getScoreboard().clearSlot(DisplaySlot.SIDEBAR);
             }
             // Create a new scoreboard and set it to the sidebar display
-            Board board;
-            if (Bukkit.getServer().getPluginManager().getPlugin("") != null) {
-                board = new Board(Bukkit.getScoreboardManager().getMainScoreboard());
-            } else {
-                board = new Board();
-            }
+            Board board = new Board(Bukkit.getScoreboardManager().getMainScoreboard());
+
             // Remove and scrolling texts that the player may have had
             plugin.getSM().reset(player);
 

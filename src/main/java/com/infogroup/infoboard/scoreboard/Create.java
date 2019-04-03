@@ -4,6 +4,7 @@ import com.infogroup.infoboard.InfoBoardReborn;
 import com.infogroup.infoboard.changeable.Changeable;
 import com.infogroup.infoboard.condition.Condition;
 import com.infogroup.infoboard.scroll.Scroll;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
@@ -51,8 +52,12 @@ public class Create {
                 player.getScoreboard().clearSlot(DisplaySlot.SIDEBAR);
             }
             // Create a new scoreboard and set it to the sidebar display
-            Board board = new Board();
-
+            Board board;
+            if (Bukkit.getServer().getPluginManager().getPlugin("") != null) {
+                board = new Board(Bukkit.getScoreboardManager().getMainScoreboard());
+            } else {
+                board = new Board();
+            }
             // Remove and scrolling texts that the player may have had
             plugin.getSM().reset(player);
 

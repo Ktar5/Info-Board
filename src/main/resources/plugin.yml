@@ -4,7 +4,7 @@ version: 2.0.5
 authors: [Ktar5, pixar02]
 website : "bit.ly/InfoBoardReborn_spigot & bit.ly/InfoBoardReborn_bukkit" 
 description: Show a scoreboard
-depend: [PlaceholderAPI, Vault, WorldGuard]
+depend: [PlaceholderAPI, Vault]
 softdepend: [ProtocolLib]
 
 commands:

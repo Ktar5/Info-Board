@@ -2,7 +2,6 @@ package com.infogroup.infoboard.scroll;
 
 import com.infogroup.infoboard.InfoBoardReborn;
 import com.infogroup.infoboard.scoreboard.Board;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
 
@@ -14,20 +13,18 @@ public class ScrollText {
 		if (!plugin.getSettings().isWorldDisabled(player.getWorld().getName())
 				&& !plugin.hidefrom.contains(player.getName())
 				&& ((player.getScoreboard().getObjective(DisplaySlot.SIDEBAR) == null) || player.getScoreboard()
-						.getObjective(DisplaySlot.SIDEBAR).getName().equalsIgnoreCase("InfoBoard"))) {
+				.getObjective(DisplaySlot.SIDEBAR).getName().equalsIgnoreCase("InfoBoard"))) {
 			if (plugin.getSM().getScrollers(player) != null) {
 				for (Scroll sc : plugin.getSM().getScrollers(player)) {
 					try {
 						// Move scroller over one, and add the new line
-						//sc.next();
+						sc.next();
 						String newLine = sc.getMessage();
 
 						Board board = new Board(player);
+
 						board.update(newLine, sc.getRow());
-					} catch (Exception ex) {
-						if(plugin.getSettings().debug()){
-							Bukkit.getConsoleSender().sendMessage("Could not scroll, because: " + ex);
-						}
+					} catch (Exception ignored) {
 					}
 				}
 			}
@@ -41,13 +38,12 @@ public class ScrollText {
 					String newLine = sc.getMessage();
 
 					Board board = new Board(player);
+
 					board.setTitle(newLine);
-				} catch (Exception ex) {
-					if(plugin.getSettings().debug()){
-						Bukkit.getConsoleSender().sendMessage("Could not scroll, because: " + ex);
-					}
+				} catch (Exception ignored) {
 				}
 			}
+
 		} else {
 			plugin.getSM().reset(player);
 		}

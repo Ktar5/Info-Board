@@ -29,7 +29,7 @@ public class FileManager {
         if (!plugin.getDataFolder().exists()) {
             plugin.getDataFolder().mkdir();
         }
-        boardFile = new File(plugin.getDataFolder() + "/boards/", "board.yml");
+        boardFile = new File(plugin.getDataFolder(), "board.yml");
         variableFile = new File(plugin.getDataFolder(), "variables.yml");
         messagesFile = new File(plugin.getDataFolder(), "messages.yml");
 

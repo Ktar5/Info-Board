@@ -40,7 +40,6 @@ public class InfoBoardReborn extends JavaPlugin {
     private UpdateChecker UC;
     private Timers timers;
     private FileManager fm;
-    private BoardManager bm;
     private Settings settings;
     private Messages msgs;
 
@@ -148,10 +147,9 @@ public class InfoBoardReborn extends JavaPlugin {
         this.AM = new AnimationManager(this);
 
         this.V = new Vault(this);
-        this.WG = new WorldGuardApi(this);
+        // this.WG = new WorldGuardApi(this);
         this.UC = new UpdateChecker(this);
         this.api = new API(this);
-        this.bm = new BoardManager(this);
         if(Bukkit.getServer().getPluginManager().getPlugin("ProtocolLib")!= null){
             this.PM = ProtocolLibrary.getProtocolManager();
         }
@@ -166,10 +164,10 @@ public class InfoBoardReborn extends JavaPlugin {
     private void dependencies() {
         if (!Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             throw new RuntimeException("Could not find PlaceholderAPI!! Plugin can not work without it!");
-        }
-        if (!Bukkit.getPluginManager().isPluginEnabled("WorldGuardApi")) {
-            throw new RuntimeException("Could not find WorldGuardApi!! Plugin can not work without it!");
-        }
+        }/*
+            if (!Bukkit.getPluginManager().isPluginEnabled("WorldGuard")) {
+            throw new RuntimeException("Could not find WorldGuard!! Plugin can not work without it!");
+            }*/
         if (!Bukkit.getPluginManager().isPluginEnabled("Vault")) {
             throw new RuntimeException("Could not find Vault!! Plugin can not work without it!");
         }
@@ -224,15 +222,13 @@ public class InfoBoardReborn extends JavaPlugin {
         return this.AM;
     }
 
-
-
     /**
      * Get's WorldGuardApi
      * @return WorldGuardApi
      */
-    public WorldGuardApi getWG() {
+   /* public WorldGuardApi getWG() {
         return this.WG;
-    }
+    }*/
 
     /**
      * Get's Vault
@@ -251,13 +247,6 @@ public class InfoBoardReborn extends JavaPlugin {
      * @return UpdateChecker
      */
     public UpdateChecker getUC() { return this.UC; }
-
-    /**
-     * Get's BoardManager
-     * @return
-     */
-    public BoardManager getBM(){ return this.bm; }
-
 
     /**
      * Get's ProtocolManager

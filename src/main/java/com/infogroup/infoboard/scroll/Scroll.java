@@ -5,7 +5,7 @@ import org.bukkit.ChatColor;
 
 public class Scroll {
 	private InfoBoardReborn plugin;
-	private String message, originalMessage;
+	private String message, origionalMessage;
 
 	private ChatColor color = ChatColor.RESET;
 
@@ -24,14 +24,16 @@ public class Scroll {
 		this.plugin = plugin;
 		this.row = row;
 		this.width = width;
-		this.originalMessage = message;
+		this.origionalMessage = message;
 		StringBuilder builder = new StringBuilder(message);
 		while (builder.length() <= (width * 2)) {
 			builder.append("          ").append(message);
 		}
 		String string = builder.toString();
 
-		this.message = this.plugin.getMessages().getColored(string);
+		string = this.plugin.getMessages().getColored(string);
+
+		this.message = string;
 	}
 
 	/**
@@ -43,14 +45,13 @@ public class Scroll {
 	//TODO fix the removing of the color char one a move
 		String message = this.message.substring(position, Math.min(this.message.length(), (width - 2) + position));
 		char COLORCHAR = '&';
-
-		//need a check to see if the previous message had a color at 0 location
 		if (message.charAt(0) == COLORCHAR) {
 			color = ChatColor.getByChar(message.charAt(1));
 		} else {
-			message = message.substring(1, message.length());
+			message = message.substring(1);
 			message = "" + color + message;
 		}
+
 		if (message.charAt(message.length() - 1) == COLORCHAR) {
 			message = message.substring(0, message.length() - 2);
 			message = message + " ";
@@ -77,9 +78,10 @@ public class Scroll {
 		} else {
 			position++;
 			pause = 0;
-			if (position == (originalMessage.length() + 10)) {
+			if (position == (origionalMessage.length() + 10)) {
 				position = 0;
 			}
 		}
+
 	}
 }

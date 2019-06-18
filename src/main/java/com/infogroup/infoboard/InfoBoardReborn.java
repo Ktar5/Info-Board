@@ -1,11 +1,6 @@
 package com.infogroup.infoboard;
 
-import com.comphenix.protocol.ProtocolLibrary;
-import com.comphenix.protocol.ProtocolManager;
-import com.infogroup.infoboard.animations.AnimationManager;
-import com.infogroup.infoboard.api.API;
 import com.infogroup.infoboard.api.Vault;
-import com.infogroup.infoboard.api.WorldGuardApi;
 import com.infogroup.infoboard.changeable.ChangeableManager;
 import com.infogroup.infoboard.condition.ConditionManager;
 import com.infogroup.infoboard.events.ChangeWorld;
@@ -43,17 +38,11 @@ public class InfoBoardReborn extends JavaPlugin {
     private Settings settings;
     private Messages msgs;
 
-    //REPLACE if ready
     private ChangeableManager CHM;
     private ScrollManager SM;
     private ConditionManager CM;
-    //WITH this
-    private AnimationManager AM;
 
-    private WorldGuardApi WG;
     private Vault V;
-    private ProtocolManager PM;
-    private API api;
 
 
     public void onEnable() {
@@ -144,15 +133,9 @@ public class InfoBoardReborn extends JavaPlugin {
         this.CM = new ConditionManager(this);
         this.SM = new ScrollManager(this);
 
-        this.AM = new AnimationManager(this);
-
         this.V = new Vault(this);
         // this.WG = new WorldGuardApi(this);
         this.UC = new UpdateChecker(this);
-        this.api = new API(this);
-        if(Bukkit.getServer().getPluginManager().getPlugin("ProtocolLib")!= null){
-            this.PM = ProtocolLibrary.getProtocolManager();
-        }
 
         timers.start();
         V.load();
@@ -164,10 +147,7 @@ public class InfoBoardReborn extends JavaPlugin {
     private void dependencies() {
         if (!Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             throw new RuntimeException("Could not find PlaceholderAPI!! Plugin can not work without it!");
-        }/*
-            if (!Bukkit.getPluginManager().isPluginEnabled("WorldGuard")) {
-            throw new RuntimeException("Could not find WorldGuard!! Plugin can not work without it!");
-            }*/
+        }
         if (!Bukkit.getPluginManager().isPluginEnabled("Vault")) {
             throw new RuntimeException("Could not find Vault!! Plugin can not work without it!");
         }
@@ -214,23 +194,6 @@ public class InfoBoardReborn extends JavaPlugin {
     }
 
     /**
-     * Get's AnitmationManager
-     *
-     * @return AnimationManager
-     */
-    public AnimationManager getAM() {
-        return this.AM;
-    }
-
-    /**
-     * Get's WorldGuardApi
-     * @return WorldGuardApi
-     */
-   /* public WorldGuardApi getWG() {
-        return this.WG;
-    }*/
-
-    /**
      * Get's Vault
      * @return Vault
      */
@@ -248,15 +211,4 @@ public class InfoBoardReborn extends JavaPlugin {
      */
     public UpdateChecker getUC() { return this.UC; }
 
-    /**
-     * Get's ProtocolManager
-     * @return
-     */
-    public ProtocolManager getPM(){ return this.PM; }
-
-    /**
-     * Get's API
-     * @return
-     */
-    public API getAPI(){return this.api;}
 }
